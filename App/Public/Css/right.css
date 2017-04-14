@@ -1,0 +1,144 @@
+/*right*/
+#c_right{width:240px;}
+#c_right .s_about{width:240px;border:1px solid #ccc;background:#fff;}
+#c_right .s_about h2{width:210px;margin:0 auto;font-size:16px;color:#333;padding:10px 0px 3px 10px;border-bottom:1px solid #555;}
+#c_right .s_about img{margin:0 auto;margin-top:10px;}
+#c_right .s_about p{padding-left:30px;}
+#c_right .s_about p.qq{padding-left:17px;}
+#c_right .s_about p .b_1{display:block;width:90px;height:30px; background:url("../Images/qq.png") no-repeat; float: left;margin-top: 20px}
+#c_right .s_about p .b_2{margin-left:20px;display:block;width:97px;height:25px; background:url("../Images/qqc.png")  no-repeat;float: left;margin-top: 20px}
+/**关注 粉丝 微博 **/
+#c_right .num_list{
+    width:210px;
+    height:45px;
+    padding:15px;
+}
+#c_right .num_list li{
+    float: left;
+    padding:0px 20px;
+    border-right:1px solid #E6E6E6;
+    text-align: center;
+    cursor: pointer;
+}
+#c_right .num_list li strong{
+    display: block;
+    font-family: tahoma;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 26px;
+}
+#c_right .num_list .noborder{
+    border-right:none;
+}
+/**感兴趣的人**/
+#c_right .maybe{
+    width:240px;
+    height:auto;
+    margin-top:5px;
+    background:#fff;
+    border: 1px solid #ccc;
+}
+#c_right .maybe fieldset{
+    border:0;
+    border-top:1px solid #E6E6E6;
+    padding-left:15px;
+}
+#c_right .maybe fieldset legend{
+    padding:0 5px;
+    color:#333333;
+    font-weight: bold;
+}
+#c_right .maybe fieldset ul{
+    padding-top:10px;
+}
+#c_right .maybe fieldset ul li{
+    height: 30px;
+    padding:10px 5px;
+}
+#c_right .maybe fieldset ul li dl{
+    width:140px;
+    height:30px;
+    float: left;
+}
+#c_right .maybe fieldset ul li dl dt{
+    width:30px;
+    height:30px;
+    margin-right:10px;
+    float: left;
+}
+#c_right .maybe fieldset ul li dl dd{
+    width:100px;
+    height:15px;
+    line-height: 15px;
+    color:#2B96E1;
+    float: left;
+}
+#c_right .maybe fieldset ul li dl dd a{
+    color:#333333;
+}
+#c_right .maybe fieldset ul li dl dd a:hover{
+    color:#2B96E5;
+}
+#c_right .maybe fieldset ul li .heed_btn{
+    display: inline-block;
+    width:60px;
+    height:20px;
+    line-height: 20px;
+    text-align: center;
+    border:1px solid #ccc;
+    cursor: pointer;
+    background: #f2f2f2;
+    border-radius: 3px;
+}
+#c_right .maybe fieldset ul li .heed_btn strong{
+    font-weight: bold;
+    font-size: 14px;
+    color:#FDAE2A;
+}
+#c_right .post{
+    width:229px;
+    height:auto;
+    overflow: hidden;
+    margin-top:20px;
+}
+#c_right .post_line{
+    width:229px;
+    height:29px;
+    border-bottom:1px solid #E6E6E6;
+}
+#c_right .post span{
+    display: block;
+    width:44px;
+    height:30px;
+    font-weight: bold;
+    text-align: center;
+    line-height:30px;
+    background:url(../Images/line.png) no-repeat 0 -107px #fafafa;
+    margin-left: 20px;
+}
+#c_right .post ul{
+    width:200px;
+    height: auto;
+    margin-left:29px;
+}
+#c_right .post ul li{
+    padding:10px 0;
+}
+/*随机、最新文章*/
+#c_right .lanmubox{width:240px;height:180px;border:1px solid #ccc;margin-top:5px;background:#fff;}
+.lanmubox .hd{width:240px;height:30px;border-bottom:1px solid #ddd;}
+.lanmubox .hd ul li{float:left;width:75px;height:30px;line-height:30px;text-align:center; cursor:pointer; }
+.lanmubox .hd .hd_3{width:88px;}
+.lanmubox .hd ul li.on{height:30px;background:#fff;border:1px solid #ccc;border-bottom:2px solid #fff;border-top:1px solid #f00;}
+.lanmubox .bd{width:260px;height:145px;zoom:1;background:url("../Images/list.png") 5px 5px no-repeat;overflow:hidden;}
+.lanmubox .bd ul li{width:230px;padding-left:25px;height:29px;line-height:29px;}
+.lanmubox .bd ul li:hover{padding-left:35px;transition: all 0.5s;-webkit-transition: all 0.5s; -moz-transition: all 0.5s; -o-transition: all 0.5s;}
+.lanmubox .bd ul li a{color:#444;font-size:14px;}
+.lanmubox .bd ul li a:hover{color:#f00;}
+/*link*/
+#c_right .link{width:240px;height:180px;border:1px solid #ccc;margin-top:5px;background:#fff;}
+.link h2{font-size:16px;color:#444;padding:5px 0px 2px 5px;border-bottom:1px solid red;}
+.link p{padding:10px 0px 0px 15px;}
+.link p a{color:#444;}
+.link p a:hover{color:#f00;}
+/*right end*/

@@ -1,0 +1,81 @@
+<include file="Common:header"/>
+<title>我的好友列表</title>
+<meta name="keywords" content="个人博客" />
+<meta name="description" content="" />
+<link rel="stylesheet" href="__PUBLIC__/Css/nav.css"/>
+<link rel="stylesheet" href="__PUBLIC__/Css/index.css"/>
+<link rel="stylesheet" href="__PUBLIC__/Css/right.css"/>
+<link rel="stylesheet" href="__PUBLIC__/Css/bottom.css"/>
+<script type="text/javascript" src="__PUBLIC__/Js/jquery1.42.min.js"></script>
+<script type="text/javascript" src="__PUBLIC__/Js/jquery.SuperSlide.2.1.1.js"></script>
+<script type="text/javascript" src="__PUBLIC__/Js/nav.js"></script>
+<script type="text/javascript">
+    var delFollow="{:U('Common/delFollow')}";
+</script>
+<!--[if lt IE 9]>
+
+<![endif]-->
+
+<!--nav start-->
+<include file="Common:nav"/>
+<!--nav end-->
+<!--content start-->
+<div id="content" >
+    <!--=====左侧=====-->
+    <include file='Common:left'/>
+    <!--left end -->
+    <div class="fleft" id="c_left">
+        <div class="s_tuijian">
+           <h2> <if condition="$type">您关注了<span>({$count})</span>人 <else />已有<span>({$count})</span>人关注了您</if></h2>
+        </div>
+        <div class="content_text">
+            <div class='friend'>
+                <div class='view_line'>
+                   <strong></strong>
+                </div>
+                <!--follow start-->
+                <ul>
+                    <foreach name='users' item='v'>
+                        <php>extract($v);</php>
+                        <li>
+                            <dl class='list-left'>
+                                <dt><img src=" <if condition='$face80'>__ROOT__/{$face80}<else/>__PUBLIC__/Images/noface.gif</if>" width='80' height='80'/></dt>
+                                <dd>
+                                    <a href="{:U('/Home/'.$uid)}"  target="_Blank">{$username}</a>
+                                </dd>
+                                <dd>
+                                    <i class='icon icon-<if condition="$sex eq '男' ">boy<else />girl</if>'></i>&nbsp;
+								<span>
+                                        <if condition="$location">{$location}<else/>该用户未填写所在地</if>
+								</span>
+                                </dd>
+                                <dd>
+                                    <span>关注 <a href="">{$follow}</a></span>
+                                    <span class='bd-l'>粉丝 <a href="">{$fans}</a></span>
+                                    <span class='bd-l'>微博 <a href="">{$article}</a></span>
+                                </dd>
+                            </dl>
+                            <dl class='list-right'>
+                                <if condition='in_array($uid,$follow1) && in_array($uid,$fans1)'>
+                                    <dt>互相关注</dt>
+                                    <else/>
+                                    <dt>√&nbsp;已关注</dt>
+                                </if>
+                                <dd class='del-follow' uid='{$v.uid}' type='{$type}'>移除</dd>
+                            </dl>
+                        </li>
+                    </foreach>
+                </ul>
+                <!--follow end-->
+                <div style="text-align:center;padding:20px;">{$page}</div>
+            </div>
+        </div>
+        <!--==========内容主体结束==========-->
+    </div>
+    <include file="Common:right" />
+    <!--right end-->
+    <div class="clear"></div>
+    <!--content end-->
+</div>
+<!--footer start-->
+<include file="Common:bottom" />

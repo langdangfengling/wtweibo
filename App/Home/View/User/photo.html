@@ -1,0 +1,60 @@
+<include file="Common:header" />
+<title>相片展示-个人博客</title>
+<meta name="" content="个人博客" />
+<meta name="description" content="" />
+<link rel="stylesheet" href="__PUBLIC__/Css/style.css"/>
+<link rel="stylesheet" href="__PUBLIC__/Css/photo.css"/>
+<link rel="stylesheet" href="__PUBLIC__/Css/nav.css"/>
+<script type="text/javascript" src="__PUBLIC__/Js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="__PUBLIC__/Js/nav.js"></script>
+<script type="text/javascript" src="__PUBLIC__/Js/photo.js"></script>
+<script type="text/javascript">
+    var addPhoto="{:U('User/createAlbum')}";
+    var PUBLIC="__PUBLIC__/Images";
+    var getAlbum="{:U('User/getAlbum')}";
+    var delAlbum="{:U('User/delAlbum')}";
+</script>
+
+<include file="Common:nav"/>
+<!--header end-->
+<!--content start-->
+<div id="content">
+    <!--left-->
+    <div class="fleft" id="photo">
+        <div class="weizi">
+            <div class="wz_text">当前位置：<a href="#">首页</a>><h1>个人相册</h1>我的第一个相册</div>
+        </div>
+        <div class="photo_head" aid="{$album1.id}">
+            <div class="cover_min">
+                <img src="<if condition='$album1[cover]'>
+                 __UPLOADS__/{$album1.cover}
+                <else/>__PUBLIC__/Images/cover.png
+                </if>" width="70" height="70" />
+            </div>
+            <div class="photo_info">
+                <div class="album-name"><a href="javascript:;">{$album1.name}</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="photo_count"><strong>{$count}</strong>张</span></div>
+            </div>
+            <div class="photo_tool">
+            <ul>
+                <li class="sz-photo"><a href="javascript:;"><i class="icon"></i>上传照片</a></li>
+            </ul>
+            </div>
+        </div>
+        <div class="photo_content">
+            <ul>
+                <foreach name="photos" item="v">
+                    <php>extract($v);</php>
+                    <li>
+                        <img src="<if condition='$photo150'>__UPLOADS__/{$photo150}<else/>__PUBLIC__/Images/cover.png</if>" width="175" height="130" />
+                        <div class="photo_name"><sapn></sapn></div>
+                    </li>
+                </foreach>
+            </ul>
+        </div>
+    </div>
+    <div class="clear"></div>
+</div>
+<!--content end-->
+<!--footer-->
+<include file="Common:bottom" />
+

@@ -1,0 +1,357 @@
+/********************************头部**************************************/
+#top_wrap{
+    width:100%;
+    height:40px;
+    background:url(../Images/top_bg.png) no-repeat center 38px;
+    position:fixed;
+    _position:absolute;
+    left:0;
+    _top:expression(eval(document.documentElement.scrollTop));
+    z-index: 1;
+}
+#top{
+    width:100%;
+    height:38px;
+    background: #333333;
+    background:url(../Images/nav_bg.png) repeat-x;
+}
+#top .top_wrap{
+    width:980px;
+    height:38px;
+    margin:0 auto;
+}
+#top .top_wrap .logo{
+    width:160px;
+    height:38px;
+    /*background:url(../Images/tubiao/logo.png);*/
+}
+#top .top_wrap .top_left{
+    width:264px;
+    height:38px;
+}
+#top .top_wrap .top_left li{
+    width:66px;
+    height:38px;
+    text-align: center;
+    float:left;
+}
+#top .top_wrap .top_left li a{
+    display: inline-block;
+    height:38px;
+    line-height:38px;
+    color:#B5B9BE;
+}
+#search{
+    width:255px;
+    height:24px;
+    padding:7px 10px;
+}
+#sech_text{
+    width:186px;
+    height:24px;
+    line-height:24px;
+    border:0;
+    padding:0 10px;
+    background:url(../Images/top_bg.png) no-repeat 0 -5px;
+}
+#sech_sub{
+    width:29px;
+    height:24px;
+    border:0;
+    cursor: pointer;
+    background:url(../Images/top_bg.png) no-repeat -206px -5px;
+}
+#top .top_wrap .user{
+    max-width: 80px;
+    padding:0 10px;
+    _width:80px;
+    overflow: hidden;
+    height:38px;
+    text-align: center;
+}
+#top .top_wrap .user a{
+    display:inline-block;
+    height:38px;
+    line-height:38px;
+    color:#B5B9BE;
+}
+#top .top_wrap .top_right{
+    margin-left:20px;
+}
+#top .top_wrap .top_right li{
+    width:38px;
+    height:26px;
+    float:left;
+    padding-top:12px;
+    text-align: center;
+    cursor: pointer;
+    position:relative;
+}
+#top .top_wrap .top_right ul{
+    width:100px;
+    height:auto;
+    overflow: hidden;
+    border:1px solid #ccc;
+    border-top:0;
+    background:#fff;
+    cursor:default;
+    position:absolute;
+    top:38px;
+    left:-65px;
+}
+#top .top_wrap .top_right ul li{
+    width:100px;
+    height:24px;
+    line-height:24px;
+    padding:0;
+    margin:5px 0;
+    cursor:pointer;
+}
+#top .top_wrap .top_right #news{
+    width:36px;
+    background:#FFFFFF;
+    border-left:1px solid #CCCCCC;
+    border-right:1px solid #CCCCCC;
+}
+/********************************头部**************************************/
+/*导航*/
+#header{width:1000px;height:39px;margin:0 auto;}
+#nav{width:1000px;margin:20px auto 10px auto;height:30px;}
+#nav ul li{width:140px;height:30px;line-height:30px;float:left;text-align:center;margin:0px 2px 0px 0px;}
+#nav ul li a{color:#506F70;font-size:16px;width:140px;height:30px;display:block;}
+#nav ul li a:hover{display:block;width:140px;height:30px;background:#829696;border-radius:3px;color:#fff;}
+#nava{display:block;color:#fff;width:140px;height:30px;background:#829696;border-radius:3px;}
+/*****加关注弹出框*****/
+#follow {
+    width: 300px;
+    height: auto;
+    overflow: hidden;
+    z-index: 5;
+    position: absolute;
+    background:#fff;
+    border:3px solid #9D9D9D;
+    border-radius: 4px;
+    display: none;
+}
+#follow .follow_head{
+    width:300px;
+    height:29px;
+    background: #F6F6F6;
+    border-bottom: 1px solid #FF9B00;
+}
+#follow .follow_head .follow_text{
+    display:block;
+    width:300px;
+    height:30px;
+    line-height:30px;
+    font-weight: bold;
+    text-indent: 1em;
+    cursor: move;
+}
+#follow .sel-group {
+    width: 260px;
+    height: 36px;
+    line-height: 36px;
+    margin: 20px auto;
+    background: #f9f9f9;
+    text-align: center;
+    border-radius: 2px;
+}
+#follow .fl-btn-wrap {
+    width: 300px;
+    height: 36px;
+    line-height: 36px;
+    text-align: right;
+    margin-bottom: 10px;
+}
+#follow .fl-btn-wrap span {
+    display: inline-block;
+    width: 58px;
+    height: 22px;
+    line-height: 22px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    text-align: center;
+    cursor: pointer;
+    margin-right: 10px;
+}
+#follow .fl-btn-wrap .add-follow-sub {
+    background: #F9AB00;
+    color: #fff;
+    font-weight: bold;
+    border:1px solid #FF9B00;
+}
+#follow .fl-btn-wrap .follow-cencle {
+    background: #f6f6f6;
+}
+/*****创建相册弹出框*****/
+#c-album-2 {width:450px;height:230px;z-index:5;position:absolute;background:#fff;border:3px solid #9D9D9D;border-radius:4px;display:none;}
+#c-album-2 .album-head{width:450px;height:29px;background:#F6F6F6;border-bottom:1px solid #FF9B00;}
+#c-album-2 .album-head .album-text{display:block;width:300px;height:30px;line-height:30px;font-weight: bold;text-indent: 1em;cursor: move;}
+#c-album-2 .album-name {width: 390px;height: 36px;line-height: 36px;margin: 20px auto;background: #f9f9f9;text-align: center;border-radius: 2px;}
+#c-album-2 .album-name input{width: 245px;border:1px lightgrey solid;}
+#c-album-2 .album-depict{width: 330px;margin: 20px auto;background: #f9f9f9;}
+#c-album-2 .album-depict textarea{width: 245px;}
+#c-album-2 .album-btn-wrap {width: 445px;height: 36px;line-height: 36px;text-align:right;margin-bottom:10px;}
+#c-album-2 .album-btn-wrap span {display: inline-block;width: 58px;height: 22px;line-height: 22px;border: 1px solid #ccc;border-radius: 4px;text-align: center;cursor: pointer;margin-right: 10px;}
+#c-album-2 .album-btn-wrap .add-album-2 {background: #F9AB00;color: #fff;font-weight: bold;border:1px solid #FF9B00;}
+#c-album-2 .album-btn-wrap .album-cencle {background: #f6f6f6;}
+/******相片上传弹出框******************/
+#c-photo{width:1200px;height: 600px;overflow: hidden;background-color: #FFFFFF;border: 2px #bababa solid;border-radius: 10px;display: none;position:absolute;z-index: 5;}
+#c-photo #dialog_head{width:100%;height: 100px;background-color: #f1f1f1;border-bottom: 1px #b8fff5 solid;}
+#c-photo #dialog_head .dialog_head1{width:100%;height: 35px;border-bottom: 1px lightgrey solid;position:relative;  }
+#c-photo #dialog_head .dialog_head1 h4{width:320px;height:100%;margin-left:10px;line-height: 35px;color: #1D1A1A;}
+#c-photo #dialog_head .dialog_head1 button{width:20px;height:20px;margin-left:10px;border:none;position: absolute;right:-14px;top:3px;}
+#c-photo #dialog_head .dialog_head2{width:100%;height: 62px;border-radius: 6px;border:1px lightgrey solid;}
+#c-photo #dialog_head .dialog_head2 .sel-album{width:265px;line-height: 60px;margin-left:20px;font-size: 12px;color: #3a3a3a;}
+#c-photo #dialog_head .dialog_head2 .sel-album .pitch{width:210px;height:47px;margin-left: 5px;border:1px lightgrey solid;float:right;margin-top: 9px;background-color: #fff;border-radius: 5px;}
+#c-photo #dialog_head .dialog_head2 .sel-album .pitch p{width:201px;height:36px;margin:2px auto;position: relative;padding: 3px;border-radius: 5px;}
+#c-photo #dialog_head .dialog_head2 .sel-album .pitch p img{margin-left:5px;width:40px;height:30px;}
+#c-photo #dialog_head .dialog_head2 .sel-album .pitch p span{width:139px;height:36px;line-height: 36px;display: inline-block;position: absolute;top:3px;margin-left: 5px;text-indent:6px;}
+#c-photo #dialog_head .dialog_head2 .sel-album .pitch p span.icon{width:15px;height:15px;position: absolute;top: 15px;right:5px;background-position:426px -74px;  }
+#c-photo #dialog_head .dialog_head2 .sel-album .choice{width:210px;height:auto;overflow:hidden;border:1px lightgrey solid;float:right;background-color: #fff;border-radius: 3px;display:none;border-top:none;position: absolute;left:74px;top:92px;}
+#c-photo #dialog_head .dialog_head2 .sel-album .choice li{width:208px;height:47px;margin:3px auto;position: relative;border-bottom: 1px lightgrey dashed;}
+/*#c-photo #dialog_head .dialog_head2 .sel-album .choice li:first{width:206px;height:36px;margin:3px auto;position: relative;border-bottom: 1px lightgrey dashed;}*/
+#c-photo #dialog_head .dialog_head2 .sel-album .choice li:hover{width:208px;height:47px;margin:3px auto;position: relative;border-bottom: 1px lightgrey dashed;background-color: #d6d6d6;}
+#c-photo #dialog_head .dialog_head2 .sel-album .choice li img{margin-left:7px;margin-top:7px;width:40px; height:30px;}
+#c-photo #dialog_head .dialog_head2 .sel-album .choice li span{width:139px;height:36px;line-height: 36px;display: inline-block;position: absolute;top:4px;margin-left: 9px;text-indent:6px;}
+#c-photo #dialog_head .dialog_head2 .sel-album .choice div.create_album_1{width:208px;height:47px;margin:3px auto;text-align: center;background-color: #e5e5e5;line-height: 47px;font-size: 16px;}
+#c-photo #dialog_content{width:100%;height:77%;border-bottom: 1px #b8fff5 solid; }
+#c-photo #dialog_content .sz-photo-button{width:200px;height:50px;position:absolute;top:45%;left:45%;background-color: #51adff;border-radius: 5px;}
+#c-photo #dialog_content .sz-photo-button strong{display: inline-block;width:38px;height: 37px;background: url("../Images/tubiao/56fcb8b6163c6_1024.jpg") -210px -132px no-repeat;margin-top: 8px;margin-left:14px;}
+#c-photo #dialog_content .sz-photo-button span{width:140px;height:50px;font-size: 20px;line-height: 50px;color:#fff;text-indent: 20px;margin-right:6px;float: right;}
+#c-photo #dialog_content .sz-photo-button input{width:200px;height:50px;position:absolute;top:0;left:0;opacity: 0;}
+#c-photo #dialog_content .sz_bottom{width:100%;height:75px;background-color: lightgrey; position: absolute;bottom: 0;display: none;}
+#c-photo #dialog_content .sz_bottom .sz_send{width:200px;height:50px;background-color: #51adff;border-radius: 5px;float: left;margin-left:14px;margin-top: 13px;}
+#c-photo #dialog_content .sz_bottom .sz_send span{width:140px;height:50px;font-size: 20px;line-height: 50px;color:#fff;text-indent: 20px;margin-left:39px;float: left;}
+#c-photo #dialog_content .sz_bottom .save_btn{width:120px;height: 50px;margin-top: 13px;margin-left: 42px;outline: none;}
+/*图片上传样式*/
+.up-p{
+    margin-bottom: 20px;
+    font-size: 16px;
+    color: #555;
+}
+.z_photo{
+    padding: 18px;
+    border:2px dashed #E7E6E6;
+    /*padding: 18px;*/
+}
+.z_photo .z_file{
+    position: relative;
+}
+.z_file  .file{
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    z-index: 100;
+}
+.z_photo .up-section{
+    position: relative;
+    margin-right: 20px;
+    margin-bottom: 20px;
+}
+.up-section .close-upimg{
+    position: absolute;
+    top: 6px;
+    right: 8px;
+    display: none;
+    z-index: 10;
+}
+.up-section .up-span{
+    display: block;
+    width: 100%;
+    height: 100%;
+    visibility: hidden;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    z-index: 9;
+    background: rgba(0,0,0,.5);
+}
+.up-section:hover{
+    border: 2px solid #f15134;
+}
+.up-section:hover .close-upimg{
+    display: block;
+}
+.up-section:hover .up-span{
+    visibility: visible;
+}
+.z_photo .up-img{
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+.loading{
+    border: 1px solid #D1D1D1;
+    background:url(../Images/loading.gif) no-repeat center;
+}
+.up-opcity{
+    opacity: 0;
+}
+.img-name-p{
+    display: none;
+}
+.upimg-div .up-section {
+    width: 190px;
+    height: 180px;
+}
+.img-box .upimg-div .z_file {
+    width: 190px;
+    height: 180px;
+}
+.z_file .add-img {
+    display: block;
+    width: 190px;
+    height: 180px;
+}
+/*遮罩层样式*/
+.mask{
+    z-index: 1000;
+    display: none;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,.4);
+}
+.mask .mask-content{
+    width: 500px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-left: -250px;
+    margin-top: -80px;
+    background: white;
+    height: 160px;
+    text-align: center;
+}
+.mask .mask-content .del-p{
+    color: #555;
+    height: 94px;
+    line-height: 94px;
+    font-size: 18px;
+    border-bottom: 1px solid #D1D1D1;
+}
+.mask-content .check-p{
+    height: 66px;
+    line-height: 66px;
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    width: 100%;
+}
+.mask-content .check-p span{
+    width: 49%;
+    display:inline-block;
+    text-align: center;
+    color:#d4361d ;
+    font-size: 18px;
+}
+.check-p .del-com{
+    border-right: 1px solid #D1D1D1;
+}

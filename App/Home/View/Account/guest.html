@@ -1,0 +1,105 @@
+<include file="Common:header" />
+<title>留言板-个人博客</title>
+<meta name="keywords" content="个人博客" />
+<meta name="description" content="" />
+<link rel="stylesheet" href="__PUBLIC__/Css/guest.css"/>
+<link rel="stylesheet" href="__PUBLIC__/Css/nav.css"/>
+<link rel="stylesheet" href="__PUBLIC__/Css/right.css"/>
+<script type="text/javascript" src="__PUBLIC__/Js/jquery1.42.min.js"></script>
+<script type="text/javascript" src="__PUBLIC__/Js/jquery.SuperSlide.2.1.1.js"></script>
+<script type="text/javascript" src="__PUBLIC__/Js/guest.js"></script>
+<!--[if lt IE 9]>
+<script src="js/html5.js"></script>
+<![endif]-->
+<script type="text/javascript">
+    var guestUrl="{:U('guest')}";
+    var PUBLIC="__PUBLIC__/Images/guestimg/";
+    var UPLOADS="__ROOT__/";
+    var delGuest="{:U('delGuest')}";
+    var QQFACE="__PUBLIC__/Images/arclist/";
+    var REPLYURL="{:U('User/reply')}";
+    var delReply="{:U('delReply')}";
+</script>
+<include file="Common:anav" />
+       <!--nav end-->
+    <!--content start-->
+    <div id="content">
+        <div class="fleft" id="guestbook">
+           <div class="weizi">
+           <div class="wz_text">当前位置：<a href="#">首页</a>><h1>留言板</h1></div>
+           </div>
+          <div id="msgBox">
+              <h2>来了，就留下你的脚印吧！</h2>
+            <form name="guest">
+                  <!--guest-->
+                <!--<div>-->
+                    <!--<input id="userName" class="f-text" value="" guest_uid="" />-->
+                    <!--<p id="face"><img src="__PUBLIC__/Images/guestimg/face1.gif" class="current" /><img src="__PUBLIC__/Images/guestimg/face2.gif" /><img src="__PUBLIC__/Images/guestimg/face3.gif" /><img src="__PUBLIC__/Images/guestimg/face4.gif" /><img src="__PUBLIC__/Images/guestimg/face5.gif" /><img src="__PUBLIC__/Images/guestimg/face6.gif" /><img src="__PUBLIC__/Images/guestimg/face7.gif" /><img src="__PUBLIC__/Images/guestimg/face8.gif" /></p>-->
+                <!--</div>-->
+                <input class="hidden" value="{:session('uid')}" id="userName" />
+                <div class="g_con"><textarea id="conBox" class="f-text"></textarea></div>
+                <div class="tr">
+                    <p>
+                        <span class="countTxt">还能输入</span><strong class="maxNum">140</strong><span>个字</span>
+
+                        <input id="sendBtn" type="button" value="留言" title="快捷键 Ctrl+Enter" />
+                    </p>
+                </div>
+            </form>
+              <div class="list">
+                  <h3><span>留言 ({$count})</span></h3>
+                  <ul id="list">
+                      <volist name="guest" id="vo">
+                          <li class="g" gid="{$vo.id}">
+                              <div class="userPic"><a href="{:U('/Home/'.$vo['guest_uid'])}" target="_Blank"><img src="<if condition='$vo["face"]'>__ROOT__/{$vo.face}<else/>__PUBLIC__/Images/guestimg/face1.gif </if>" width="50" height="50"/></a></div>
+                              <div class="content">
+                                  <div class="userName"><a href="{:U('/Home/'.$vo['guest_uid'])}" target="_Blank">{$vo.username}</a>:</div>
+                                  <div class="msgInfo">{$vo.content}</div>
+                                  <div class="times"><span>{$vo.guesttime|time_format=###}</span></div>
+                              </div>
+
+                              <div class="rlist">
+                                  <if condition="$vo['reply']">
+                                      <div class="line"><strong></strong></div>
+                                      <ul>
+                                          <volist name="vo['reply']" id="r">
+                                              <li class="r">
+                                                  <div class="userPic"><a href="{:U('/Home/'.$r['uid'])}" target="_Blank"><img src="<if condition='$r["face60"]'>__ROOT__/{$r.face60}<else/>__PUBLIC__/Images/guestimg/face.gif</if>" width="35" height="35"/></a></div>
+                                                  <div class="rcontent">
+                                                  <div><span uid="{r.uid}"><a href="{:U('/Home/'.$r['uid'])}" target="_Blank">{$r.username}</a></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="reply_content">{$r.content|replace_weibo=###}</span></div>
+                                                  <div class="times"><span>{$r.time|time_format=###}</span></div>
+                                                  </div>
+                                              </li>
+                                          </volist>
+                                      </ul>
+                  </if>
+                  <!--如果该条留言是我留的，那么就显示出回复框-->
+                  <if condition="session('uid') eq $vo['guest_uid']"><div class="state"><input class="reply" type="text" value="我也说点什么....."/></div></if>
+
+
+                  <!--回复框-->
+                  <div id="reply" class="hidden">
+                      <p class="bq"><span class="emotion phiz fleft" sign='comment{$key}'></span></p>
+                      <textarea cols="30" rows="3" class="input" sign='comment{$key}' ></textarea>
+                      <p class="btn"><input type="button" class="sub_btn" value="确定" />
+                          <input type="button" class="cancel" value="取消" />
+                          <span class="n">0</span><span>/200</span>
+                      </p>
+                  </div>
+                              </div>
+                           </li>
+                      </volist>
+                  </ul>
+              </div>
+            <div class="page" align="center">{$page}</div>
+        </div>
+      </div>
+        <!--guest end-->
+        <!--right-->
+        <include file="Common:aright" />
+         <!--end  right-->
+         <div class="clear"></div>
+    </div>
+    <!--content end-->
+    <!--footer-->
+<include file="Common:foot" />

@@ -1,0 +1,1531 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="4b8518a8-b5aa-4437-b866-206605aec023" name="默认的" comment="" />
+    <ignored path="weibowt.iws" />
+    <ignored path=".idea/workspace.xml" />
+    <ignored path=".idea/dataSources.local.xml" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ChangesViewManager" flattened_view="true" show_ignored="false" />
+  <component name="CreatePatchCommitExecutor">
+    <option name="PATCH_PATH" value="" />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
+  <component name="FavoritesManager">
+    <favorites_list name="weibowt" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf>
+      <file leaf-file-name="nav.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/App/Public/Js/nav.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.7507987">
+              <caret line="300" column="26" selection-start-line="300" selection-start-column="26" selection-end-line="300" selection-end-column="26" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTML File" />
+        <option value="CSS File" />
+        <option value="JavaScript File" />
+      </list>
+    </option>
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/App/Home/View/User/Acount.html" />
+        <option value="$PROJECT_DIR$/App/Home/View/Common/aright.html" />
+        <option value="$PROJECT_DIR$/App/Home/View/Account/index.html" />
+        <option value="$PROJECT_DIR$/App/Home/View/Common/anav.html" />
+        <option value="$PROJECT_DIR$/App/Home/View/Guest/index.html" />
+        <option value="$PROJECT_DIR$/App/Home/Controller/GuestController.class.php" />
+        <option value="$PROJECT_DIR$/App/Public/Css/foot.css" />
+        <option value="$PROJECT_DIR$/App/Home/View/Common/foot.html" />
+        <option value="$PROJECT_DIR$/App/Public/Css/bottom.css" />
+        <option value="$PROJECT_DIR$/App/Home/View/User/index.html" />
+        <option value="$PROJECT_DIR$/App/Home/View/Common/right.html" />
+        <option value="$PROJECT_DIR$/App/Home/View/Common/bottom.html" />
+        <option value="$PROJECT_DIR$/App/Model/ReplyViewModel.class.php" />
+        <option value="$PROJECT_DIR$/App/Model/GuestViewModel.class.php" />
+        <option value="$PROJECT_DIR$/App/Public/Css/common.css" />
+        <option value="$PROJECT_DIR$/App/Public/Css/guest.css" />
+        <option value="$PROJECT_DIR$/App/Home/View/Account/guest.html" />
+        <option value="$PROJECT_DIR$/App/Home/Controller/AccountController.class.php" />
+        <option value="$PROJECT_DIR$/App/Public/Css/list.css" />
+        <option value="$PROJECT_DIR$/App/Home/View/User/list.html" />
+        <option value="$PROJECT_DIR$/App/Public/Css/index.css" />
+        <option value="$PROJECT_DIR$/App/Home/View/User/followList.html" />
+        <option value="$PROJECT_DIR$/App/Home/View/User/guest.html" />
+        <option value="$PROJECT_DIR$/App/Home/View/User/friend.html" />
+        <option value="$PROJECT_DIR$/App/Public/Js/guest.js" />
+        <option value="$PROJECT_DIR$/App/Home/View/Talk/index.html" />
+        <option value="$PROJECT_DIR$/App/Public/Css/talk.css" />
+        <option value="$PROJECT_DIR$/App/Public/Js/talk.js" />
+        <option value="$PROJECT_DIR$/App/Home/View/User/talk.html" />
+        <option value="$PROJECT_DIR$/App/Home/View/Login/index.html" />
+        <option value="$PROJECT_DIR$/App/Home/Conf/config.php" />
+        <option value="$PROJECT_DIR$/App/Public/Js/login.js" />
+        <option value="$PROJECT_DIR$/App/Home/Controller/LoginController.class.php" />
+        <option value="$PROJECT_DIR$/App/Runtime/Temp/7/9/79d465639c902f6137ae98cf38f7c80b.php" />
+        <option value="$PROJECT_DIR$/App/Home/Controller/CommonController.class.php" />
+        <option value="$PROJECT_DIR$/App/Home/View/User/xc.html" />
+        <option value="$PROJECT_DIR$/App/Model/UserModel.class.php" />
+        <option value="$PROJECT_DIR$/App/Model/AlbumModel.class.php" />
+        <option value="$PROJECT_DIR$/App/Public/Css/photo.css" />
+        <option value="$PROJECT_DIR$/App/Public/Css/style.css" />
+        <option value="$PROJECT_DIR$/App/Model/AlbumViewModel.class.php" />
+        <option value="$PROJECT_DIR$/App/Public/Js/photo.js" />
+        <option value="$PROJECT_DIR$/App/Runtime/Cache/Home/f1895014f1ce94e2a8891ba80bd1a4f1.php" />
+        <option value="$PROJECT_DIR$/App/Public/Js/album.js" />
+        <option value="$PROJECT_DIR$/App/Home/View/User/album.html" />
+        <option value="$PROJECT_DIR$/App/Public/Css/album.css" />
+        <option value="$PROJECT_DIR$/App/Public/Css/nav.css" />
+        <option value="$PROJECT_DIR$/App/Home/Controller/UserController.class.php" />
+        <option value="$PROJECT_DIR$/App/Home/View/User/photo.html" />
+        <option value="$PROJECT_DIR$/App/Home/View/Common/nav.html" />
+        <option value="$PROJECT_DIR$/App/Public/Js/nav.js" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" />
+  <component name="JsBuildToolPackageJson" detection-done="true" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+  </component>
+  <component name="PhpServers">
+    <servers />
+  </component>
+  <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="-469" />
+    <option name="y" value="277" />
+    <option name="width" value="1940" />
+    <option name="height" value="708" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="false">
+    <OptionsSetting value="true" id="Add" />
+    <OptionsSetting value="true" id="Remove" />
+    <OptionsSetting value="true" id="Checkout" />
+    <OptionsSetting value="true" id="Update" />
+    <OptionsSetting value="true" id="Status" />
+    <OptionsSetting value="true" id="Edit" />
+    <OptionsSetting value="true" id="添加" />
+    <OptionsSetting value="true" id="移除" />
+    <OptionsSetting value="true" id="签出" />
+    <OptionsSetting value="true" id="更新" />
+    <OptionsSetting value="true" id="状态" />
+    <OptionsSetting value="true" id="编辑" />
+    <ConfirmationsSetting value="0" id="添加" />
+    <ConfirmationsSetting value="0" id="移除" />
+  </component>
+  <component name="ProjectView">
+    <navigator currentView="ProjectPane" proportions="" version="1">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource />
+      <sortByType />
+      <manualOrder />
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Scratches" />
+      <pane id="ProjectPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="weibowt" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="weibowt" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="weibowt" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="weibowt" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="weibowt" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Uploads" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="weibowt" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="weibowt" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="App" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Runtime" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="weibowt" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="weibowt" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="App" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Runtime" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Temp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="weibowt" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="weibowt" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="App" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Runtime" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Temp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="9" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="4" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="weibowt" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="weibowt" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="App" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Runtime" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Temp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="7" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="9" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="weibowt" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="weibowt" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="App" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Runtime" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Data" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="weibowt" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="weibowt" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="App" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Runtime" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Cache" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="weibowt" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="weibowt" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="App" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Runtime" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Cache" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Home" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="weibowt" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="weibowt" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="App" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="weibowt" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="weibowt" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="App" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Js" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="weibowt" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="weibowt" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="App" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Images" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="weibowt" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="weibowt" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="App" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Images" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tubiao" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="weibowt" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="weibowt" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="App" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Css" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="weibowt" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="weibowt" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="App" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Model" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="weibowt" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="weibowt" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="App" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Home" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="weibowt" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="weibowt" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="App" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Home" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="View" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="weibowt" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="weibowt" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="App" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Home" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="View" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Userset" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="weibowt" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="weibowt" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="App" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Home" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="View" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="User" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="weibowt" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="weibowt" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="App" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Home" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="View" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Search" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="weibowt" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="weibowt" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="App" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Home" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="View" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Login" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="weibowt" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="weibowt" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="App" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Home" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="View" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Common" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="weibowt" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="weibowt" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="App" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Home" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="View" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Account" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="weibowt" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="weibowt" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="App" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Home" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Controller" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="weibowt" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="weibowt" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="App" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Home" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Conf" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="weibowt" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="weibowt" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="App" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Home" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Common" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="weibowt" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="weibowt" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="App" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+      <pane id="Scope" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="settings.editor.selected.configurable" value="configurable.group.other" />
+    <property name="settings.editor.splitter.proportion" value="0.2" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../weibo" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
+    <property name="SearchEverywhereHistoryKey" value="add-&#9;null&#9;null&#10;clear&#9;null&#9;null" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="F:\wt\weibowt\App\Public\Images\tubiao" />
+      <recent name="F:\wt\weibowt\App\Public\Images" />
+      <recent name="F:\wt\weibowt\App\Public" />
+      <recent name="F:\wt\weibowt\App\Public\Js" />
+      <recent name="F:\wt\weibowt\App\Home\View\Account" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="F:\wt\weibowt\App\Home\View\Common" />
+      <recent name="F:\wt\weibowt\App\Home\View\Gust" />
+      <recent name="F:\wt\weibowt" />
+      <recent name="F:\wt\weibowt\App\Home\View\Talk" />
+      <recent name="F:\wt\weibowt\App" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug">
+      <method />
+    </configuration>
+    <configuration default="true" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
+      <TestRunner />
+      <method />
+    </configuration>
+    <configuration default="true" type="PhpBehatConfigurationType" factoryName="Behat">
+      <BehatRunner />
+      <method />
+    </configuration>
+    <configuration default="true" type="PhpLocalRunConfigurationType" factoryName="PHP Console">
+      <method />
+    </configuration>
+    <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
+      <node-options />
+      <gulpfile />
+      <tasks />
+      <arguments />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="js.build_tools.npm" factoryName="npm">
+      <command value="run-script" />
+      <scripts />
+      <envs />
+      <method />
+    </configuration>
+  </component>
+  <component name="ShelveChangesManager" show_recycled="false" />
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="4b8518a8-b5aa-4437-b866-206605aec023" name="默认的" comment="" />
+      <created>1488710933164</created>
+      <option name="number" value="Default" />
+      <updated>1488710933164</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-469" y="277" width="1940" height="708" extended-state="0" />
+    <editor active="true" />
+    <layout>
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20790021" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="版本控制" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32890856" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="调试" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="消息" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32839507" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="运行" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="找到" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32614213" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
+    </layout>
+  </component>
+  <component name="Vcs.Log.UiProperties">
+    <option name="RECENTLY_FILTERED_USER_GROUPS">
+      <collection />
+    </option>
+    <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+      <collection />
+    </option>
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <option name="time" value="1" />
+    </breakpoint-manager>
+    <watches-manager />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/App/Public/Images/pass.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/App/Public/Images/qq.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/App/Public/Images/qq_bg1.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/App/Public/Images/qqc.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/App/Public/Images/s.jpg">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/App/Public/Images/s1.jpg">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/App/Public/Images/s2.jpg">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/App/Public/Images/s3.jpg">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/App/Public/Images/send_weibo.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/App/Public/Images/search.jpg">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/App/Public/Images/sj.jpg">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/App/Public/Images/tj.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/App/Public/Images/top_bg.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/App/Public/Images/tx.jpg">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/App/Public/Images/unchecked.gif">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/App/Public/Images/weizi.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/App/Public/Images/xiala.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/App/Public/Js/talk.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.4625159">
+          <caret line="41" column="30" selection-start-line="41" selection-start-column="30" selection-end-line="41" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/App/Home/Controller/CommonController.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.22809458">
+          <caret line="235" column="5" selection-start-line="235" selection-start-column="5" selection-end-line="235" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.21458046">
+          <caret line="6" column="34" selection-start-line="6" selection-start-column="34" selection-end-line="6" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/App/Model/ReplyViewModel.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/App/Home/Controller/LoginController.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-3.4873323">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/App/Model/UserModel.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.7362146">
+          <caret line="21" column="56" selection-start-line="21" selection-start-column="56" selection-end-line="21" selection-end-column="56" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://D:/网站素材/上传/PHP+jQuery+Ajax多图片上传/PHP+jQuery+Ajax多图片上传/plupload/jquery.ui.plupload/css/jquery.ui.plupload.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6974665">
+          <caret line="18" column="1" selection-start-line="18" selection-start-column="1" selection-end-line="18" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/App/Public/Images/close.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/App/Public/Images/cover.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/App/Public/Css/common.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.2854865">
+          <caret line="43" column="18" selection-start-line="43" selection-start-column="18" selection-end-line="43" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/App/Public/Css/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.49760765">
+          <caret line="12" column="66" selection-start-line="12" selection-start-column="66" selection-end-line="12" selection-end-column="66" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://D:/网站素材/相册/js插件多张图片上传/css/common.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5121212">
+          <caret line="145" column="26" selection-start-line="145" selection-start-column="26" selection-end-line="145" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/App/Public/Images/tubiao/options.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/App/Public/Images/tubiao/reply.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/App/Public/Images/tubiao/stop.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/App/Public/Css/photo.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.55151516">
+          <caret line="14" column="137" selection-start-line="14" selection-start-column="137" selection-end-line="14" selection-end-column="137" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/App/Public/Css/regis.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/App/Public/Css/reset.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/App/Public/Css/right.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/App/Public/Css/sech_user.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/App/Public/Images/icon.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/App/Runtime/Cache/Home/f1895014f1ce94e2a8891ba80bd1a4f1.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.55689424">
+          <caret line="136" column="0" selection-start-line="136" selection-start-column="282" selection-end-line="137" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/App/Public/Js/photo.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.24920128">
+          <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/App/Public/Js/album.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-1.4504793">
+          <caret line="81" column="30" selection-start-line="81" selection-start-column="10" selection-end-line="81" selection-end-column="30" />
+          <folding>
+            <marker date="1491919370377" expanded="true" signature="0:48" placeholder="/** Created by wt on 2017/4/3 0003. ...*/" />
+            <marker date="1491919370377" expanded="true" signature="61:5663" placeholder="{...}" />
+            <marker date="1491919370377" expanded="true" signature="67:75" placeholder="/*...*/" />
+            <marker date="1491919370377" expanded="true" signature="111:526" placeholder="{...}" />
+            <marker date="1491919370377" expanded="true" signature="290:344" placeholder="//..." />
+            <marker date="1491919370377" expanded="true" signature="387:447" placeholder="{...}" />
+            <marker date="1491919370377" expanded="true" signature="578:2498" placeholder="{...}" />
+            <marker date="1491919370377" expanded="true" signature="861:1334" placeholder="{...}" />
+            <marker date="1491919370377" expanded="true" signature="940:1291" placeholder="{...}" />
+            <marker date="1491919370377" expanded="true" signature="980:1047" placeholder="{...}" />
+            <marker date="1491919370377" expanded="true" signature="1053:1122" placeholder="{...}" />
+            <marker date="1491919370377" expanded="true" signature="1183:1277" placeholder="{...}" />
+            <marker date="1491919370377" expanded="true" signature="1493:2483" placeholder="{...}" />
+            <marker date="1491919370377" expanded="true" signature="1522:2421" placeholder="{...}" />
+            <marker date="1491919370377" expanded="true" signature="2425:2473" placeholder="{...}" />
+            <marker date="1491919370377" expanded="true" signature="2546:2882" placeholder="{...}" />
+            <marker date="1491919370377" expanded="true" signature="2581:2624" placeholder="{...}" />
+            <marker date="1491919370377" expanded="true" signature="2661:2876" placeholder="{...}" />
+            <marker date="1491919370377" expanded="true" signature="2811:2862" placeholder="{...}" />
+            <marker date="1491919370377" expanded="true" signature="2942:3454" placeholder="{...}" />
+            <marker date="1491919370377" expanded="true" signature="3007:3167" placeholder="{...}" />
+            <marker date="1491919370377" expanded="true" signature="3127:3152" placeholder="{...}" />
+            <marker date="1491919370377" expanded="true" signature="3194:3379" placeholder="{...}" />
+            <marker date="1491919370377" expanded="true" signature="3327:3360" placeholder="{...}" />
+            <marker date="1491919370377" expanded="true" signature="3398:3448" placeholder="//..." />
+            <marker date="1491919370377" expanded="true" signature="3460:3479" placeholder="/*...*/" />
+            <marker date="1491919370377" expanded="true" signature="3525:4536" placeholder="{...}" />
+            <marker date="1491919370377" expanded="true" signature="3535:3579" placeholder="//..." />
+            <marker date="1491919370377" expanded="true" signature="3783:3841" placeholder="//..." />
+            <marker date="1491919370377" expanded="true" signature="3882:3953" placeholder="{...}" />
+            <marker date="1491919370377" expanded="true" signature="4379:4520" placeholder="{...}" />
+            <marker date="1491919370377" expanded="true" signature="4414:4510" placeholder="{...}" />
+            <marker date="1491919370377" expanded="true" signature="4597:4945" placeholder="{...}" />
+            <marker date="1491919370377" expanded="true" signature="4789:4826" placeholder="{...}" />
+            <marker date="1491919370377" expanded="true" signature="5006:5218" placeholder="{...}" />
+            <marker date="1491919370377" expanded="true" signature="5222:5235" placeholder="/*...*/" />
+            <marker date="1491919370377" expanded="true" signature="5275:5659" placeholder="{...}" />
+            <marker date="1491919370377" expanded="true" signature="5393:5657" placeholder="{...}" />
+            <marker date="1491919370377" expanded="true" signature="5443:5642" placeholder="{...}" />
+            <marker date="1491919370377" expanded="true" signature="5465:5581" placeholder="{...}" />
+            <marker date="1491919370377" expanded="true" signature="5512:5565" placeholder="{...}" />
+            <marker date="1491919370377" expanded="true" signature="5585:5632" placeholder="{...}" />
+            <marker date="1491919370377" expanded="true" signature="5666:5702" placeholder="/**...*/" />
+            <marker date="1491919370377" expanded="true" signature="5703:5736" placeholder="/** 创建全屏透明背景层 ...*/" />
+            <marker date="1491919370377" expanded="true" signature="5758:6133" placeholder="{...}" />
+            <marker date="1491919370377" expanded="true" signature="5814:6129" placeholder="{&quot;position&quot;: 'absolute'...}" />
+            <marker date="1491919370377" expanded="true" signature="6134:6195" placeholder="/** 元素拖拽 ...*/" />
+            <marker date="1491919370377" expanded="true" signature="6225:7087" placeholder="{...}" />
+            <marker date="1491919370377" expanded="true" signature="6290:6460" placeholder="{...}" />
+            <marker date="1491919370377" expanded="true" signature="6506:7017" placeholder="{...}" />
+            <marker date="1491919370377" expanded="true" signature="6933:7009" placeholder="{...}" />
+            <marker date="1491919370377" expanded="true" signature="7039:7083" placeholder="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/App/Public/Css/album.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.9169329">
+          <caret line="31" column="61" selection-start-line="31" selection-start-column="61" selection-end-line="31" selection-end-column="61" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/App/Public/Css/nav.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.78753996">
+          <caret line="208" column="99" selection-start-line="208" selection-start-column="99" selection-end-line="208" selection-end-column="99" />
+          <folding>
+            <marker date="1492000264721" expanded="true" signature="84:319" placeholder="{...}" />
+            <marker date="1492000264721" expanded="true" signature="259:299" placeholder="{...}" />
+            <marker date="1492000264721" expanded="true" signature="324:436" placeholder="{...}" />
+            <marker date="1492000264721" expanded="true" signature="451:507" placeholder="{...}" />
+            <marker date="1492000264721" expanded="true" signature="528:616" placeholder="{...}" />
+            <marker date="1492000264721" expanded="true" signature="641:678" placeholder="{...}" />
+            <marker date="1492000264721" expanded="true" signature="706:782" placeholder="{...}" />
+            <marker date="1492000264721" expanded="true" signature="812:900" placeholder="{...}" />
+            <marker date="1492000264721" expanded="true" signature="908:967" placeholder="{...}" />
+            <marker date="1492000264721" expanded="true" signature="978:1130" placeholder="{...}" />
+            <marker date="1492000264721" expanded="true" signature="1140:1275" placeholder="{...}" />
+            <marker date="1492000264721" expanded="true" signature="1296:1420" placeholder="{...}" />
+            <marker date="1492000264721" expanded="true" signature="1443:1530" placeholder="{...}" />
+            <marker date="1492000264721" expanded="true" signature="1556:1581" placeholder="{...}" />
+            <marker date="1492000264721" expanded="true" signature="1610:1752" placeholder="{...}" />
+            <marker date="1492000264721" expanded="true" signature="1781:1979" placeholder="{...}" />
+            <marker date="1492000264721" expanded="true" signature="2011:2123" placeholder="{...}" />
+            <marker date="1492000264721" expanded="true" signature="2155:2269" placeholder="{...}" />
+            <marker date="1492000264721" expanded="true" signature="2876:3071" placeholder="{...}" />
+            <marker date="1492000264721" expanded="true" signature="3092:3192" placeholder="{...}" />
+            <marker date="1492000264721" expanded="true" signature="3226:3367" placeholder="{...}" />
+            <marker date="1492000264721" expanded="true" signature="3387:3545" placeholder="{...}" />
+            <marker date="1492000264721" expanded="true" signature="3567:3677" placeholder="{...}" />
+            <marker date="1492000264721" expanded="true" signature="3704:3913" placeholder="{...}" />
+            <marker date="1492000264721" expanded="true" signature="3951:4049" placeholder="{...}" />
+            <marker date="1492000264721" expanded="true" signature="4086:4114" placeholder="{...}" />
+            <marker date="1492000264721" expanded="true" signature="9638:9704" placeholder="{...}" />
+            <marker date="1492000264721" expanded="true" signature="9713:9789" placeholder="{...}" />
+            <marker date="1492000264721" expanded="true" signature="9806:9833" placeholder="{...}" />
+            <marker date="1492000264721" expanded="true" signature="9848:9973" placeholder="{...}" />
+            <marker date="1492000264721" expanded="true" signature="9994:10070" placeholder="{...}" />
+            <marker date="1492000264721" expanded="true" signature="10095:10188" placeholder="{...}" />
+            <marker date="1492000264721" expanded="true" signature="10209:10392" placeholder="{...}" />
+            <marker date="1492000264721" expanded="true" signature="10410:10444" placeholder="{...}" />
+            <marker date="1492000264721" expanded="true" signature="10475:10498" placeholder="{...}" />
+            <marker date="1492000264721" expanded="true" signature="10525:10553" placeholder="{...}" />
+            <marker date="1492000264721" expanded="true" signature="10570:10628" placeholder="{...}" />
+            <marker date="1492000264721" expanded="true" signature="10637:10731" placeholder="{...}" />
+            <marker date="1492000264721" expanded="true" signature="10742:10761" placeholder="{...}" />
+            <marker date="1492000264721" expanded="true" signature="10773:10795" placeholder="{...}" />
+            <marker date="1492000264721" expanded="true" signature="10819:10859" placeholder="{...}" />
+            <marker date="1492000264721" expanded="true" signature="10888:10928" placeholder="{...}" />
+            <marker date="1492000264721" expanded="true" signature="10946:11006" placeholder="{...}" />
+            <marker date="1492000264721" expanded="true" signature="11022:11180" placeholder="{...}" />
+            <marker date="1492000264721" expanded="true" signature="11200:11388" placeholder="{...}" />
+            <marker date="1492000264721" expanded="true" signature="11415:11535" placeholder="{...}" />
+            <marker date="1492000264721" expanded="true" signature="11558:11675" placeholder="{...}" />
+            <marker date="1492000264721" expanded="true" signature="11703:11813" placeholder="{...}" />
+            <marker date="1492000264721" expanded="true" signature="11831:11871" placeholder="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/App/Home/View/User/album.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.6230032">
+          <caret line="15" column="9" selection-start-line="15" selection-start-column="9" selection-end-line="15" selection-end-column="9" />
+          <folding>
+            <marker date="1491920290132" expanded="true" signature="541:716" placeholder="..." />
+            <marker date="1491920290132" expanded="true" signature="812:4027" placeholder="..." />
+            <marker date="1491920290132" expanded="true" signature="863:2491" placeholder="..." />
+            <marker date="1491920290132" expanded="true" signature="891:983" placeholder="..." />
+            <marker date="1491920290132" expanded="true" signature="1020:1315" placeholder="..." />
+            <marker date="1491920290132" expanded="true" signature="1041:1296" placeholder="..." />
+            <marker date="1491920290132" expanded="true" signature="1351:2480" placeholder="..." />
+            <marker date="1491920290132" expanded="true" signature="1368:2465" placeholder="..." />
+            <marker date="1491920290132" expanded="true" signature="1416:2447" placeholder="..." />
+            <marker date="1491920290132" expanded="true" signature="1482:2420" placeholder="..." />
+            <marker date="1491920290132" expanded="true" signature="1522:2333" placeholder="..." />
+            <marker date="1491920290132" expanded="true" signature="1596:1744" placeholder="..." />
+            <marker date="1491920290132" expanded="true" signature="1902:2306" placeholder="..." />
+            <marker date="1491920290132" expanded="true" signature="2562:3156" placeholder="..." />
+            <marker date="1491920290132" expanded="true" signature="2595:2665" placeholder="..." />
+            <marker date="1491920290132" expanded="true" signature="2698:2788" placeholder="..." />
+            <marker date="1491920290132" expanded="true" signature="2823:2943" placeholder="..." />
+            <marker date="1491920290132" expanded="true" signature="2980:3145" placeholder="..." />
+            <marker date="1491920290132" expanded="true" signature="3199:4020" placeholder="..." />
+            <marker date="1491920290132" expanded="true" signature="3260:4009" placeholder="..." />
+            <marker date="1491920290132" expanded="true" signature="3293:3363" placeholder="..." />
+            <marker date="1491920290132" expanded="true" signature="3396:3486" placeholder="..." />
+            <marker date="1491920290132" expanded="true" signature="3521:3624" placeholder="..." />
+            <marker date="1491920290132" expanded="true" signature="3661:3993" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/App/Model/AlbumModel.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.74600637">
+          <caret line="26" column="5" selection-start-line="26" selection-start-column="5" selection-end-line="26" selection-end-column="5" />
+          <folding>
+            <marker date="1491572246019" expanded="false" signature="9:96" placeholder=" Created by PhpStorm. ..." />
+            <marker date="1491572246019" expanded="true" signature="189:488" placeholder="{...}" />
+            <marker date="1491572246019" expanded="true" signature="249:372" placeholder="..." />
+            <marker date="1491572246019" expanded="true" signature="275:365" placeholder="..." />
+            <marker date="1491572246019" expanded="true" signature="404:485" placeholder="..." />
+            <marker date="1491572246019" expanded="true" signature="422:479" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/App/Runtime/Cache/Home/4f73769b232c3dbc5c3af043ad08cf75.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.41533548">
+          <caret line="217" column="54" selection-start-line="217" selection-start-column="53" selection-end-line="217" selection-end-column="54" />
+          <folding>
+            <marker date="1492007730320" expanded="true" signature="114:15915" placeholder="..." />
+            <marker date="1492007730320" expanded="true" signature="121:990" placeholder="..." />
+            <marker date="1492007730320" expanded="true" signature="764:981" placeholder="..." />
+            <marker date="1492007730320" expanded="true" signature="997:15907" placeholder="..." />
+            <marker date="1492007730320" expanded="true" signature="1052:3518" placeholder="..." />
+            <marker date="1492007730320" expanded="true" signature="1071:3511" placeholder="..." />
+            <marker date="1492007730320" expanded="true" signature="1102:3500" placeholder="..." />
+            <marker date="1492007730320" expanded="true" signature="1185:1509" placeholder="..." />
+            <marker date="1492007730320" expanded="true" signature="1553:1859" placeholder="..." />
+            <marker date="1492007730320" expanded="true" signature="1635:1840" placeholder="..." />
+            <marker date="1492007730320" expanded="true" signature="1998:3485" placeholder="..." />
+            <marker date="1492007730320" expanded="true" signature="2125:2454" placeholder="..." />
+            <marker date="1492007730320" expanded="true" signature="2194:2432" placeholder="..." />
+            <marker date="1492007730320" expanded="true" signature="2492:2852" placeholder="..." />
+            <marker date="1492007730320" expanded="true" signature="2563:2830" placeholder="..." />
+            <marker date="1492007730320" expanded="true" signature="2926:3439" placeholder="..." />
+            <marker date="1492007730320" expanded="true" signature="3002:3417" placeholder="..." />
+            <marker date="1492007730320" expanded="true" signature="3059:3133" placeholder="..." />
+            <marker date="1492007730320" expanded="true" signature="3189:3263" placeholder="..." />
+            <marker date="1492007730320" expanded="true" signature="3317:3391" placeholder="..." />
+            <marker date="1492007730320" expanded="true" signature="3606:4056" placeholder="..." />
+            <marker date="1492007730320" expanded="true" signature="3615:4049" placeholder="..." />
+            <marker date="1492007730320" expanded="true" signature="4122:4302" placeholder="..." />
+            <marker date="1492007730320" expanded="true" signature="4235:4259" placeholder="//..." />
+            <marker date="1492007730320" expanded="true" signature="4400:5012" placeholder="..." />
+            <marker date="1492007730320" expanded="true" signature="4430:4493" placeholder="..." />
+            <marker date="1492007730320" expanded="true" signature="4521:4826" placeholder="..." />
+            <marker date="1492007730320" expanded="true" signature="4576:4815" placeholder="..." />
+            <marker date="1492007730320" expanded="true" signature="4856:5005" placeholder="..." />
+            <marker date="1492007730320" expanded="true" signature="6053:8272" placeholder="..." />
+            <marker date="1492007730320" expanded="true" signature="6053:6366" placeholder="..." />
+            <marker date="1492007730320" expanded="true" signature="5261:5386" placeholder="..." />
+            <marker date="1492007730320" expanded="true" signature="6053:6355" placeholder="..." />
+            <marker date="1492007730320" expanded="true" signature="6053:6344" placeholder="..." />
+            <marker date="1492007730320" expanded="true" signature="5498:5682" placeholder="..." />
+            <marker date="1492007730320" expanded="true" signature="5514:5667" placeholder="..." />
+            <marker date="1492007730320" expanded="true" signature="6053:6333" placeholder="..." />
+            <marker date="1492007730320" expanded="true" signature="6053:6240" placeholder="..." />
+            <marker date="1492007730320" expanded="true" signature="6053:6214" placeholder="..." />
+            <marker date="1492007730320" expanded="true" signature="6053:6202" placeholder="..." />
+            <marker date="1492007730320" expanded="true" signature="6396:8265" placeholder="..." />
+            <marker date="1492007730320" expanded="true" signature="6472:7504" placeholder="..." />
+            <marker date="1492007730320" expanded="true" signature="6526:7481" placeholder="..." />
+            <marker date="1492007730320" expanded="true" signature="6553:7142" placeholder="..." />
+            <marker date="1492007730320" expanded="true" signature="7192:7458" placeholder="..." />
+            <marker date="1492007730320" expanded="true" signature="7546:7763" placeholder="..." />
+            <marker date="1492007730320" expanded="true" signature="7795:8250" placeholder="..." />
+            <marker date="1492007730320" expanded="true" signature="7829:7877" placeholder="..." />
+            <marker date="1492007730320" expanded="true" signature="7914:8235" placeholder="..." />
+            <marker date="1492007730320" expanded="true" signature="7961:8216" placeholder="..." />
+            <marker date="1492007730320" expanded="true" signature="8307:8839" placeholder="..." />
+            <marker date="1492007730320" expanded="true" signature="8336:8398" placeholder="..." />
+            <marker date="1492007730320" expanded="true" signature="8427:8505" placeholder="..." />
+            <marker date="1492007730320" expanded="true" signature="8536:8644" placeholder="..." />
+            <marker date="1492007730320" expanded="true" signature="8677:8832" placeholder="..." />
+            <marker date="1492007730320" expanded="true" signature="8897:15900" placeholder="..." />
+            <marker date="1492007730320" expanded="true" signature="8948:15900" placeholder="..." />
+            <marker date="1492007730320" expanded="true" signature="8976:9075" placeholder="..." />
+            <marker date="1492007730320" expanded="true" signature="9108:15900" placeholder="..." />
+            <marker date="1492007730320" expanded="true" signature="9181:9409" placeholder="..." />
+            <marker date="1492007730320" expanded="true" signature="9446:15900" placeholder="..." />
+            <marker date="1492007730320" expanded="true" signature="9487:15900" placeholder="..." />
+            <marker date="1492007730320" expanded="true" signature="9603:15900" placeholder="..." />
+            <marker date="1492007730320" expanded="true" signature="9611:15900" placeholder="..." />
+            <marker date="1492007730320" expanded="true" signature="9695:9725" placeholder="..." />
+            <marker date="1492007730320" expanded="true" signature="10781:15367" placeholder="..." />
+            <marker date="1492007730320" expanded="true" signature="10791:10865" placeholder="..." />
+            <marker date="1492007730320" expanded="true" signature="10874:15360" placeholder="..." />
+            <marker date="1492007730320" expanded="true" signature="15404:15897" placeholder="..." />
+            <marker date="1492007730320" expanded="true" signature="15543:15886" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/App/Home/View/User/photo.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.50159746">
+          <caret line="35" column="18" selection-start-line="35" selection-start-column="18" selection-end-line="35" selection-end-column="18" />
+          <folding>
+            <marker date="1492005497565" expanded="true" signature="547:722" placeholder="..." />
+            <marker date="1492005497565" expanded="true" signature="810:2257" placeholder="..." />
+            <marker date="1492005497565" expanded="true" signature="861:2220" placeholder="..." />
+            <marker date="1492005497565" expanded="true" signature="889:988" placeholder="..." />
+            <marker date="1492005497565" expanded="true" signature="1040:1732" placeholder="..." />
+            <marker date="1492005497565" expanded="true" signature="1076:1298" placeholder="..." />
+            <marker date="1492005497565" expanded="true" signature="1335:1532" placeholder="..." />
+            <marker date="1492005497565" expanded="true" signature="1569:1717" placeholder="..." />
+            <marker date="1492005497565" expanded="true" signature="1586:1698" placeholder="..." />
+            <marker date="1492005497565" expanded="true" signature="1768:2209" placeholder="..." />
+            <marker date="1492005497565" expanded="true" signature="1785:2194" placeholder="..." />
+            <marker date="1492005497565" expanded="true" signature="1834:2176" placeholder="..." />
+            <marker date="1492005497565" expanded="true" signature="1903:2149" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/App/Home/Controller/UserController.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="2.201278">
+          <caret line="332" column="46" selection-start-line="332" selection-start-column="46" selection-end-line="332" selection-end-column="46" />
+          <folding>
+            <marker date="1492004599565" expanded="false" signature="9:97" placeholder=" Created by PhpStorm. ..." />
+            <marker date="1492004599565" expanded="false" signature="132:239" placeholder="..." />
+            <marker date="1492004599565" expanded="true" signature="285:10354" placeholder="{...}" />
+            <marker date="1492004599565" expanded="true" signature="293:310" placeholder=" 载入个人用户页 ..." />
+            <marker date="1492004599565" expanded="true" signature="366:1503" placeholder="..." />
+            <marker date="1492004599565" expanded="true" signature="453:591" placeholder="..." />
+            <marker date="1492004599565" expanded="true" signature="684:1498" placeholder="//..." />
+            <marker date="1492004599565" expanded="true" signature="1513:1531" placeholder=" 我的好友 ..." />
+            <marker date="1492004599565" expanded="true" signature="1563:2795" placeholder="..." />
+            <marker date="1492004599565" expanded="true" signature="1802:2062" placeholder="..." />
+            <marker date="1492004599565" expanded="true" signature="2220:2473" placeholder="..." />
+            <marker date="1492004599565" expanded="true" signature="2857:4439" placeholder="..." />
+            <marker date="1492004599565" expanded="true" signature="3350:3772" placeholder="..." />
+            <marker date="1492004599565" expanded="true" signature="3396:3453" placeholder="..." />
+            <marker date="1492004599565" expanded="true" signature="3878:3987" placeholder="..." />
+            <marker date="1492004599565" expanded="true" signature="3922:3977" placeholder="..." />
+            <marker date="1492004599565" expanded="true" signature="4114:4217" placeholder="..." />
+            <marker date="1492004599565" expanded="true" signature="4154:4207" placeholder="..." />
+            <marker date="1492004599565" expanded="true" signature="4449:4476" placeholder=" 留言信息读取/包括评论信息 ..." />
+            <marker date="1492004599565" expanded="true" signature="4507:5371" placeholder="..." />
+            <marker date="1492004599565" expanded="true" signature="4519:4557" placeholder=" 读取该用户留言数据，展示在模板中 ..." />
+            <marker date="1492004599565" expanded="true" signature="5415:5877" placeholder="..." />
+            <marker date="1492004599565" expanded="true" signature="5435:5475" placeholder="..." />
+            <marker date="1492004599565" expanded="true" signature="5572:5836" placeholder="..." />
+            <marker date="1492004599565" expanded="true" signature="5709:5806" placeholder="..." />
+            <marker date="1492004599565" expanded="true" signature="5842:5871" placeholder="..." />
+            <marker date="1492004599565" expanded="true" signature="5920:6754" placeholder="..." />
+            <marker date="1492004599565" expanded="true" signature="5942:5986" placeholder="..." />
+            <marker date="1492004599565" expanded="true" signature="6008:6175" placeholder="..." />
+            <marker date="1492004599565" expanded="true" signature="6225:6664" placeholder="..." />
+            <marker date="1492004599565" expanded="true" signature="6670:6748" placeholder="..." />
+            <marker date="1492004599565" expanded="true" signature="6800:7014" placeholder="..." />
+            <marker date="1492004599565" expanded="true" signature="6822:6865" placeholder="..." />
+            <marker date="1492004599565" expanded="true" signature="6944:6973" placeholder="..." />
+            <marker date="1492004599565" expanded="true" signature="6979:7008" placeholder="..." />
+            <marker date="1492004599565" expanded="true" signature="7024:7042" placeholder=" 说说处理 ..." />
+            <marker date="1492004599565" expanded="true" signature="7085:7257" placeholder="..." />
+            <marker date="1492004599565" expanded="true" signature="7301:7664" placeholder="..." />
+            <marker date="1492004599565" expanded="true" signature="7323:7366" placeholder="..." />
+            <marker date="1492004599565" expanded="true" signature="7386:7498" placeholder="..." />
+            <marker date="1492004599565" expanded="true" signature="7543:7606" placeholder="..." />
+            <marker date="1492004599565" expanded="true" signature="7612:7658" placeholder="..." />
+            <marker date="1492004599565" expanded="true" signature="7707:7962" placeholder="..." />
+            <marker date="1492004599565" expanded="true" signature="7728:7771" placeholder="..." />
+            <marker date="1492004599565" expanded="true" signature="7845:7906" placeholder="..." />
+            <marker date="1492004599565" expanded="true" signature="7912:7956" placeholder="..." />
+            <marker date="1492004599565" expanded="true" signature="7972:7992" placeholder=" 用户相册处理 ..." />
+            <marker date="1492004599565" expanded="true" signature="8034:8203" placeholder="..." />
+            <marker date="1492004599565" expanded="true" signature="8252:8711" placeholder="..." />
+            <marker date="1492004599565" expanded="true" signature="8274:8317" placeholder="..." />
+            <marker date="1492004599565" expanded="true" signature="8339:8495" placeholder="..." />
+            <marker date="1492004599565" expanded="true" signature="8546:8621" placeholder="..." />
+            <marker date="1492004599565" expanded="true" signature="8627:8703" placeholder="..." />
+            <marker date="1492004599565" expanded="true" signature="8758:9149" placeholder="..." />
+            <marker date="1492004599565" expanded="true" signature="8778:8817" placeholder="..." />
+            <marker date="1492004599565" expanded="true" signature="8839:8976" placeholder="..." />
+            <marker date="1492004599565" expanded="true" signature="9042:9094" placeholder="..." />
+            <marker date="1492004599565" expanded="true" signature="9100:9143" placeholder="..." />
+            <marker date="1492004599565" expanded="true" signature="9202:9462" placeholder="..." />
+            <marker date="1492004599565" expanded="true" signature="9224:9267" placeholder="..." />
+            <marker date="1492004599565" expanded="true" signature="9389:9436" placeholder="..." />
+            <marker date="1492004599565" expanded="true" signature="9509:9760" placeholder="..." />
+            <marker date="1492004599565" expanded="true" signature="9531:9574" placeholder="..." />
+            <marker date="1492004599565" expanded="true" signature="9690:9719" placeholder="..." />
+            <marker date="1492004599565" expanded="true" signature="9725:9754" placeholder="..." />
+            <marker date="1492004599565" expanded="true" signature="9818:10350" placeholder="..." />
+            <marker date="1492004599565" expanded="true" signature="9839:9882" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/App/Home/View/Common/nav.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.21086262">
+          <caret line="101" column="122" selection-start-line="101" selection-start-column="122" selection-end-line="101" selection-end-column="122" />
+          <folding>
+            <marker date="1492007200619" expanded="true" signature="13:7463" placeholder="..." />
+            <marker date="1492007200619" expanded="true" signature="68:2446" placeholder="..." />
+            <marker date="1492007200619" expanded="true" signature="87:2439" placeholder="..." />
+            <marker date="1492007200619" expanded="true" signature="118:2428" placeholder="..." />
+            <marker date="1492007200619" expanded="true" signature="201:481" placeholder="..." />
+            <marker date="1492007200619" expanded="true" signature="525:820" placeholder="..." />
+            <marker date="1492007200619" expanded="true" signature="596:801" placeholder="..." />
+            <marker date="1492007200619" expanded="true" signature="948:2413" placeholder="..." />
+            <marker date="1492007200619" expanded="true" signature="1075:1404" placeholder="..." />
+            <marker date="1492007200619" expanded="true" signature="1144:1382" placeholder="..." />
+            <marker date="1492007200619" expanded="true" signature="1442:1780" placeholder="..." />
+            <marker date="1492007200619" expanded="true" signature="1513:1758" placeholder="..." />
+            <marker date="1492007200619" expanded="true" signature="1854:2367" placeholder="..." />
+            <marker date="1492007200619" expanded="true" signature="1930:2345" placeholder="..." />
+            <marker date="1492007200619" expanded="true" signature="1987:2061" placeholder="..." />
+            <marker date="1492007200619" expanded="true" signature="2117:2191" placeholder="..." />
+            <marker date="1492007200619" expanded="true" signature="2245:2319" placeholder="..." />
+            <marker date="1492007200619" expanded="true" signature="2534:2918" placeholder="..." />
+            <marker date="1492007200619" expanded="true" signature="2543:2911" placeholder="..." />
+            <marker date="1492007200619" expanded="true" signature="2984:3131" placeholder="..." />
+            <marker date="1492007200619" expanded="true" signature="3034:3122" placeholder="//..." />
+            <marker date="1492007200619" expanded="true" signature="3229:3790" placeholder="..." />
+            <marker date="1492007200619" expanded="true" signature="3259:3322" placeholder="..." />
+            <marker date="1492007200619" expanded="true" signature="3350:3604" placeholder="..." />
+            <marker date="1492007200619" expanded="true" signature="3405:3593" placeholder="..." />
+            <marker date="1492007200619" expanded="true" signature="3493:3575" placeholder="..." />
+            <marker date="1492007200619" expanded="true" signature="3634:3783" placeholder="..." />
+            <marker date="1492007200619" expanded="true" signature="4004:6896" placeholder="..." />
+            <marker date="1492007200619" expanded="true" signature="4031:4999" placeholder="..." />
+            <marker date="1492007200619" expanded="true" signature="4066:4191" placeholder="..." />
+            <marker date="1492007200619" expanded="true" signature="4222:4988" placeholder="..." />
+            <marker date="1492007200619" expanded="true" signature="4250:4977" placeholder="..." />
+            <marker date="1492007200619" expanded="true" signature="4303:4574" placeholder="..." />
+            <marker date="1492007200619" expanded="true" signature="4353:4559" placeholder="..." />
+            <marker date="1492007200619" expanded="true" signature="4604:4966" placeholder="..." />
+            <marker date="1492007200619" expanded="true" signature="4621:4873" placeholder="..." />
+            <marker date="1492007200619" expanded="true" signature="4670:4855" placeholder="..." />
+            <marker date="1492007200619" expanded="true" signature="5029:6889" placeholder="..." />
+            <marker date="1492007200619" expanded="true" signature="5105:6128" placeholder="..." />
+            <marker date="1492007200619" expanded="true" signature="5159:6105" placeholder="..." />
+            <marker date="1492007200619" expanded="true" signature="5186:5775" placeholder="..." />
+            <marker date="1492007200619" expanded="true" signature="5825:6082" placeholder="..." />
+            <marker date="1492007200619" expanded="true" signature="6170:6387" placeholder="..." />
+            <marker date="1492007200619" expanded="true" signature="6419:6874" placeholder="..." />
+            <marker date="1492007200619" expanded="true" signature="6453:6501" placeholder="..." />
+            <marker date="1492007200619" expanded="true" signature="6538:6859" placeholder="..." />
+            <marker date="1492007200619" expanded="true" signature="6585:6840" placeholder="..." />
+            <marker date="1492007200619" expanded="true" signature="6931:7463" placeholder="..." />
+            <marker date="1492007200619" expanded="true" signature="6960:7022" placeholder="..." />
+            <marker date="1492007200619" expanded="true" signature="7051:7129" placeholder="..." />
+            <marker date="1492007200619" expanded="true" signature="7160:7268" placeholder="..." />
+            <marker date="1492007200619" expanded="true" signature="7301:7456" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/App/Public/Js/nav.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.7507987">
+          <caret line="300" column="26" selection-start-line="300" selection-start-column="26" selection-end-line="300" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>

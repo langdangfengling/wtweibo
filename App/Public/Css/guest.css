@@ -1,0 +1,63 @@
+/*留言板*/
+@import "common.css";
+#content{width:1000px;margin:5px auto;height: auto;overflow: hidden;}
+.weizi{width:759px;height:30px;line-height:30px; background:url("../Images/weizi.png") 7px 5px no-repeat; border-bottom:1px solid #d3e5da;}
+.weizi .wz_text{text-indent: 2em;}
+.weizi .wz_text h1{font-size:16px;color:#F00E71;display:inline;font-weight:500;text-indent:2em }
+.weizi .wz_text a{color:#444;}
+.weizi .wz_text a:hover{text-decoration:underline;color:#f00;}
+/*about*/
+#guestbook{width: 759px;height:auto;background-color: #fff;}
+#msgBox{width:753px;background:#fff;border-radius:5px;margin:10px auto;padding-top:10px;}
+#msgBox form h2{font-weight:400;font:400 18px/1.5 \5fae\8f6f\96c5\9ed1;}
+#msgBox form{padding:0 20px 15px;}
+#userName,#conBox{color:#777;border:1px solid #d0d0d0;border-radius:6px;background:#fff;padding:3px 5px;font:14px/1.5 arial;}
+#userName.active,#conBox.active{border:1px solid #7abb2c;}
+#userName{height:20px;}
+#conBox{width:700px;resize:none;height:200px;overflow:auto;}
+#msgBox form div.g_con{color:#999;margin-top:10px;height:210px;}
+#msgBox form div.tr{color:#999;margin-top:10px;height:30px;}
+#msgBox img{border-radius:3px;}
+#msgBox h2{width:300px;margin:0 auto; }
+#face{position:absolute;top:0;left:172px;}
+#face img{width:30px;height:30px;cursor:pointer;margin-right:6px;opacity:0.5;filter:alpha(opacity=50);display: inline;}
+#face img.hover,#face img.current{width:28px;height:28px;border:1px solid #f60;opacity:1;filter:alpha(opacity=100);}
+#sendBtn{border:0;width:70px;height:28px;cursor:pointer;margin-left:500px;background:url(../Images/guestimg/guest-btn.jpg) no-repeat -115px -26px;font-size:14px;color: #FFFFFF;}
+#sendBtn.hover{background:url(../Images/guestimg/guest-btn.jpg) no-repeat -38px -26px;font-size:14px;color: #FFFFFF;}
+#msgBox form .maxNum{font:26px/30px Georgia, Tahoma, Arial;padding:0 5px;}
+#msgBox .list{padding:10px;}
+#msgBox .list h3{position:relative;height:33px;font-size:14px;font-weight:400;background:#e3eaec;border:1px solid #dee4e7;}
+#msgBox .list h3 span{position:absolute;left:6px;top:6px;background:#fff;line-height:28px;display:inline-block;padding:0 15px;}
+#msgBox .list ul{overflow:hidden;zoom:1;}
+#msgBox .list ul li{float:left;clear:both;width:100%;height:auto;border-bottom:1px dashed #d8d8d8;padding:10px 0;background:#fff;overflow:hidden;}
+#msgBox .list ul li.hover{background:#f5f5f5;}
+#msgBox .list .userPic{float:left;width:50px;height: 250px;display:inline;margin-left:10px;border-radius:3px;}
+#msgBox .list .content{float:left;width:642px;font-size:14px;margin-left:21px;font-family:arial;word-wrap:break-word;}
+#msgBox .list .userName{display:inline;padding-right:5px;}
+#msgBox .list .userName a{color:#2b4a78;}
+#msgBox .list .msgInfo{display:block;word-wrap:break-word;width:620px;height:110px;padding:10px;padding-top: 20px;text-align: left;}
+#msgBox .list .times{color:#889db6;font:12px/18px arial;margin-top:5px;overflow:hidden;zoom:1;}
+#msgBox .list .times span{float:left;}
+#msgBox .list .times a{color:#889db6;}
+#msgBox .list .times a.del{color:#889db6;display: none}
+#msgBox .list .rlist{float:left;width:642px;font-size:14px;margin-left:21px;font-family:arial;word-wrap:break-word;padding-bottom: 12px;}
+#msgBox .list .rlist .state{margin-top: 5px;}
+#msgBox .list .rlist ul li{border-bottom: none;}
+#msgBox .list .rlist .line{width:100%;height:30px;border-bottom: 1px gainsboro solid;}
+#msgBox .list .rlist .line strong{display: inline-block;width: 45px;  height: 32px;  line-height: 30px;background:url(../Images/line.png) no-repeat 0 -106px #FAFAFA;margin-left: 10px; }
+#msgBox .list .rlist .userPic{float:left;width:35px;height:35px;display:inline;margin-left:10px;border:1px solid #ccc;border-radius:3px;}
+#msgBox .list .rlist .rcontent{float:left;width:500px;font-size:14px;margin-left:21px;font-family:arial;word-wrap:break-word;}
+#msgBox .list .rlist input.reply{width:430PX;height: 30px;font-size: 14px;color: grey;text-indent: 5px;border: 1px gainsboro solid;}
+/*hover样式*/
+#msgBox .list .rlist input.hov{width:430PX;height: 30px;font-size: 14px;color: grey;text-indent: 5px;border: 1px #E5B901 solid;}
+
+#msgBox .list .rlist #reply textarea{width: 370px;height:50px;border:2px #DADADA solid;}
+#msgBox .list .rlist #reply textarea.fou{width: 370px;height:50px;border:2px #E5B901 solid;}
+#msgBox .list .rlist #reply p.btn{margin-top: 9px;}
+#msgBox .list .rlist #reply input.sub_btn{background-color: grey;font-size: 12px;color: #FFFFFF;width: 48px;height: 20px;border: none;}
+#msgBox .list .rlist #reply input.cancel{background-color:#FFFFFF;font-size: 12px;color:grey;border: none;margin-right: 249px;}
+#msgBox .list .rlist #reply p.btn span{color:grey;}
+#msgBox .list .rlist #reply P.bq span.emotion{width:20px; height:20px; background:url(../Images/icon.png) no-repeat -222px 2px;cursor:pointer}
+#msgBox .list .rlist #reply P.bq{margin-bottom: 2px;width: 20px;height: 20px;}
+
+.tr *{float:left;}
