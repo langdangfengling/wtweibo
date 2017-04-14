@@ -116,7 +116,7 @@ class LoginController extends Controller
                 session('uid', $id);
                 //注册成功，跳转到首页
                 header('Content-type:text/html;charset=utf-8');
-                $this->success('注册成功，正在为你跳转---', __APP__, 3);
+                $this->success('注册成功，正在为你跳转---', U('User/index'), 3);
             } else {
                 $this->error('注册失败，请重试....');
             }
