@@ -97,4 +97,4 @@ jQuery.validator.addMethod('user',function(value,element){
             }
         }
     });
-})
+});
