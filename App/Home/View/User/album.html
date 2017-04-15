@@ -1,0 +1,103 @@
+<include file="Common:header" />
+<title>相册展示-个人博客</title>
+<meta name="" content="个人博客" />
+<meta name="description" content="" />
+<link rel="stylesheet" href="__PUBLIC__/Css/style.css"/>
+<link rel="stylesheet" href="__PUBLIC__/Css/album.css"/>
+<link rel="stylesheet" href="__PUBLIC__/Css/nav.css"/>
+<script type="text/javascript" src="__PUBLIC__/Js/jquery.min.js"></script>
+<script type="text/javascript" src="__PUBLIC__/Js/album.js"></script>
+<script type="text/javascript" src="__PUBLIC__/Js/nav.js"></script>
+<script type="text/javascript" src="__PUBLIC__/Js/imgUp.js"></script>
+<script type="text/javascript">
+    var addAlbum="{:U('User/createAlbum')}";
+    var PUBLIC="__PUBLIC__/Images";
+    var getAlbum="{:U('User/getAlbum')}";
+    var delAlbum="{:U('User/delAlbum')}";
+</script>
+
+<include file="Common:nav"/>
+    <!--header end-->
+    <!--content start-->
+<div id="content">
+    <!--left-->
+    <div class="fleft" id="album">
+        <div class="weizi">
+            <div class="wz_text">当前位置：<a href="#">首页</a>><h1>个人相册</h1></div>
+        </div>
+            <div class="album_head">
+                <ul>
+                <li class="sz-photo"><a href="javascript:;"><i class="icon"></i>上传照片</a></li>
+                <li class="create-album"><a href="javascript:;">创建相册</a></li>
+                <li class="set-album"><span>展示设置</span></li>
+                </ul>
+            </div>
+        <div class="album_content">
+            <ul>
+                <foreach name="album" item="v">
+                    <php>extract($v);</php>
+
+                <li>
+                    <div class="cover">
+                        <a href="{:U('User/photo',array('aid' => $id))}" ><img src="<if condition='$cover'>__ROOT__/{$cover}<else/>__PUBLIC__/Images/cover.png</if>" width="160" height="150" />
+                        </a>
+                        <div class="set"><img src="__PUBLIC__/Images/xiala2.png" width="20" height="20"/></div>
+                        <div class="set_con">
+                            <div><img src="__PUBLIC__/Images/tubiao/options.png"/><p class="edit_album" aid="{$id}">编辑</p></div>
+                            <div><img src="__PUBLIC__/Images/tubiao/reply.png"/><p class="" aid="{$id}">制作封面</p></div>
+                            <div><img src="__PUBLIC__/Images/tubiao/stop.png"/><p class="del_album" aid="{$id}">删除</p></div>
+                        </div>
+                    </div>
+                    <div class="name"><sapn>{$name}</sapn></div>
+                </li>
+                </foreach>
+            </ul>
+        </div>
+    </div>
+    <div class="clear"></div>
+    <!--相册创建框1-->
+    <div id="c-album">
+        <div class="album-head">
+            <span class='album-text fleft'>创建相册</span>
+        </div>
+        <div class='album-name'>
+            <span>相册名称：</span>
+            <input type="text" name='name'>
+        </div>
+        <div class='album-depict'>
+            <span>相册描述：</span>
+            <textarea name="depict" value="说说这个相册的故事...(非必填)"></textarea>
+        </div>
+        <div class='album-btn-wrap'>
+            <span class='add-album'><a href="javascript:;"> 添加</a></span>
+            <span class='ablum-cencle'><a href="javascript:;">取消</a></span>
+        </div>
+    </div>
+    <!--相册编辑框-->
+    <div id="edit-album">
+        <form action="{:U('User/editAlbum')}" method="post">
+        <div class="album-head">
+            <span class='album-text fleft'>编辑相册</span>
+        </div>
+        <div class='album-name'>
+            <span>相册名称：</span>
+            <input type="text" name='name'>
+        </div>
+        <div class='album-depict'>
+            <span>相册描述：</span>
+            <textarea name="depict" value=""></textarea>
+        </div>
+        <div class='album-btn-wrap'>
+            <input type="hidden" name="name1" value=""/>
+            <input type="hidden" name="depict" value=""/>
+            <input type="hidden" name="aid" value=""/>
+            <input type="submit" class='save-album' value="保存" />
+            <span class='edit-album-cencle'><a href="javascript:;">取消</a></span>
+        </div>
+        </form>
+    </div>
+</div>
+    <!--content end-->
+  <!--footer-->
+<include file="Common:bottom" />
+

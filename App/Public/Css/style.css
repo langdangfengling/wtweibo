@@ -1,0 +1,269 @@
+@import "common.css";
+#content{width:1000px;margin:5px auto;}
+.weizi{width:759px;height:30px;line-height:30px; background:url("../Images/weizi.png") 7px 5px no-repeat; border-bottom:1px solid #d3e5da;text-indent: 2em;}
+.weizi .wz_text h1{font-size:16px;color:#F00E71;display:inline;font-weight:500;}
+.weizi .wz_text a{color:#444;}
+.weizi .wz_text a:hover{text-decoration:underline;color:#f00;}
+/*about*/
+#content #about_me{width:759px;height:500px;background-color:#fff;}
+#about_me .about_content{width:759px;height:300px;margin-top:10px;padding:0 10px;}
+/*article*/
+#content #news{width:759px;background: #f2f1f4;padding-bottom:10px;}
+#news .news_content{width:738px;margin-top:10px;padding:0 10px;font-size: 16px;}
+#news .wz_text span{font-size:16px;color:#F00E71;font-weight:500;}
+#news .news_content .news_top {width:710px;height:60px;}
+#news .news_content .news_top h1{font-size:17px;color:#F00E71;font-weight:500;height:25px;line-height:25px;text-align:center;}
+#news .news_content .news_top p{width:710px;height:30px;line-height:30px;}
+#news .news_content .news_top p span{display:block;height:30px;line-height:30px;padding-right:50px;}
+#news .news_content .news_top .sj{display:block;width:120px;height:30px;
+background:url("../Images/sj.jpg") 5px 7px no-repeat;padding-left:25px;margin-left:150px;float: left}
+#news .news_content .news_top .author{display:block;width:60px;height:30px; 
+background:url("../Images/tx.jpg") 5px 9px no-repeat;padding-left:25px;margin-left:20px;float: left}
+#news .news_content .news_text{width:710px;}
+/*微博操作*/
+#news .wb_tool{
+    width:740px;
+    height:30px;
+    line-height:30px;
+}
+#news .wb_tool .send_time{
+    color:#75BAE4;
+    float: left;
+}
+#news .wb_tool ul{
+    height:24px;
+    float: right;
+}
+#news .wb_tool ul li{
+    padding: 0 5px;
+    float:left;
+}
+#news .wb_tool ul li span{
+    color:#2B96E1;
+    cursor: pointer;
+}
+#news .wb_tool ul .keep-wrap  {
+    position: relative;
+}
+#news .wb_tool ul .keep-wrap .keep-up {
+    position: absolute;
+    width: 80px;
+    height: 24px;
+    line-height: 24px;
+    text-align: center;
+    border: 1px solid #088CD2;
+    border-radius: 4px;
+    background: #D7EEFB;
+    color: #71CD6A;
+    left:-25px;
+    top: -30px;
+}
+#news .comment_load{
+    width:708px;
+    height:60px;
+    line-height:60px;
+    text-align: center;
+    border:1px solid #D7EEFB;
+    border-radius: 3px;
+    margin-left: 30px;
+    position: relative;
+}
+#news .comment_load img{
+    position:absolute;
+    left:267px;
+    top:23px;
+}
+#news .comment_list{
+    width:708px;
+    height:auto;
+    border:1px solid #D7EEFB;
+    border-radius: 3px;
+    margin-left: 30px;
+}
+#news .comment_list textarea{
+    width:682px;
+    height: 18px;
+    line-height: 18px;
+    padding: 5px 4px;
+    margin:2px 8px;
+    overflow: hidden;
+    resize:none;
+    border:1px solid #ccc;
+    box-shadow: 1px 1px 1px 0 #EAEAEA inset;
+    border-radius: 3px;
+    word-wrap: break-word;
+}
+#news .comment_list ul{
+    width:625px;
+    height:10px;
+    padding:10px 0;
+    margin-bottom: 10px;
+    margin-left:35px;
+}
+#news .comment_list .phiz{
+    width:15px;
+    height:15px;
+    background:url(../Images/icon.png) no-repeat -250px 0px;
+    margin-top:3px;
+    cursor: pointer;
+    margin-right: 10px;
+}
+#news .comment_list .comment_turn{
+    width:160px;
+    height:22px;
+    line-height:22px;
+}
+#news .comment_list .comment_turn input{
+    width:22px;
+    height:22px;
+    vertical-align: middle;
+}
+#news .comment_list .comment_btn{
+    width:50px;
+    height:20px;
+    line-height: 20px;
+    text-align: center;;
+    background: #F9AB00;
+    color:#fff;
+    border:1px solid #FF9B00;
+    border-radius: 3px;
+    cursor: pointer;
+}
+#news .comment_list .comment_content{
+    width:448px;
+    height:auto;
+    overflow: hidden;
+    padding:20px 0 10px 0;
+    border-bottom: 1px solid #D7EEFB;
+}
+#news .comment_list .comment_content dt{
+    width:30px;
+    height:30px;
+    float: left;
+}
+#news .comment_list .comment_content dd{
+    width:400px;
+    height:auto;
+    overflow: hidden;
+    line-height:20px;
+    word-wrap: break-word;
+    float: right;
+}
+#news .comment_list .comment_content dd .reply{
+    width:400px;
+    height:20px;
+    padding: 5px 0;
+}
+#news .comment_list .comment_content dd .reply a{
+    display: block;
+    width:30px;
+    height:20px;
+    line-height: 20px;
+    text-align: center;
+    float: right;
+}
+#news .comment_list .comment-page {
+    width : 448px;
+    height: auto;
+    overflow: hidden;
+    border-bottom: 1px solid #D7EEFB;
+}
+#news .comment_list .comment-page dd {
+    float: left;
+    padding: 5px;
+    margin: 5px 10px;
+    cursor: pointer;
+    border: 1px solid #D7EEFB;
+    border-radius: 4px;
+    background: #fff;
+}
+/*转发样式*/
+#news .wb_turn{
+    width:448px;
+    height: auto;
+    overflow: hidden;
+    border:1px solid #D7EEFB;
+    border-radius: 3px;
+    padding:15px 20px;
+    margin:15px 0;
+}
+#news .wb_turn .turn_name{
+    width:448px;
+    height:20px;
+}
+#news .wb_turn .turn_cons p{
+    width:448px;
+    line-height: 24px;
+    height:auto;
+    word-wrap: break-word;
+}
+#news .wb_turn .turn_img{
+    width:448px;
+    height:auto;
+    margin:10px 0;
+}
+#news .wb_turn .turn_img img{
+    cursor: url(../Images/big.cur), auto !important;
+}
+#news .turn_tool{
+    width:448px;
+    height:24px;
+    line-height:24px;
+}
+#news .wb_turn .turn_tool .send_time{
+    color:#75BAE4;
+    float: left;
+}
+#news .wb_turn .turn_tool ul{
+    height:24px;
+    float: right;
+}
+#news .wb_turn .turn_tool ul li{
+    padding: 0 5px;
+    float:left;
+}
+#news .wb_turn .turn_tool ul li a{
+    color:#75BAE4;
+}
+#news .turn_img .turn_img_tool{
+    width:448px;
+    height:auto;
+    padding:10px 0;
+}
+#news .turn_img .turn_img_tool ul li{
+    padding:5px;
+    float: left;
+}
+#news .turn_img .turn_img_tool ul li .packup{
+    color:#2B96E1;
+    cursor: pointer;
+}
+#news .turn_img .turn_img_tool ul li a{
+    color:#2B96E1;
+}
+#news .turn_img .turn_img_info{
+    width:448px;
+    height:auto;
+    overflow: hidden;
+}
+#news .turn_img .turn_img_info img{
+    display:block;
+    margin:0 auto;
+    cursor: url(../Images/small.cur), auto !important;
+}
+#page {
+    width: 100%;
+    height: 60px;
+    line-height: 60px;
+    text-align: center;
+}
+
+
+
+
+
+
+
+
+
+
