@@ -237,6 +237,9 @@
     /*padding: 18px;*/
 }
 .z_photo .z_file{
+    width:190px;
+    height: 180px;
+    float:left;
     position: relative;
 }
 .z_file  .file{
@@ -249,9 +252,12 @@
     z-index: 100;
 }
 .z_photo .up-section{
+    width: 190px;
+    height: 180px;
     position: relative;
     margin-right: 20px;
     margin-bottom: 20px;
+    float: left;
 }
 .up-section .close-upimg{
     position: absolute;

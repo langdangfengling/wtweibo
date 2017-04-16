@@ -78,23 +78,35 @@ class CommonController extends Controller
             echo json_encode($img);//将处理信息以json数据串形式返回
         }
     }
-    /*
-   * 微博图片上传
-   */
-    public function uploadPic(){
-        if(!IS_POST){
+//    /*
+//   * 微博图片上传
+//   */
+//    public function uploadPic(){
+//        if(!IS_POST){
+//            $this->error('非法提交');
+//        }
+//        //对提交过来的图片用upload类处理
+//        $uploadinfo=$this->_upload('weibo/');
+////        print_r($uploadinfo);
+//        if(is_array($uploadinfo)){
+//            $img2='Uploads/'.$uploadinfo['Filedata']['savepath'].$uploadinfo['Filedata']['savename'];
+//            $saveName=$uploadinfo['Filedata']['savename'];//上传图片名称
+//            $savePath='Uploads/'.$uploadinfo['Filedata']['savepath'];//上传图片保存路径
+//            $img=$this->_thumb($img2,$savePath,$saveName);//调用处理缩略图方法
+//            echo json_encode($img);//将处理信息以json数据串形式返回
+//        }
+//    }
+
+    /**
+     * 相册图片上传
+     */
+    public function sendPhoto(){
+        if(!IS_AJAX){
             $this->error('非法提交');
         }
-        //对提交过来的图片用upload类处理
-        $uploadinfo=$this->_upload('weibo/');
-//        print_r($uploadinfo);
-        if(is_array($uploadinfo)){
-            $img2='Uploads/'.$uploadinfo['Filedata']['savepath'].$uploadinfo['Filedata']['savename'];
-            $saveName=$uploadinfo['Filedata']['savename'];//上传图片名称
-            $savePath='Uploads/'.$uploadinfo['Filedata']['savepath'];//上传图片保存路径
-            $img=$this->_thumb($img2,$savePath,$saveName);//调用处理缩略图方法
-            echo json_encode($img);//将处理信息以json数据串形式返回
-        }
+       $photoinfo=$this->_upload('photos/');
+        echo json_encode($photoinfo);
+
     }
     /**
      * 处理图片上传
