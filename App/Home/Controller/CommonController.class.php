@@ -104,12 +104,46 @@ class CommonController extends Controller
         if(!IS_AJAX){
             $this->error('非法提交');
         }
+//        echo json_encode(dump($_FILES));die;
+        $aid=I('post.aid','','intval');
+        $db=M('photo');
+        $data=array();
        $photoinfo=$this->_upload('photos/');
-        echo json_encode($photoinfo);
+//        echo json_encode($photoinfo);
+        if(is_array($photoinfo)){
+            foreach($photoinfo as $k => $v){
+                $photo='Uploads/' . $v['savepath'] . $v['savename'];
+                $savePath='Uploads/' . $v['savepath'];
+                $thumb=$this->_photoImg($photo,$savePath,$v['savename']);
+                $data['photo']=$savePath.$v['savename'];
+                $data['photo150']=$thumb;
+                $data['aid']=$aid;
+                $name=strstr($v['name'],'.',true);
+                $data['name']=$name;
+                //入库
+                $pid=$db->data($data)->add();
+                if(!$pid){
+                    echo json_encode(array('status' =>0,'msg' => '上传失败'));
+                    return false;
+                }
+            }
+        }
+        echo json_encode(array('status' => 1,'msg' => '上传成功!'));
+    }
+    //相册图片缩略图处理
+    private function _photoImg($photo,$savePath,$saveName){
 
+        if(!$photo) {
+            return array('status' => 0, 'msg' => '上传图片失败，请重试!');//status为上传状态，0，失败 1，成功 msg,返回信息
+        }else{
+            $image=new Image();
+            $image->open($photo);
+            $image->thumb(173,130)->save($savePath.'thumb_170'.$saveName);
+            return $savePath.'thumb_170'.$saveName;
+        }
     }
     /**
-     * 处理图片上传
+     * 处理用户图像上传
      */
 
     private function _upload($path){

@@ -330,7 +330,7 @@ $(function () {
         str = str + '<span class="icon"></span>';
         $(this).parents('.choice').prev().find('p').html(str).css({background:''});
         $(this).parents('.choice').hide();
-    })
+    });
     // 相片上传框中 异步创建相册
     $('div.create_album_1').live('click',function(){
         //alert(111);
@@ -426,7 +426,7 @@ $(function () {
         //fileList.push();
         //console.log(fileList);
         fileList1=list(file.files);
-        console.log(fileList1);
+        //console.log(fileList1);
         ////遍历得到的图片文件
         var numUp = imgContainer.find(".up-section").length;
         var totalNum = numUp + fileList1.length;  //总的数量
@@ -507,28 +507,24 @@ $(function () {
     function list(flist){
         var arr=new Array();
         for(var k=0;k<flist.length;k++){
-            //for(var n=0;n<flist[k].length;n++){
                arr.push(flist[k]);
-            //}
         }
         return arr;
     }
     //开始异步上传
     $('.sz_send').click(function() {
+        var obj=$(this).parents('#c-photo');
         var fd = new FormData();
         //将两次添加的file对象重合到一个数组里
-       var fileList=new Array();
+       var fileList;
         fileList=fileList1.concat(fileList2);
-
-        //fileList=$.extend({},fileList1,fileList2);
-        //var reader=new FileReader();
-        //reader.readAsDataURL(fileList1[0])
-
-        //console.log(fileList);
         for(var i=0;i<fileList.length;i++){
             fd.append('f'+i, fileList[i]);
         }
-
+        //获取需要存入相册的ID
+        var aid=$(this).parents('#dialog_content').prev().find('.pitch p span').attr('aid');
+        alert(aid);
+        fd.append('aid',aid);
         //console.log(fd);
         $.ajax({
             type: 'POST',
@@ -538,11 +534,25 @@ $(function () {
             contentType: false,
             dataType: 'json',
             success: function (data) {
-                console.log(data);
+                //console.log(data);
+               if(data.status){
+                   //上传成功
+                   //console.log(data);
+                   showTips(data.msg);
+                   //让页面停3s
+                   sleep(2000);
+                   obj.remove();
+                 $('#c-photo-bg').remove();
+                   location.reload();
+                   //self.location=CONTROLLER+'/photo/'+aid;
+               }else{
+                   console.log(data.status);
+                   //alert(data.msg);
+               }
             }
         });
     });
-    //删除照片
+    //删除照片(预览时)
     $(".z_photo").delegate(".close-upimg","click",function(){
         $(".works-mask").show();
         delParent = $(this).parent();
@@ -550,17 +560,27 @@ $(function () {
 
     $(".wsdel-ok").click(function(){
         $(".works-mask").hide();
-        //var numUp = delParent.siblings().length;
-        //if(numUp < 6){
-        //    delParent.parent().find(".z_file").show();
-        //}
-        //delParent.remove();
+        var numUp = delParent.siblings().length;
+        if(numUp < 6){
+            delParent.parent().find(".z_file").show();
+        }
+        delParent.remove();
     });
 
     $(".wsdel-no").click(function(){
         $(".works-mask").hide();
     });
-
+    //让页面暂停函数
+    function sleep(numberMillis) {
+        var now = new Date();
+        var exitTime = now.getTime() + numberMillis;
+        while (true) {
+            now = new Date();
+            if (now.getTime() > exitTime)
+                return;
+        }
+    }
+  //验证上传文件函数
     function validateUp(files){
         var arrFiles = [];//替换的文件数组
         for(var i = 0, file; file = files[i]; i++){

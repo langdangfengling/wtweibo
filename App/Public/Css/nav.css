@@ -221,7 +221,7 @@
 #c-photo #dialog_content .sz-photo-button strong{display: inline-block;width:38px;height: 37px;background: url("../Images/tubiao/56fcb8b6163c6_1024.jpg") -210px -132px no-repeat;margin-top: 8px;margin-left:14px;}
 #c-photo #dialog_content .sz-photo-button span{width:140px;height:50px;font-size: 20px;line-height: 50px;color:#fff;text-indent: 20px;margin-right:6px;float: right;}
 #c-photo #dialog_content .sz-photo-button input{width:200px;height:50px;position:absolute;top:0;left:0;opacity: 0;}
-#c-photo #dialog_content .sz_bottom{width:100%;height:75px;background-color: lightgrey; position: absolute;bottom: 0;display: none;}
+#c-photo #dialog_content .sz_bottom{width:100%;height:75px;background-color: #e8e8e8; position: absolute;bottom: 0;display: none;}
 #c-photo #dialog_content .sz_bottom .sz_send{width:200px;height:50px;background-color: #51adff;border-radius: 5px;float: left;margin-left:14px;margin-top: 13px;}
 #c-photo #dialog_content .sz_bottom .sz_send span{width:140px;height:50px;font-size: 20px;line-height: 50px;color:#fff;text-indent: 20px;margin-left:39px;float: left;}
 #c-photo #dialog_content .sz_bottom .save_btn{width:120px;height: 50px;margin-top: 13px;margin-left: 42px;outline: none;}
@@ -233,7 +233,10 @@
 }
 .z_photo{
     padding: 18px;
+    margin:0 auto;
     border:2px dashed #E7E6E6;
+    height: 182px;
+    width:95%;
     /*padding: 18px;*/
 }
 .z_photo .z_file{
@@ -242,7 +245,7 @@
     float:left;
     position: relative;
 }
-.z_file  .file{
+.z_file  .file2{
     width: 100%;
     height: 100%;
     opacity: 0;

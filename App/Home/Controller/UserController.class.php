@@ -310,8 +310,9 @@ class UserController extends CommonController
             $this->error('非法请求');
         }
         $id=I('post.aid','','intval');
+//        echo $id;
         $albumModel=new AlbumModel();
-        if($albumModel->delete($id)){
+        if($albumModel->del($id)){
             echo 1;
         }else{
             echo 0;
@@ -328,13 +329,43 @@ class UserController extends CommonController
        //获取相册信息
         $album1=M('album')->where(array('id' => $id))->find();
         $db=M('photo');
-        $photos=$db->where(array('aid' => $id))->order('time DESC')->select();
-//        dump($photos);die;
         $count=$db->where(array('aid' => $id))->count();
+        $page=new Page($count,15);
+        $limit=$page->firstRow.','.$page->listRows;
+        $photos=$db->where(array('aid' => $id))->order('time DESC')->limit($limit)->select();
+//                dump($photos);die;
+        //分页自定义样式
+        $page->lastSuffix=false;//最后一页是否显示总页数
+        $page->rollPage=4;//分页栏每页显示的页数
+        $page->setConfig('prev','【上一页】');
+        $page->setConfig('next','【下一页】');
+        $page->setConfig('first','【首页】');
+        $page->setConfig('last','【末页】');
+        $page->setConfig('theme','共%TOTAL_ROW%条记录，当前是%NOW_PAGE%/%TOTAL_PAGE% %FIRST% %UP_PAGE% %DOWN_PAGE% %END%');
+
         $this->album1=$album1;
         $this->photos=$photos?$photos:false;
+        $this->page=$page->show();
         $this->count=$count;
         $this->display();
+    }
+
+    //异步删除相片
+    public function delPhoto(){
+        if(!IS_AJAX){
+            $this->error('非法请求');
+        }
+        $pid=I('post.pid','','intval');
+        $db=M('photo');
+        $photo150=$db->where(array('id' => $pid))->getField('photo150');
+        $photo=$db->where(array('id' => $pid))->getField('photo');
+        if($db->delete($pid)){
+            unlink($photo150);
+            unlink($photo);
+            echo 1;
+        }else {
+            echo 0;
+        }
     }
 
 }

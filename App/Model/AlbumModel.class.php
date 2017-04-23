@@ -22,7 +22,17 @@ class AlbumModel extends RelationModel
     );
     public function del($id){
         if($id) {
+            $db=M('photo');
+            $photos=$db->where(array('aid' => $id))->select();
+            //删除相关相册文件
+            if($photos){
+                foreach($photos as $k => $v){
+                    unlink($v['photo150']);
+                    unlink($v['photo']);
+                }
+              }
             $this->relation(true)->delete($id);
+            return true;
         }
     }
 }

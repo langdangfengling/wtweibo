@@ -7,13 +7,13 @@
 <link rel="stylesheet" href="__PUBLIC__/Css/nav.css"/>
 <script type="text/javascript" src="__PUBLIC__/Js/jquery.min.js"></script>
 <script type="text/javascript" src="__PUBLIC__/Js/nav.js"></script>
-<script type="text/javascript" src="__PUBLIC__/Js/imgUp.js"></script>
 <script type="text/javascript" src="__PUBLIC__/Js/photo.js"></script>
 <script type="text/javascript">
     var addPhoto="{:U('User/createAlbum')}";
     var PUBLIC="__PUBLIC__/Images";
-    var getAlbum="{:U('User/getAlbum')}";
-    var delAlbum="{:U('User/delAlbum')}";
+    var sendPhoto="{:U('Common/sendPhoto')}";
+    var CONTROLLER="__CONTROLLER__";
+    var delPhoto="{:U('User/delPhoto')}";
 </script>
 
 <include file="Common:nav"/>
@@ -46,16 +46,26 @@
                 <foreach name="photos" item="v">
                     <php>extract($v);</php>
                     <li>
-                        <img src="<if condition='$photo150'>__UPLOADS__/{$photo150}<else/>__PUBLIC__/Images/cover.png</if>" width="175" height="130" />
-                        <div class="photo_name"><sapn></sapn></div>
+                        <img src="<if condition='$photo150'>__ROOT__/{$photo150}<else/>__PUBLIC__/Images/cover.png</if>" width="175" height="125" alt="{$v.name}" />
+                        <div class="photo_name"><sapn>{$v.name}</sapn></div>
+                        <div class="delp" pid="{$id}"></div>
                     </li>
                 </foreach>
             </ul>
         </div>
+        <div class="page">{$page}</div>
     </div>
     <div class="clear"></div>
 </div>
 <!--content end-->
+<!--大图预览-->
+<div class="tips"></div>
+<div class="bgimg">
+<img class="fimg" src="" alt="" width="900" height="560" />
+<a class="btn" id="btn-l" href="javascript:">&lt;</a>
+<a class="btn" id="btn-r" href="javascript:">&gt;</a>
+</div>
+<!--end-->
 <!--footer-->
 <include file="Common:bottom" />
 

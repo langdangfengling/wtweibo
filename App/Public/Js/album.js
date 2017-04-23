@@ -47,7 +47,8 @@ $('.create-album').click(function(){
             if(data.status){
                 var str='';
                 str += ' <li><div class="cover">';
-                str += '<img src="'+PUBLIC+'/cover.png" width="160" height="150" />';
+                str += '<a href="http://localhost/wtweibo/index.php/User/photo/aid/'+data.aid+'.html" >';
+                str += '<img src="'+PUBLIC+'/cover.png" width="160" height="150" /></a>';
                 str += '<div class="set"><img src="'+PUBLIC+'/xiala2.png" width="20" height="20"/></div>';
                 str += '<div class="set_con">';
                 str += '<div><img src="'+PUBLIC+'/tubiao/options.png"/><p class="edit_album" aid="'+data.aid+'">编辑</p></div>';
@@ -154,6 +155,7 @@ $('.del_album').live('click',function(){
     var del=confirm('确认删除该相册吗?');
     if(del){
         $.post(delAlbum,{aid:aid},function(data){
+            console.log(data);
             if(data){
                 obj.fadeOut('slow',function(){
                     obj.remove();

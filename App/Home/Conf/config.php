@@ -18,6 +18,7 @@ return array(
         ':uid\d' => 'Home/User/index',//表示只会匹配数字参数，如果你需要更加多的变量类型检测
         'follow/:uid\d' =>array('Home/User/followList','type=1'),//1为关注，0为粉丝
         'fans/:uid\d' => array('Home/User/followList','type=0'),
+//        'photo/:uid\d' => 'Home/User/photo', //相册
     ),
     //自定义标签配置
     'TAGLIB_PRE_LOAD' => 'MhTags',//加载自定义标签库

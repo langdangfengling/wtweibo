@@ -172,3 +172,9 @@ input,textarea,select,button{
 	height: 12px;
 	background-position: -301px 0px;
 }
+.page{
+	width:100%;
+	height:50px;
+	text-align:center;
+	margin-top:10px;
+}
