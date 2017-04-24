@@ -4,14 +4,14 @@
 	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
 	<title>{$Think.config.WEBNAME}-注册</title>
 	<link rel="stylesheet" href="__PUBLIC__/Css/regis.css" />
-	<js file='__PUBLIC__/Js/jquery-1.7.2.min.js'/>
+	<js file='__PUBLIC__/Js/jquery.min.js'/>
 	<js file='__PUBLIC__/Js/jquery-validate.js'/>
-	<script type='text/javascript'>
-		var checkAccount = "{:U('checkAccount')}";
-		var checkUname = "{:U('checkUname')}";
-		var checkVerify = "{:U('checkVerify')}";
-	</script>
 	<js file='__PUBLIC__/Js/register.js'/>
+	<script type='text/javascript'>
+		var checkAccount = "{:U('Login/checkAccount')}";
+		var checkUname = "{:U('Login/checkUname')}";
+		var checkVerify = "{:U('Login/checkVerify')}";
+	</script>
 </head>
 <body>
 	<div id='logo'></div>

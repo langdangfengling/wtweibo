@@ -165,16 +165,15 @@ class LoginController extends Controller
         //是ajax请求才进的来
         if(!IS_AJAX){
             $this->error('非法请求');
-        }else{
+        }
             //接收ajax请求传过来的数据
             $account=I('post.account');
-            $where=array('account' =>$account,);
-            if(M('User')->where($where)->getField('id')){
+            $where=array('account' =>$account);
+            if(M('user')->where($where)->find()){
                 echo 'false';
             }else{
                 echo 'true';
             }
-        }
     }
     //异步请求验证昵称是否存在
     public function checkUname(){

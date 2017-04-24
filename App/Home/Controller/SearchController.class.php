@@ -26,11 +26,12 @@ class SearchController extends CommonController{
                 'username' => array('LIKE','%'.$keyword.'%'),
                 'uid' =>array('NEQ',session('uid')),// NEQ 不等于
             );
-            $field=array('username','sex','face80','follow','fans','location','article','intro','uid');
+            $field=array('username','sex','face60','follow','fans','location','article','intro','uid');
             $count=$db->where($where)->count();//获得记录总条数
             $page=new Page($count,5);//实例化page类，传入总记录数，每页显示条数
             $limit=$page->firstRow.','.$page->listRows;
             $result=$db->where($where)->field($field)->limit($limit)->select();
+            // echo $db->getLastSql();
             //分页自定义样式
             $page->lastSuffix=false;//最后一页是否显示总页数
             $page->rollPage=4;//分页栏每页显示的页数
@@ -41,6 +42,7 @@ class SearchController extends CommonController{
             $page->setConfig('theme','共%TOTAL_ROW%条记录，当前是%NOW_PAGE%/%TOTAL_PAGE% %FIRST% %UP_PAGE% %DOWN_PAGE% %END%');
 //            dump($result);die;
             //重新组合结果集得到是否相互关注或已关注
+            
             $result=$this->_getMutual($result);
             //分配搜索结果到视图
 //            dump($result);die;

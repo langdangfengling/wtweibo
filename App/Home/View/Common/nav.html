@@ -107,14 +107,14 @@
         <button id="dialog_button" title="关闭" class="close"></button>
         </div>
     <div class="dialog_head2">
-    <div class="sel-album">
+      <div class="sel-album">
         <span>上传到</span>
-        <div class="pitch">
+          <div class="pitch">
             <!--默认显示相册为最新创建的相册-->
             <p>
             <img src="<if condition='$cover'>__UPLOAD__/{$cover}<else/>__PUBLIC__/Images/cover.png</if>" width="40" height="30" /><span aid="{$id}">{$name}</span><span class="icon"></span>
             </p>
-        </div>
+           </div>
         <div class="choice ">
             <ul>
                 <foreach name="albums" item="v">
@@ -123,8 +123,8 @@
             </ul>
             <div class="create_album_1"><a href="javascript:;">创建相册</a></div>
         </div>
-    </div>
-    </div>
+       </div>
+     </div>
     </div>
     <div id="dialog_content">
         <!--图片上传显示区 预览-->

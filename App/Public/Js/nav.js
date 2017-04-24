@@ -289,7 +289,7 @@ $(function () {
             'top' : photoTop,
         });
         createBg('c-photo-bg');
-        drag(photoObj,photoObj.find('.dialog_head'));
+        // drag(photoObj,photoObj.find('.dialog_head'));
         //从某个相册中直接进入 上传照片 也就是photo模板中
         //上传框需获取相册信息
         var bitch=$('#c-photo').find('.pitch p');
@@ -550,11 +550,11 @@ $(function () {
 
     $(".wsdel-ok").click(function(){
         $(".works-mask").hide();
-        //var numUp = delParent.siblings().length;
-        //if(numUp < 6){
-        //    delParent.parent().find(".z_file").show();
-        //}
-        //delParent.remove();
+        var numUp = delParent.siblings().length;
+        if(numUp < 6){
+           delParent.parent().find(".z_file").show();
+        }
+        delParent.remove();
     });
 
     $(".wsdel-no").click(function(){
