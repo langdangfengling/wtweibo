@@ -12,6 +12,7 @@ use Model\AlbumViewModel;
 use Model\GuestViewModel;
 use Think\Controller;
 use Think\Page;
+use Model\ArticleViewModel;
 class UserController extends CommonController
 {
   /**
@@ -26,26 +27,82 @@ class UserController extends CommonController
             $this->display('Account/index');
         }
         //存入session中，在right.html中统一获取用户数据，避免其他页面无法获得用户信息
+
+        //读取用户发布文章数据
+        //将我和我关注的用户所有的微博数据都得到，输出到模板中
+        $uids=array(session('uid'));
+        $where=array('funs'=>session('uid'));
+        if($result=M('follow')->where($where)->field('follow')->select()){
+//                  dump($result);die;
+            //将我关注用户的id加入到$uids数组中
+            foreach($result as $v){
+                $uids[]=$v['follow'];
+            }
+        }
+//       dump($uids);die;
+        //调用微博视图模型得到所有数据
+        $where=array(
+            'uid'=>array('in',$uids),
+        );
+        $articleView=new ArticleViewModel();
+        //分页显示
+        $db=M('article');
+        $count=$db->where($where)->count();
+        $page=new Page($count,3);
+        $limit=$page->firstRow.','.$page->listRows;
+        $article=$articleView->getAll($where,$limit);
+//                dump($article);die;
+        //右栏显示好友分组相关微博
+        if($gid=I('get.gid','','intval')){
+            //得到我关注好友的id
+            $where=array('gid'=>$gid);
+            $result=M('follow')->where($where)->select();
+            $follow=array();
+            if($result) {
+                foreach ($result as $k => $v) {
+                    $follow[$k] = $v['follow'];
+                }
+                $where = array('uid' => array('IN', $follow));
+                $count=$db->where($where)->count();
+                $page=new Page($count,3);
+                $limit=$page->firstRow.','.$page->listRows;
+                $article = $articleView->getAll($where, $limit);
+            }else{
+                $article=false;
+                $count=0;
+                $page=new Page($count,3);
+                $limit=$page->firstRow.','.$page->listRows;
+            }
+        }
+        //分页自定义样式
+        $page->lastSuffix=false;//最后一页是否显示总页数
+        $page->rollPage=4;//分页栏每页显示的页数
+        $page->setConfig('prev','【上一页】');
+        $page->setConfig('next','【下一页】');
+        $page->setConfig('first','【首页】');
+        $page->setConfig('last','【末页】');
+        $page->setConfig('theme','共%TOTAL_ROW%条记录，当前是%NOW_PAGE%/%TOTAL_PAGE% %FIRST% %UP_PAGE% %DOWN_PAGE% %END%');
+        $this->article=$article;
+        $this->page=$page->show();
         $this->display();
-        //读取用户发布微博数据
-//        $viewModel=new WeiboViewModel();
-//        $where=array('uid' => $uid);
-//        //分页显示
-//        $count=M('weibo')->where($where)->count();
-//        $page=new Page($count,3);
-//        $limit=$page->firstRow.','.$page->listRows;
-//        $weibo=$viewModel->getAll($where,$limit);
-////                dump($weibo);die;
-//        //分页自定义样式
-//        $page->lastSuffix=false;//最后一页是否显示总页数
-//        $page->rollPage=4;//分页栏每页显示的页数
-//        $page->setConfig('prev','【上一页】');
-//        $page->setConfig('next','【下一页】');
-//        $page->setConfig('first','【首页】');
-//        $page->setConfig('last','【末页】');
-//        $page->setConfig('theme','共%TOTAL_ROW%条记录，当前是%NOW_PAGE%/%TOTAL_PAGE% %FIRST% %UP_PAGE% %DOWN_PAGE% %END%');
-//        $this->weibo=$weibo;
-//        $this->page=$page->show();
+    }
+
+    public function saveArticle(){
+        if(!IS_POST){
+            $this->error('非法请求');
+        }
+//        var_dump($_POST);die;
+        $data=array(
+            'name' => I('post.title'),
+            'content' =>I('post.content'),
+            'gid' => I('post.gid'),
+            'time' => time(),
+        );
+        if(M('article')->data($data)->add()){
+            //用户发布文章数+1
+            M('userinfo')->where(array('uid' => session('uid')))->setInc('article',1);
+            $this->success('发布成功',$_SERVER['HTTP_REFERER']);
+        }
     }
 
     /**

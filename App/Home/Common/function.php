@@ -87,6 +87,7 @@ function replace_weibo($content){
     return $content;
 }
 
+
 /**
  * @param $uid 推送消息属于的用户
  * @param $type 1 表示评论 2表示私信 3表示@我的

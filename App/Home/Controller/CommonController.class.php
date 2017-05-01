@@ -281,6 +281,22 @@ class CommonController extends Controller
         }
     }
     /**
+     * 异步添加文章分类
+     */
+    public function addArticleGroup(){
+        if(!IS_AJAX){
+            $this->error('非法请求');
+        }
+       $data=array('name' => I('post.name'),'uid' =>session('uid'));
+//        echo json_encode($data);die;
+        $gid=M('agroup')->data($data)->add();
+        if($gid){
+          echo json_encode(array('status' => 1,'gid' => $gid));
+        }else{
+            echo json_encode(array('status' => 0));
+        }
+    }
+    /**
      * 用户模板设置
      */
     public function editTpl()

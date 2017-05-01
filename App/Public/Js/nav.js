@@ -34,12 +34,6 @@ $(function () {
     }, function () {
         $(this).removeClass('cur_bg');
     });
-    $('.fast_send').click(function () {
-        //调至首页
-        $('.send_write textarea').focus();
-        $('.backToTop').click();
-    });
-
     /**
      * 头部右侧下拉选项
      */

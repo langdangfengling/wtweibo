@@ -13,7 +13,9 @@ $(function(){
         $(this).find('.delp').hide();
     });
 
-    $('.delp').click(function(){
+    $('.delp').click(function(event){
+        event.stopPropagation();//阻止冒泡行为
+        event.preventDefault();//阻止浏览器默认行为
         var delli=$(this).parent();
         var pid=$(this).attr('pid');
         var isdel=confirm('确定删除该相片吗？');
@@ -32,7 +34,7 @@ $(function(){
 
     var index=''; //该li元素下标
     var liObj=$('.photo_content ul li');
-    var length=liObj.length-1;
+    var length=liObj.length;
 $(".photo_content ul li").click(function(){
     var imgObj=$(this).find('img');
     index=$(this).index();
@@ -62,9 +64,9 @@ $(".photo_content ul li").click(function(){
         var nsrc=liObj.eq(index).find('img').attr('src');
         //alert(nsrc);
         nsrc=nsrc.replace('thumb_170','');
-        if(index>=length){
+        if(index==length-1){
             //alert(111);
-            index=0;}
+            index=-1;}
         $(".fimg").attr("src",nsrc);
     });
   //点击左键

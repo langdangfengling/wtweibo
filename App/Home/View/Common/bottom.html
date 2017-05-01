@@ -62,7 +62,64 @@
     </ul>
 </div>
 <!--==========表情==========-->
+<!--===========文章发布框=========---->
+<div id="subArticle">
+    <div id="dialog_head">
+            <h3>文章发布</h3>
+            <button id="dialog_button" title="关闭" class="close"></button>
+        </div>
+    <div class="container">
+        <form name="Arform" method="post" action="{:U('User/saveArticle')}">
+            <table width="100%" border="0" align="center" cellpadding="3" cellspacing="1" class="mtabs">
 
+                    <tr>
+                        <td width="17%" align="right" bgcolor="#FFFFFF">文章标题：</td>
+                        <td width="83%" bgcolor="#FFFFFF">&nbsp;<input name="title" type="text" size="60" /> <span class="f00">*必填</span></td>
+                    </tr>
+                    <tr>
+                        <td align="right" bgcolor="#FFFFFF">文章出处：</td>
+                        <td bgcolor="#FFFFFF">&nbsp;<input type="text" name="isturn" size="40" /> <span class="f00">*原创代表授权本站勿改动。如非原创，请联系课程主办方来发布</span></td>
+                    </tr>
+                    <tr>
+                        <td align="right" bgcolor="#FFFFFF">所属分类：</td>
+                        <?php $gnames=M('agroup')->where(array('uid' => session('uid')))->select();?>
+                        <td bgcolor="#FFFFFF">&nbsp;
+                            <select name="gid">
+                                <foreach name="gnames" item="v">
+                                <option value="{$v.id}"  style='background:#f7f7f7;color:#999999;'>{$v.name}</option>
+                                </foreach>
+                            </select>
+                        </td>
+                        <td><input class="ain" type="text" name="name" /></td>
+                        <td><input type="button" class="add" value="添加分类"/></td>
+                    </tr>
+                    <tr>
+                        <td align="right" bgcolor="#FFFFFF">文章内容：</td>
+                        <td>
+                            <textarea id="editor_content" name="content" style="width:800px;height:400px;visibility:hidden;"></textarea>
+                        </td>
+                    </tr>
+                    </tr>
+                    <tr></tr>
+                    <tr class="submit">
+                        <td><input type="submit" name="Submit" value="发布" id="sub" /></td>
+                    </tr>
+            </table>
+        </form>
+        <div class="setEditor">
+        <input type="button" name="getHtml" value="取得HTML" />
+        <input type="button" name="isEmpty" value="判断是否为空" />
+        <input type="button" name="getText" value="取得文本(包含img,embed)" />
+        <input type="button" name="selectedHtml" value="取得选中HTML" />
+        <input type="button" name="setHtml" value="设置HTML" />
+        <input type="button" name="setText" value="设置文本" />
+        <input type="button" name="insertHtml" value="插入HTML" />
+        <input type="button" name="appendHtml" value="添加HTML" />
+        <input type="button" name="clear" value="清空内容" />
+        <input type="reset" name="reset" value="Reset" />
+        </div>
+    </div>
+</div>
 <!--[if IE 6]>
 <script type="text/javascript" src="__PUBLIC__/Js/DD_belatedPNG_0.0.8a-min.js"></script>
 <script type="text/javascript">
