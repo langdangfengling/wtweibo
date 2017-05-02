@@ -62,6 +62,7 @@ $(".photo_content ul li").click(function(){
         //console.log(liObj);
         //console.log(liObj.eq(2));
         var nsrc=liObj.eq(index).find('img').attr('src');
+        
         //alert(nsrc);
         nsrc=nsrc.replace('thumb_170','');
         if(index==length-1){

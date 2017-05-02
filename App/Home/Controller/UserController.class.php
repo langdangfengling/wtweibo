@@ -51,7 +51,14 @@ class UserController extends CommonController
         $page=new Page($count,3);
         $limit=$page->firstRow.','.$page->listRows;
         $article=$articleView->getAll($where,$limit);
-//                dump($article);die;
+               // dump($article);               
+//                需对文章内容稍作处理，存在数据库中的数据已经被转义，所以需要反转义回来,然后在截取一段字作文文章的描述
+         foreach ($article as $k => $v) {
+                    $article[$k]['content']=htmlspecialchars_decode($v['content']);//反转义
+                     $article[$k]['content']=strip_tags( $article[$k]['content']);//去除字符串中html和php标签
+                    $article[$k]['content']=substr($article[$k]['content'], 0,360);
+                    }           
+                  // dump($article);  die; 
         //右栏显示好友分组相关微博
         if($gid=I('get.gid','','intval')){
             //得到我关注好友的id
@@ -104,7 +111,19 @@ class UserController extends CommonController
             $this->success('发布成功',$_SERVER['HTTP_REFERER']);
         }
     }
-
+    //全文读取文章
+    public function article(){
+        if(!IS_GET){
+            $this->error('非法请求');
+        }
+        $id=I('get.id');
+        $ArticleView=new ArticleViewModel();
+        $where=array('id' =>$id);
+        $article=$ArticleView->where($where)->find();
+        // dump($article);die;
+        $this->article=$article;
+        $this->display();   
+         }
     /**
      * 我的好友
      */
@@ -118,7 +137,7 @@ class UserController extends CommonController
         if($followids){
            $where=array('uid' =>array('in',$followids));
             $follow_count=count($followids);
-            $follow_user=$db->where($where)->Field(array('uid','username','location','face80','sex','follow','fans','article'))->limit(5)->select();
+            $follow_user=$db->where($where)->Field(array('uid','username','location','face60','sex','follow','fans','article'))->limit(5)->select();
         }
 //        dump($follow_user);
         //得到我的粉丝用信息
@@ -126,7 +145,7 @@ class UserController extends CommonController
         if($fansids){
             $where=array('uid' =>array('in',$fansids));
             $fans_count=count($fansids);
-            $fans_user=$db->where($where)->Field(array('uid','username','location','face80','sex','follow','fans','article'))->limit(5)->select();
+            $fans_user=$db->where($where)->Field(array('uid','username','location','face60','sex','follow','fans','article'))->limit(5)->select();
         }
         $this->followids=$followids?$followids:null;
         $this->fansids=$fansids?$fansids:null;
@@ -155,7 +174,7 @@ class UserController extends CommonController
             }
 //            dump($uids);die;
             $where=array('uid'=>array('in',$uids));
-            $fields=array('uid','username','face80','sex','fans','follow','article');
+            $fields=array('uid','username','face60','sex','fans','follow','article');
             $users=M('userinfo')->where($where)->field($fields)->select();
 //            dump($users);die;
             $this->users=$users;

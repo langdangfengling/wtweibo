@@ -45,7 +45,7 @@ class UsersetController extends CommonController
         //dump($data);
         $where = array('uid' => $_SESSION['uid']);
         if (M('userinfo')->where($where)->save($data)) {
-            $this->success('修改成功', U('index'));
+            $this->success('修改成功', U('index'),2);
         } else {
             $this->error('修改失败');
         }

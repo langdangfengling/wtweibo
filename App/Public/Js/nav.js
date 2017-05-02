@@ -444,7 +444,7 @@ $(function () {
        var imgContainer = $(this).parents('.z_photo'); //存放图片的父亲元素
        var file =document.getElementById('fileId2');
        fileList2=list(file.files);
-       console.log(fileList2);
+       // console.log(fileList2);
 
        ////遍历得到的图片文件
        var numUp = imgContainer.find(".up-section").length;
@@ -511,15 +511,17 @@ $(function () {
         var fd = new FormData();
         //将两次添加的file对象重合到一个数组里
        var fileList;
+       // console.log(fileList1);
         fileList=fileList1.concat(fileList2);
+        // console.log(fileList);
         for(var i=0;i<fileList.length;i++){
             fd.append('f'+i, fileList[i]);
         }
         //获取需要存入相册的ID
         var aid=$(this).parents('#dialog_content').prev().find('.pitch p span').attr('aid');
-        alert(aid);
+        // alert(aid);
         fd.append('aid',aid);
-        //console.log(fd);
+        // console.log(fd);
         $.ajax({
             type: 'POST',
             url: sendPhoto,
@@ -528,21 +530,22 @@ $(function () {
             contentType: false,
             dataType: 'json',
             success: function (data) {
-                //console.log(data);
-               if(data.status){
-                   //上传成功
-                   //console.log(data);
-                   showTips(data.msg);
-                   //让页面停3s
-                   sleep(2000);
-                   obj.remove();
-                 $('#c-photo-bg').remove();
-                   location.reload();
-                   //self.location=CONTROLLER+'/photo/'+aid;
-               }else{
-                   console.log(data.status);
-                   //alert(data.msg);
-               }
+                alert(111);
+                console.log(data);
+               // if(data.status){
+               //     //上传成功
+               //     //console.log(data);
+               //     showTips(data.msg);
+               //     //让页面停3s
+               //     sleep(2000);
+               //     obj.remove();
+               //   $('#c-photo-bg').remove();
+               //     location.reload();
+               //     //self.location=CONTROLLER+'/photo/'+aid;
+               // }else{
+               //     console.log(data.status);
+               //     //alert(data.msg);
+               // }
             }
         });
     });

@@ -106,12 +106,12 @@ $('.create-album').click(function(){
         var photoTop = $(document).scrollTop() + ($(window).height() - album.height()) / 2;
         //console.log(groupLeft);
         //console.log(groupTop);
-        var photoObj = album.show().css({
+        album.show().css({
             'left': photoLeft,
             'top': photoTop,
         });
         createBg('edit-album-bg');
-        drag(photoObj, photoObj.find('.album-head'));
+        drag(album, album.find('.album-head'));
         album.find('.album-head span').html('编辑相册');
         var aid = $(this).attr('aid');
         var aname = album.find("input[name='name']");
@@ -193,16 +193,16 @@ function createBg(id){
 function drag (obj, element) {
     var DX, DY, moving;
     element.mousedown(function (event) {
-        DX = event.pageX - parseInt(obj.css('left'));	//鼠标距离事件源宽度
-        DY = event.pageY - parseInt(obj.css('top'));	//鼠标距离事件源高度
-        moving = true;	//记录拖拽状态
+        DX = event.pageX - parseInt(obj.css('left'));   //鼠标距离事件源宽度
+        DY = event.pageY - parseInt(obj.css('top'));    //鼠标距离事件源高度
+        moving = true;  //记录拖拽状态
     });
     $(document).mousemove(function (event) {
         if (!moving) return;
-        var OX = event.pageX, OY = event.pageY;	//移动时鼠标当前 X、Y 位置
-        var	OW = obj.outerWidth(), OH = obj.outerHeight();	//拖拽对象宽、高
+        var OX = event.pageX, OY = event.pageY; //移动时鼠标当前 X、Y 位置
+        var OW = obj.outerWidth(), OH = obj.outerHeight();  //拖拽对象宽、高
         var DW = $(window).width(), DH = $('body').height();  //页面宽、高
-        var left, top;	//计算定位宽、高
+        var left, top;  //计算定位宽、高
         left = OX - DX < 0 ? 0 : OX - DX > DW - OW ? DW - OW : OX - DX;
         top = OY - DY < 0 ? 0 : OY - DY > DH - OH ? DH - OH : OY - DY;
         obj.css({
@@ -210,6 +210,6 @@ function drag (obj, element) {
             'top' : top + 'px'
         });
     }).mouseup(function () {
-        moving = false;	//鼠标抬起消取拖拽状态
+        moving = false; //鼠标抬起消取拖拽状态
     });
 }

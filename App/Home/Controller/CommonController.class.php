@@ -104,19 +104,19 @@ class CommonController extends Controller
         if(!IS_AJAX){
             $this->error('非法提交');
         }
-//        echo json_encode(dump($_FILES));die;
+       // echo json_encode($_FILES);
         $aid=I('post.aid','','intval');
         $db=M('photo');
         $data=array();
        $photoinfo=$this->_upload('photos/');
-//        echo json_encode($photoinfo);
+       echo json_encode($photoinfo);die;
         if(is_array($photoinfo)){
             foreach($photoinfo as $k => $v){
                 $photo='Uploads/' . $v['savepath'] . $v['savename'];
                 $savePath='Uploads/' . $v['savepath'];
                 $thumb=$this->_photoImg($photo,$savePath,$v['savename']);
-                $data['photo']=$savePath.$v['savename'];
-                $data['photo150']=$thumb;
+                $data['photo']=$v['savepath'].$v['savename'];
+                $data['photo150']=$v['savepath'].$thumb;
                 $data['aid']=$aid;
                 $name=strstr($v['name'],'.',true);
                 $data['name']=$name;
@@ -139,7 +139,7 @@ class CommonController extends Controller
             $image=new Image();
             $image->open($photo);
             $image->thumb(173,130)->save($savePath.'thumb_170'.$saveName);
-            return $savePath.'thumb_170'.$saveName;
+            return 'thumb_170'.$saveName;
         }
     }
     /**
@@ -152,7 +152,7 @@ class CommonController extends Controller
         $upload->maxSize=2000000;//上传文件大小
         $upload->rootPath=C('UPLOAD_PATH');//上传文件根目录
         $upload->savePath=$path;//相对于更目录保存的路径，相当于对保存文件进行一个目录分类
-        $upload->saveName= array('uniqid','');//文件名保存规则，唯一性
+        $upload->saveName= microtime().'_'.mt_rand(1000,9999);//文件名保存规则，唯一性.
         $upload->replace=true;//文件名相同时进行替换
         $upload->exts=array('jpg','jpeg','gif','png');//允许上传文件的后缀名
         $upload->mimes=array('image/jpg','image/jpeg','image/gif','image/png');

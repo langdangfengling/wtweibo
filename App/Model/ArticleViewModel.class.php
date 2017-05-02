@@ -10,10 +10,10 @@ class ArticleViewModel extends \Think\Model\ViewModel
      * 定义是图标关联关系
      */
     public $viewFields = array(
-        'article' => array('id', 'content', 'isturn', 'time', 'turn', 'collect', 'comment', 'gid',
+        'article' => array('id', 'content', 'isturn', 'time', 'turn', 'collect', 'comment', 'gid','name'=>'title',
             '_type' => 'left' //左外连接查询,针对下个表有效
         ),
-        'agroup' => array('name','uid','_type' => 'left','_on' => 'article.gid = agroup.id'),
+        'agroup' => array('name' => 'gname','uid','_type' => 'left','_on' => 'article.gid = agroup.id'),
         'userinfo' => array(
             'username', 'face60' => 'face', '_on' => 'agroup.uid=userinfo.uid',//连接查询条件
             '_type' => 'LEFT'

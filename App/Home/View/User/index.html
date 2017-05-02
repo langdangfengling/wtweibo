@@ -37,22 +37,22 @@
                      <foreach name='article' item='v'>
                          <php>extract($v);</php>
            <div class="wz">
-            <h3><a href="#" title="{$v.name}">浅谈：html5和html的区别</a></h3>
+            <h3><a href="#" title="{$title}">{$title}</a></h3>
              <dl>
-               <dt> <a href="{:U('/Home/'.$v['uid'])}"><img src="<if condition='$face'>__ROOT__/{$v.face}<else/>__PUBLIC__/Images/noface.gif
-                   </if>" width="60"  height="60" alt=""></a></dt>
+               <dt> <a href="{:U('/Home/'.$v['uid'])}"><img src="<if condition='$face'>__ROOT__/{$v.face}<else/>__PUBLIC__/Images/noface.gif</if>" width="60"  height="60" alt=""></a></dt>
                <dd class="text">
-                 <p class="dd_text_1">{$content}</p>
+                 <p class="dd_text_1">{$content}......</p>
                <p class="dd_text_2">
-               <span class="fleft author">{$username}</span><span class="fleft sj">{$time}</span>
-               <span class="fleft yd"><a href="{:U('article')}" title="阅读全文">阅读全文</a></span>
+               <span class="fleft author">{$username}</span><span class="fleft sj">{$time|time_format=###}</span>
+               <span class="fleft type">{$gname}</span>
+               <span class="fleft yd"><a href="{:U('User/article',array('id' => $id))}" title="阅读全文">阅读全文</a></span>
                 <div class="clear"></div>
                </p>
                </dd>
                   <!--操作-->
                  <dd class="wb_tool">
                      <!--发布时间-->
-                     <span class="send_time">{$v.time}</span>
+                     <span class="send_time">{$time}</span>
                      <ul>
                          <if condition='isset($_SESSION["uid"]) && $_SESSION["uid"] eq $uid'>
                              <li><span class="del-weibo hidden" wid="{$v.id}">删除</span></li>

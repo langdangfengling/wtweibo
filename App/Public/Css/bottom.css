@@ -46,23 +46,23 @@
     text-indent: 1em;
 }
 /*文章发布框*/
-#subArticle{width:1200px;height: 800px;overflow: hidden;margin:0 auto;background-color: #FFFFFF;border: 2px #bababa solid;border-radius: 10px;display: block;z-index: 5;position: absolute;display: none}
+#subArticle{width:1100px;height: 700px;overflow: hidden;margin:0 auto;background-color: #FFFFFF;border: 2px #bababa solid;border-radius: 10px;display: block;z-index: 5;position: absolute;display: none}
 #subArticle #dialog_head{width:100%;height: 50px;background-color: #f1f1f1;border-bottom: 1px #b8fff5 solid;}
 #subArticle #dialog_head h3{width:500px;height: 25px;margin-left: 10px;padding-top: 10px;}
 #subArticle #dialog_head button{width:20px;height:20px;margin-right:15px;border:none;position: absolute;right:-14px;top:3px;}
 #subArticle .container{position: relative;}
-#subArticle .container tr{width:90%;height:45px;}
-#subArticle .container tr td input{width:300px;height:30px;border:1px #e0e0e0 solid;}
-#subArticle .container tr td input:hover{width:300px;height:30px;border:1px #35b0ff solid;}
-#subArticle .container tr td input.ain{width:200px;height:30px;border:1px #e0e0e0 solid;position: absolute;left:420px;top:99px;}
-#subArticle .container tr td input.ain:hover{width:200px;height:30px;border:1px #35b0ff solid;}
-#subArticle .container tr td input.add{width:80px;height:32px;border:1px #e0e0e0 solid;position: absolute;left:631px;top:99px;border: none;}
-#subArticle .container tr td input.add:hover{width:80px;height:32px;background-color: #0a8cd2;border: none;}
+#subArticle .container tr{width:90%;height:35px;}
+#subArticle .container tr td input{width:300px;height:20px;border:1px #e0e0e0 solid;}
+#subArticle .container tr td input:hover{width:300px;height:20px;border:1px #35b0ff solid;}
+#subArticle .container tr td input.ain{width:200px;height:20px;border:1px #e0e0e0 solid;position: absolute;left:420px;top:74px;}
+#subArticle .container tr td input.ain:hover{width:200px;height:20px;border:1px #35b0ff solid;}
+#subArticle .container tr td input.add{width:80px;height:22px;border:1px #e0e0e0 solid;position: absolute;left:631px;top:74px;border: none;}
+#subArticle .container tr td input.add:hover{width:80px;height:22px;background-color: #0a8cd2;border: none;}
 #subArticle .container tr td span{color:red;}
-#subArticle .container tr.submit{position: absolute;left:491px;bottom:-85px;width:325px;}
+#subArticle .container tr.submit{position: absolute;left:491px;bottom:-66px;width:325px;}
 #subArticle .container tr.submit input{width: 200px;height: 50px;font-size:18px;}
 #subArticle .container tr.submit input:hover{width: 200px;height: 50px;background-color: #0a8cd2;font-size: 18px;color: #ececec;}
-#subArticle .container .setEditor{position:absolute;width: 800px;height: 30px;left:212px;bottom: -3px;}
+#subArticle .container .setEditor{position:absolute;width: 800px;height: 30px;left:192px;bottom: -13px;}
 
 
 /*

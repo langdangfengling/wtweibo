@@ -90,6 +90,7 @@ jQuery.validator.addMethod('user',function(value,element){
             uname:{
                 required:'请输入您的昵称',
                 rangelength:'请输入4-16位字符',
+                remote:'改昵称已被占用，请进行更换'
             },
             verify:{
                 required:'请输入验证码',
