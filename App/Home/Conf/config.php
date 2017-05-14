@@ -5,6 +5,7 @@ return array(
     //修改__PUBLIC__路径
     'TMPL_PARSE_STRING' =>array(
         '__PUBLIC__' =>__ROOT__.'/App/Public',
+        '__UPLOADS__' =>__ROOT__.'/Uploads',
     ),
     //保存自动登录的cookie时间 一个星期
     'AUTO_LOGIN_TIME' => time()+7*24*60*60,

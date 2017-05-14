@@ -1,0 +1,60 @@
+    <ul class="comment_listBox">
+            <volist name="comments" id="v">
+                <li class="comment_list clearfix"> <!--if condition="$comments_num%10-1 eq $key or $key%10 eq 9">style='border-bottom:none'-->
+                    <div class="comment_avatar">
+                        <span class='userPic'><img width="36" height="36" src="<if condition='$v[face]'>__ROOT__/{$v.face}<else/>__PUBLIC__/Images/noface.gif</if>" alt=""></span>
+                        <span class="grey">{$v.username}</span>
+                    </div>
+                    <div class="comment_conBox">
+                        <div class="comment_avatar_time">
+                            <div class="time">{$v.time|time_format=###}</div> {$v.id}楼
+                        </div>
+                        <div class="comment_conWrap clearfix">
+                            <div class="comment_action"><a class="reply">回复</a> </div>
+                            <div class="comment_con">{$v.content}</div>
+                        </div>
+                        <!--回复框-->
+                        <div fid='{$v.id}' class='reply_area'>
+                            <textarea  class="textarea_comment" sign='comment2' name="content" autocomplete="off"></textarea>
+                            <div class="btn_p clearfix">
+                                <span class="comment_tip"></span>
+                                <button class="btn_subGrey btn">提交</button>
+                                <ul class='fleft'>
+                                    <li title='表情'><i class='icon icon-phiz phiz' sign='comment2'></i></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!--end 回复框-->
+                        <!--回复内容展示区-->
+                        <div class="blockquote_wrap" id="blockquote_wrap">
+                            <volist name="v['reply']" id="vo">
+                                <blockquote class="comment_blockquote">
+                                    <div class="comment_floor">{$vo.time|time_format=###}</div>
+                                    <div class="comment_conWrap clearfix">
+                                        <div class="comment_con">
+                                            {$vo.username}：
+                                            <p>{$vo.content}</p>
+                                        </div>
+                                        <div class="comment_action_sub">
+                                            <a class="reply" >回复</a>
+                                        </div>
+                                    </div>
+                                    <div fid="{$vo.fid}" class="reply_area_sub">
+                                        <textarea class="textarea_comment" sign='comment1' autocomplete="off" name="content"></textarea>
+                                        <div class="btn_p clearfix">
+                                            <span class="comment_tip"></span>
+                                            <button class="btn_subGrey btn" >提交</button>
+                                            <ul class='fleft'>
+                                                <li title='表情'><i class='icon icon-phiz phiz' sign='comment1'></i></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </blockquote>
+                            </volist>
+                        </div>
+                        <!-- end 回复内容展示区-->
+                    </div>
+                </li>
+            </volist>
+        </ul>
+        <div class="pager">{$page}</div>

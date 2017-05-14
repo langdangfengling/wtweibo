@@ -50,14 +50,14 @@
 #msgBox .list .rlist input.reply{width:430PX;height: 30px;font-size: 14px;color: grey;text-indent: 5px;border: 1px gainsboro solid;}
 /*hover样式*/
 #msgBox .list .rlist input.hov{width:430PX;height: 30px;font-size: 14px;color: grey;text-indent: 5px;border: 1px #E5B901 solid;}
-
-#msgBox .list .rlist #reply textarea{width: 370px;height:50px;border:2px #DADADA solid;}
-#msgBox .list .rlist #reply textarea.fou{width: 370px;height:50px;border:2px #E5B901 solid;}
-#msgBox .list .rlist #reply p.btn{margin-top: 9px;}
-#msgBox .list .rlist #reply input.sub_btn{background-color: grey;font-size: 12px;color: #FFFFFF;width: 48px;height: 20px;border: none;}
-#msgBox .list .rlist #reply input.cancel{background-color:#FFFFFF;font-size: 12px;color:grey;border: none;margin-right: 249px;}
-#msgBox .list .rlist #reply p.btn span{color:grey;}
-#msgBox .list .rlist #reply P.bq span.emotion{width:20px; height:20px; background:url(../Images/icon.png) no-repeat -222px 2px;cursor:pointer}
-#msgBox .list .rlist #reply P.bq{margin-bottom: 2px;width: 20px;height: 20px;}
+#msgBox .list .rlist div.reply{display: none;}
+#msgBox .list .rlist div.reply textarea{width: 370px;height:50px;border:2px #DADADA solid;}
+#msgBox .list .rlist div.reply textarea.fou{width: 370px;height:50px;border:2px #E5B901 solid;}
+#msgBox .list .rlist div.reply p.btn{margin-top: 9px;}
+#msgBox .list .rlist div.reply input.sub_btn{background-color: grey;font-size: 12px;color: #FFFFFF;width: 48px;height: 20px;border: none;}
+#msgBox .list .rlist div.reply input.cancel{background-color:#FFFFFF;font-size: 12px;color:grey;border: none;margin-right: 249px;}
+#msgBox .list .rlist div.reply p.btn span{color:grey;}
+#msgBox .list .rlist div.reply P.bq span.emotion{width:20px; height:20px; background:url(../Images/icon.png) no-repeat -222px 2px;cursor:pointer}
+#msgBox .list .rlist div.reply P.bq{margin-bottom: 2px;width: 20px;height: 20px;}
 
 .tr *{float:left;}

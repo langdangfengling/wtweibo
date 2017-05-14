@@ -511,9 +511,9 @@ $(function () {
         var fd = new FormData();
         //将两次添加的file对象重合到一个数组里
        var fileList;
-       // console.log(fileList1);
+        //console.log(fileList1);
         fileList=fileList1.concat(fileList2);
-        // console.log(fileList);
+         //console.log(fileList);
         for(var i=0;i<fileList.length;i++){
             fd.append('f'+i, fileList[i]);
         }
@@ -530,22 +530,22 @@ $(function () {
             contentType: false,
             dataType: 'json',
             success: function (data) {
-                alert(111);
+                //alert(111);
                 console.log(data);
-               // if(data.status){
-               //     //上传成功
-               //     //console.log(data);
-               //     showTips(data.msg);
-               //     //让页面停3s
-               //     sleep(2000);
-               //     obj.remove();
-               //   $('#c-photo-bg').remove();
-               //     location.reload();
-               //     //self.location=CONTROLLER+'/photo/'+aid;
-               // }else{
-               //     console.log(data.status);
-               //     //alert(data.msg);
-               // }
+                if(data.status){
+                    //上传成功
+                    //console.log(data);
+                   successInfo('上传相片成功!')
+                    //让页面停3s
+                    sleep(2000);
+                    obj.remove();
+                  $('#c-photo-bg').remove();
+                    location.reload();
+                    //self.location=CONTROLLER+'/photo/'+aid;
+                }else{
+                    console.log(data.status);
+                    //alert(data.msg);
+                }
             }
         });
     });
@@ -611,7 +611,51 @@ $(function () {
     //	"type":1,
     //	"total":2,
     //});
+//消息提示框效果函数
+    function successInfo(msg) {
+        jSuccess(msg, {
+            VerticalPosition: 'center',
+            HorizontalPosition: 'center'
+        });
+    }
+    //autoHide	是否自动隐藏提示条	true
+    //clickOverlay	是否单击遮罩层才关闭提示条	false
+    //MinWidth	最小宽度	200
+    //TimeShown	显示时间：毫秒	1500
+    //ShowTimeEffect	显示到页面上所需时间：毫秒	200
+    //HideTimeEffect	从页面上消失所需时间：毫秒	200
+    //LongTrip	当提示条显示和隐藏时的位移	15
+    //HorizontalPosition	水平位置:left, center, right	right
+    //VerticalPosition	垂直位置：top, center, bottom	bottom
+    //ShowOverlay	是否显示遮罩层	true
+    //ColorOverlay	设置遮罩层的颜色	#000
+    //OpacityOverlay	设置遮罩层的透明度	0.3
+    function noticInfo(msg) {
+        jNotify(msg);
+    }
 
+    function errorInfo(msg) {
+        jError(msg);
+    }
+
+    function treeInfo(){
+        jSuccess("操作成功，2秒后显示下一个提示框!!", {
+            TimeShown: 2000,
+            onClosed: function () {
+                jNotify("注意：点击这里显示下一个提示框", {
+                    VerticalPosition: 'top',
+                    autoHide: false,
+                    onClosed: function () {
+                        jError("出错啦! 演示结束,<br /> 请点击背景层关闭提示框。", {
+                            clickOverlay: true,
+                            autoHide: false,
+                            HorizontalPosition: 'left'
+                        });
+                    }
+                });
+            }
+        });
+    }
 });
 //异步轮询函数
 function get_msg(url){

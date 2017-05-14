@@ -93,7 +93,7 @@ $(function() {
             data: {uid: guest_uid, content: guest_content},
             success: function (data) {
                 if (data != 'false') {
-                    console.log(data);
+                    //console.log(data);
                     //var oDate = new Date();
                     var img = data.face ? UPLOADS + data.face : PUBLIC + "face1.gif";
                     //console.log(img);
@@ -143,10 +143,12 @@ $(function() {
      */
         //点击"回复"
     $('a.reply').click(function () {
+        //隐藏其他回复框
+        $('div.reply').hide();
         //回复框显现
-        $(this).parents('li.g').find('#reply').show().find('textarea').addClass('saytext').focus();
+        $(this).parents('li.g').find('.reply').show().find('textarea').addClass('fou').focus();
         //想对我说点什么输入框隐藏
-        $('input.reply').hide();
+        $(this).parents('li').find('div.state').hide();
     });
 
     // 我也说点什么 输入框
@@ -158,7 +160,14 @@ $(function() {
             $(this).removeClass('hov');
         },
         focus: function () {
+            //隐藏其他回复框
+            $('div.reply').hide();
+            //隐藏我想输入框，回复框显现
+            //我也说点什么显现
+            $('div.state').show();
             $(this).val("").parent().hide().next().show().find('textarea').addClass('fou').focus();
+
+
         },
     });
     //回复内容计数
@@ -168,7 +177,7 @@ $(function() {
             content=$(this).val();
             var lengths=check(content);
             if(lengths[0]>200){
-                alert('你的输入内容已超出200字！');
+                noticInfo('你的输入内容已超出200字！');
             }
             var msg=Math.ceil(lengths[0]);
             $(this).next().find('span.n').html(msg);
@@ -176,7 +185,7 @@ $(function() {
         keyup:function(){ content=$(this).val();
             var lengths=check(content);
             if(lengths[0]>200){
-                alert('你的输入内容已超出200字！');
+                noticInfo('你的输入内容已超出200字！');
             }
             var msg=Math.ceil(lengths[0]);
             $(this).next().find('span.n').html(msg);
@@ -190,6 +199,16 @@ $(function() {
         var gid=$(this).parents("li.g").attr('gid');
         var obj=$(this).parents('#reply');
         var objul=obj.prev().prev();
+        if(content == ""){
+            noticInfo("请说点什么吧！")
+            $(this).parent().prev().focus();
+            return false;
+        }
+        var lengths=check(content);
+        if(lengths[0]>200){
+            noticInfo('你的输入内容已超出200字！');
+            return false;
+        }
         //异步
         $.post(REPLYURL,{content:reply_content,gid:gid},function(data){
             console.log(data);
@@ -211,7 +230,7 @@ $(function() {
     });
     //回复取消发送
     $('input.cancel').click(function(){
-        var obj=$(this).parents('#reply')
+        var obj=$(this).parents('.reply')
         obj.hide().prev().show().find('input.reply').removeClass('hov').val("我也说点什么......");
         //textarea清空
         obj.find('textarea').val("");
@@ -276,6 +295,51 @@ $(function() {
         //    $('#edit_tpl_bg').remove();
         //}
     });
+    //消息提示框效果函数
+    function successInfo(msg) {
+        jSuccess(msg, {
+            VerticalPosition: 'center',
+            HorizontalPosition: 'center'
+        });
+    }
+    //autoHide	是否自动隐藏提示条	true
+    //clickOverlay	是否单击遮罩层才关闭提示条	false
+    //MinWidth	最小宽度	200
+    //TimeShown	显示时间：毫秒	1500
+    //ShowTimeEffect	显示到页面上所需时间：毫秒	200
+    //HideTimeEffect	从页面上消失所需时间：毫秒	200
+    //LongTrip	当提示条显示和隐藏时的位移	15
+    //HorizontalPosition	水平位置:left, center, right	right
+    //VerticalPosition	垂直位置：top, center, bottom	bottom
+    //ShowOverlay	是否显示遮罩层	true
+    //ColorOverlay	设置遮罩层的颜色	#000
+    //OpacityOverlay	设置遮罩层的透明度	0.3
+    function noticInfo(msg) {
+        jNotify(msg);
+    }
+
+    function errorInfo(msg) {
+        jError(msg);
+    }
+
+    function treeInfo(){
+        jSuccess("操作成功，2秒后显示下一个提示框!!", {
+            TimeShown: 2000,
+            onClosed: function () {
+                jNotify("注意：点击这里显示下一个提示框", {
+                    VerticalPosition: 'top',
+                    autoHide: false,
+                    onClosed: function () {
+                        jError("出错啦! 演示结束,<br /> 请点击背景层关闭提示框。", {
+                            clickOverlay: true,
+                            autoHide: false,
+                            HorizontalPosition: 'left'
+                        });
+                    }
+                });
+            }
+        });
+    }
 });
 /**
  * 统计字数

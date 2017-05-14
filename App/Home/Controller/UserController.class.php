@@ -9,6 +9,7 @@
 namespace Home\Controller;
 use Model\AlbumModel;
 use Model\AlbumViewModel;
+use Model\CommentViewModel;
 use Model\GuestViewModel;
 use Think\Controller;
 use Think\Page;
@@ -51,14 +52,25 @@ class UserController extends CommonController
         $page=new Page($count,3);
         $limit=$page->firstRow.','.$page->listRows;
         $article=$articleView->getAll($where,$limit);
-               // dump($article);               
+               // dump($article);
+        //    匹配文章内容中图片的src正则表达式
+//        $preg='<img[\s]+src[\s]*=[\s]*(([\'\"](?<src>[^\'\"]*)[\'\"])|(?<src>[^\s]*))';//不行
+//        $preg='/<img.+src=\"?(.+\.(jpg|gif|bmp|bnp|png))\"?.+>/i'; //OK 不懂怎么可以匹配 ？？？？？？？？？？/这个可以找到文章所有的图片标签，单全部集合在一个字符串中，不好提取地址
+        $preg="/<[img|IMG].*?src=[\'|\"](.*?(?:[\.gif|\.jpg]))[\'|\"].*?[\/]?>/";
+        //.*连在一起就意味着任意数量的不包含换行的字符。现在\bhi\b.*\bLucy\b的意思就很明显了：先是一个单词hi,然后是任意个任意字符(但不能是换行)，最后是Lucy这个单词。
 //                需对文章内容稍作处理，存在数据库中的数据已经被转义，所以需要反转义回来,然后在截取一段字作文文章的描述
-         foreach ($article as $k => $v) {
-                    $article[$k]['content']=htmlspecialchars_decode($v['content']);//反转义
-                     $article[$k]['content']=strip_tags( $article[$k]['content']);//去除字符串中html和php标签
-                    $article[$k]['content']=substr($article[$k]['content'], 0,360);
-                    }           
-                  // dump($article);  die; 
+        if($article) {
+            foreach ($article as $k => $v) {
+                $article[$k]['content'] = htmlspecialchars_decode($v['content']);//反转义
+                //如果文章内容中存在图片，文章中图片的路径src
+                preg_match_all($preg,$article[$k]['content'],$src);
+//                var_dump($src);
+                $article[$k]['src']=$src[1];
+                $article[$k]['content'] = strip_tags($article[$k]['content']);//去除字符串中html和php标签
+                $article[$k]['content'] = substr($article[$k]['content'], 0, 360);
+            }
+        }
+//                   dump($article);  die;
         //右栏显示好友分组相关微博
         if($gid=I('get.gid','','intval')){
             //得到我关注好友的id
@@ -93,7 +105,7 @@ class UserController extends CommonController
         $this->page=$page->show();
         $this->display();
     }
-
+//文章发布入库
     public function saveArticle(){
         if(!IS_POST){
             $this->error('非法请求');
@@ -111,19 +123,148 @@ class UserController extends CommonController
             $this->success('发布成功',$_SERVER['HTTP_REFERER']);
         }
     }
-    //全文读取文章
+    //全文读取文章.并且读取该文章下的评论数据
     public function article(){
         if(!IS_GET){
             $this->error('非法请求');
         }
-        $id=I('get.id');
+        //文章
+        $id=I('get.id','','intval');
         $ArticleView=new ArticleViewModel();
         $where=array('id' =>$id);
         $article=$ArticleView->where($where)->find();
-        // dump($article);die;
+        //评论数据
+        $where=(array('aid' => $id,'fid' => 0));//这里一定要带上条件fid=0，然后commentview类里对评论重新组合
+        $commentView=new CommentViewModel();
+        $count=$commentView->where($where)->count();
+        //导入第三方分页显示类库
+        import("Common.Org.PageAjax");
+        $Page = new \PageAjax($count,5,1,2);//这里文章页显示的评论数据是自然加载，默认显示第一页数据，此时的都不带a连接，这里如果想异步获取数据，那么就需要再写一个方法来异步获取评论，并传递page（当前页）参数
+//        dump($count);die;
+        $limit=5;
+        $comments=$commentView->getAll($where,$limit);
+//        var_dump($comments);die;
+//         dump($article);die;
+
+//        $page=$Page->show();
+//        var_dump($page);die;
+        $this->count=$count;
         $this->article=$article;
-        $this->display();   
-         }
+        $this->comments=$comments;
+        $this->assign('page',$Page->myde_write());
+        $this->display();
+    }
+
+
+    //文章评论异步提交
+    public function sendComment()
+    {
+        if (!IS_AJAX) {
+            $this->error('非法提交');
+        }
+        $fid = I('post.fid', '', 'intval');
+        $content = I('post.content');
+//            if (time() - session("comment_time") < 60 && session("comment_time") > 0) {//2分钟以后发布
+//                echo json_encode(array("status" => -2, "error" => "您提交评论的速度太快了，请稍后再发表评论。"));
+//                exit;
+//        }
+        $data = array(
+            'aid' => I('post.aid', '', 'intval'),
+            'content' => $content,
+            'time' => time(),
+            'uid' => session('uid'),
+            'fid' => $fid
+        );
+        $id = M('comment')->data($data)->add();
+        if ($id) {
+            //读取评论用户信息
+            $field = array('username', 'face60' => 'face');
+            $where = array('uid' => $data['uid']);
+            $user = M('userinfo')->where($where)->field($field)->find();
+//            //文章的发布者用户信息
+//            $uid=I('post.uid','','intval');
+//            $where=array('uid'=>$uid);
+//            $username=M('userinfo')->where($where)->getField('username');
+
+
+//            //推送消息
+//            set_msg($uid,1);
+//            //评论同时转发时处理
+//            $isturn=I('post.isturn','','intval');
+////            dump($isturn);die;
+//            if($isturn){
+//                //读取转发微博内容与id
+//                $field=array('id','content','isturn');
+//                $weibo=$db->field($field)->find($data['wid']);
+//                $tid=$weibo['isturn']?$weibo['isturn']:$weibo['id'];
+//                $content=$weibo['isturn']?$data['content'].'@//'.$username.':'.$weibo['content']:$data['content'];//如果要转发的微博不是原微博，那么内容就是我评论的内容加上要转发微博的内容，否则只是我评论的内容
+//                //将我转发的微博以及评论的内容存入到数据库中
+//                $cons=array(
+//                    'isturn' =>$tid,
+//                    'uid' =>$data['uid'],
+//                    'content' =>$content,
+//                    'time' => $data['time'],
+//                );
+//                if($db->add($cons)){
+//                    //微博转发数加+1
+//                    $db->where(array('id'=>$weibo['id']))->setInc('turn',1);
+//                }
+//                echo 1;
+//                die;//这里如果评论同时转发的话就不用异步显示评论，需要将页面刷新重新载入转发后的微博
+//            }
+
+            if (!$fid) {//评论字符串
+                $str = '';
+                $str .= '<li class="comment_list clearfix"><div class="comment_avatar">';
+                $str .= '<span class="userPic"><img width="36" height="36" src="';
+                $str .= __ROOT__;
+                if ($user['face']) {
+                    $str .= '/' . $user['face'];
+                } else {
+                    $str .= '/Public/Images/noface.gif';
+                }
+                $str .= '" alt="' . $user['username'] . '" width="36" height="36" /></span>';
+                $str .= ' <span class="grey">';
+                if (session('uid') == $data['uid']) {
+                    $str .= '我';
+                } else {
+                    $str .= $user['username'];
+                }
+                $str .= '</span></div>';
+                $str .= '<div class="comment_conBox"><div class="comment_avatar_time">';
+                $str .= '<div class="time">' . time_format($data["time"]) . '</div>';
+                $str .= $id . '楼';
+                $str .= '</div><div class="comment_conWrap clearfix">';
+                $str .= '<div class="comment_action"><a class="reply" fid="' . $id . '">回复</a> </div>';
+                $str .= '<div class="comment_con">' . $data['content'] . '</div>';
+                $str .= '</div></div></li>';
+                echo $str;
+            } else {
+                //该文章评论数加+1 是评论的+1，回复的不算
+                M('article')->where(array('id' => $data['aid']))->setInc('comment', 1);
+                //评论回复字符串
+                $str = '';
+                $str .= '<blockquote class="comment_blockquote"><div class="comment_floor" >';
+                $str .= time_format($data["time"]) . '</div>';
+                $str .= '<div class="comment_conWrap clearfix" ><div class="comment_con" >';
+                $str .= $user['username'] . ':';
+                $str .= '<p>' . $data["content"] . '</p></div>';
+                $str .= '<div class="comment_action_sub" > <a class="reply" > 回复</a ></div ></div>';
+                $str .= '<div fid = "' . $fid . '" class="reply_area_sub" >';
+                $str .= ' <textarea class="textarea_comment" autocomplete = "off" name = "content" ></textarea >';
+                $str .= '<div class="btn_p clearfix" >';
+                $str .= '<span class="comment_tip"></span>';
+                $str .= ' <button class="btn_subGrey btn" type = "button" > 提交</button >';
+                $str .= '<ul class=\'fleft\' ><li title = \'表情\' ><i class=\'icon icon-phiz phiz\' sign = \'comment\' ></i ></li ></ul >';
+                $str .= '  </div ></div ></blockquote >';
+                echo $str;
+            }
+        } else {
+            echo 'false';
+        }
+    }
+
+
     /**
      * 我的好友
      */

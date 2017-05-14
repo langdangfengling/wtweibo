@@ -12,6 +12,7 @@ namespace Home\Controller;
 use Think\Controller;
 use Think\Image;
 use Think\Upload;
+use Model\CommentViewModel;
 
 class CommonController extends Controller
 {
@@ -97,6 +98,7 @@ class CommonController extends Controller
 //        }
 //    }
 
+
     /**
      * 相册图片上传
      */
@@ -104,19 +106,20 @@ class CommonController extends Controller
         if(!IS_AJAX){
             $this->error('非法提交');
         }
-       // echo json_encode($_FILES);
+//        var_dump($_FILES);
         $aid=I('post.aid','','intval');
         $db=M('photo');
         $data=array();
-       $photoinfo=$this->_upload('photos/');
-       echo json_encode($photoinfo);die;
+        $photoinfo=$this->_upload('photos/');
+//        var_dump($photoinfo);die;
+//        echo json_encode($photoinfo);
         if(is_array($photoinfo)){
             foreach($photoinfo as $k => $v){
                 $photo='Uploads/' . $v['savepath'] . $v['savename'];
                 $savePath='Uploads/' . $v['savepath'];
                 $thumb=$this->_photoImg($photo,$savePath,$v['savename']);
-                $data['photo']=$v['savepath'].$v['savename'];
-                $data['photo150']=$v['savepath'].$thumb;
+                $data['photo']=$savePath.$v['savename'];
+                $data['photo150']=$thumb;
                 $data['aid']=$aid;
                 $name=strstr($v['name'],'.',true);
                 $data['name']=$name;
@@ -139,7 +142,7 @@ class CommonController extends Controller
             $image=new Image();
             $image->open($photo);
             $image->thumb(173,130)->save($savePath.'thumb_170'.$saveName);
-            return 'thumb_170'.$saveName;
+            return $savePath.'thumb_170'.$saveName;
         }
     }
     /**
@@ -152,7 +155,7 @@ class CommonController extends Controller
         $upload->maxSize=2000000;//上传文件大小
         $upload->rootPath=C('UPLOAD_PATH');//上传文件根目录
         $upload->savePath=$path;//相对于更目录保存的路径，相当于对保存文件进行一个目录分类
-        $upload->saveName= microtime().'_'.mt_rand(1000,9999);//文件名保存规则，唯一性.
+        $upload->saveName= array('uniqid','');;//文件名保存规则，唯一性.
         $upload->replace=true;//文件名相同时进行替换
         $upload->exts=array('jpg','jpeg','gif','png');//允许上传文件的后缀名
         $upload->mimes=array('image/jpg','image/jpeg','image/gif','image/png');
@@ -357,5 +360,29 @@ class CommonController extends Controller
             }
         }
         echo json_encode(array('status' =>0));
+    }
+    //文章评论数据异步获取  更简洁的实现，不用大量拼接字符串，将评论数据展示区重新单独建立个页面，然后异步更新此页面的数据，最后替换到文章页面的评论数据区
+    public function getComments(){
+       if(!IS_AJAX){
+           $this->error('非法请求');
+       }
+        $page=I('get.page','','intval')?I('get.page','','intval'):1;
+        $offset=($page-1)*5;
+        $id=I('get.aid','','intval');//文章id
+        //评论数据
+        $where=(array('aid' => $id,'fid' => 0));//这里一定要带上条件fid=0，然后commentview类里对评论重新组合
+        $commentView=new CommentViewModel();
+        $count=$commentView->where($where)->count();
+        //导入第三方分页显示类库
+        import("Common.Org.PageAjax");
+        $Page = new \PageAjax($count,5,$page,2);//这里文章页显示的评论数据是自然加载，默认显示第一页数据，此时的都不带a连接，这里如果想异步获取数据，那么就需要再写一个方法来异步获取评论，并传递page（当前页）参数
+//        dump($count);die;
+        $limit=$offset.',5';
+        $comments=$commentView->getAll($where,$limit);
+//        var_dump($comments);die;
+        $this->count=$count;
+        $this->comments=$comments;
+        $this->assign('page',$Page->myde_write());
+        $this->display('comments');
     }
 }
