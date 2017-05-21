@@ -75,11 +75,16 @@ $(function() {
 //异步添加文章分类
    $('input.add').click(function () {
       var name = $(this).parent().prev().find('input.ain').val();
+      //alert(name);
       var selectObj = $(this).parent().prev().prev().find("select[name='gid']");
+      if(name == ""){
+         noticInfo('请写入你要添加的类别!');
+         return false;
+      }
       //var index=selectObj.selectedIndex;//获取当前选中序号
       //alert(name);
       $.post(addArticleGroup, {name: name}, function (data) {
-         //console.log(data);
+         console.log(data);
          if (data.status) {
             //第一种选中写法
             var str = '';
@@ -119,6 +124,14 @@ $(function() {
     /**
      * 文章评论
      */
+    //快速发布，发布框获取焦点
+    $('li.comment,div.info b').click(function(){
+       $('#comment_send').find('textarea').focus().css({
+          color:'#333333',
+          borderColor:'#FFB941',
+       })
+    });
+
     //获取焦点清空默认内容 '发布评论'
     $('textarea.textarea_comment').live({
        focus:function(){
@@ -180,13 +193,17 @@ $(function() {
          $('.reply_area_sub').hide();
       },function(){
          $(this).parents('.comment_conWrap').next().hide();
+         //评论框需清空
+         $(this).parents('.comment_conWrap').next().find('textarea').val('');
       }).trigger('click');;
    });
   //子评论回复
    $('.comment_action_sub a.reply').live('click',function(){
       //回复框
       $(this).toggle(function(){
+         //评论框显现并获得焦点
          $(this).parents('.comment_conWrap').next().show();
+         //隐藏已打开的评论框
          $(this).parents('blockquote').siblings().find('.reply_area_sub').hide();
          $('.reply_area').hide()
       },function(){
@@ -198,12 +215,14 @@ $(function() {
    $('.btn_subGrey').live('click',function(){
       //回复框
       var replyObj=$(this).parent().parent();
-      var textarea_content=$(this).parent().prev().val();
+      var textareaObj=$(this).parent().prev();
+      var textarea_content=textareaObj.val();
       //alert(textarea_content);
       var fid=replyObj.attr('fid');
-      alert(fid);
+      //alert(fid);
       var ulParent=$('#comment_wrap').find('ul');
-      var divParent=$('#blockquote_wrap');
+      //var divParent=$('#blockquote_wrap'); //这里不能这样写，必须指定当前回复的blockquote_wrap parent元素
+      var divParent=$(this).parents('.blockquote_wrap');
       if(textarea_content=='发布评论' || textarea_content =="" ){
          noticInfo('请说点什么吧!');
          //获取焦点
@@ -217,11 +236,17 @@ $(function() {
          if(data != 'false'){
             if(fid === '0') {
                ulParent.prepend(data);
+               //隐藏表情框
+               $('#phiz').hide();
+               //评论框内容清空
+               textareaObj.val('');
                successInfo('评论成功!该文章评论数+<strong>1</strong>');
             }else{
-               console.log(data);
+               //console.log(data);
                divParent.prepend(data);
                replyObj.hide();
+               $('#phiz').hide();
+               textareaObj.val('');
                successInfo('评论成功!该文章评论数+<strong>1</strong>');
             }
          }else{
@@ -245,25 +270,168 @@ $(function() {
          }
       }, 'html');
    });
+    /**
+     * 文章收藏
+     */
+   $('li.keep').click(function(){
+      var article_uid=$(this).parents('#news').attr('uid');
+      if(uid == article_uid) {
+         noticInfo('不能收藏自己文章');
+         return;
+      }
+         var aid = $(this).attr('aid');
+         $.post(keep, {aid: aid}, function (data) {
+            if (data.status == 1) {
+               noticInfo(data.msg + '该文章收藏数+<strong>1</strong>');
+            } else if (data.status == -1) {
+               noticInfo(data.msg);
+            } else {
+               noticInfo(data.msg);
+            }
+         }, 'json');
+   });
+  //取消收藏
+   $('span.keep_cancel').hover(function(){
+      $(this).css('color','red');
+   },function(){
+      $(this).css('color','darkgrey');
+   });
+   $('span.keep_cancel').click(function(){
+         var isk=confirm('确定取消收藏吗?');
+         var obj=$(this).parents('.wz');
+         var kid=$(this).attr('kid');
+          var aid=$(this).attr('aid');
+      if(isk){
+         $.post(keepCancel,{kid:kid,aid:aid},function(data){
+            if(data){
+               noticInfo('取消收藏成功!');
+               obj.slideUp('slow',function(){
+                  obj.remove();
+               })
+            }else{
+               noticInfo('取消收藏失败');
+            }
+         },'json');
+      }
+   });
+   /**
+    * 文章删除
+    */
+   $('li.delete_a').click(function(){
+      var isdel=confirm('确认删除该篇文章?');
+      if(isdel){
+         return true;
+      }else{
+         return false;
+      }
+   });
 
-   ////评论回复异步提交
-   //$('a.reply').live('click',function(){
-   //
-   //   var fid=$(this).parent().parent().attr('fid');
-   //   alert(fid);
-   //})
+   /**
+    * 文章转发
+    */
+   var aid='';
+   $('li.turn').click(function(){
+      var article_uid=$(this).parents('#news').attr('uid');
+      if(uid == article_uid) {
+         noticInfo('不能转发自己文章');
+         return;//return 具有阻止函数的运行并不是 return false 还是ture
+      }
 
-   //$(".smileBox").find("a").click(function() {
-   //   var textarea_id = $("#smileBoxOuter").attr("data-id");
-   //   var textarea_obj = $("#reply_" + textarea_id).find("textarea");
-   //   var textarea_val = textarea_obj.val();
-   //   if (textarea_val == "发布评论") {
-   //      textarea_obj.val("")
-   //   }
-   //   var title = "[" + $(this).attr("title") + "]";
-   //   textarea_obj.val(textarea_obj.val() + title).focus();
-   //   $("#smileBoxOuter").hide()
-   //});
+         aid = $(this).attr('aid');
+      alert(aid);
+         var isturn = confirm("确定转发该篇文章吗?");
+         if (isturn) {
+            var left = ($(window).width() - $('#alter').width()) / 2;
+            var top = $(document).scrollTop() + ($(window).height() - $('#alter').height()) / 2;
+            $('#turn').show().css({left: left, top: top});
+            createBg('turn_bg');
+         }
+   });
+   //转发确定
+  $('span.turn-sure').click(function(){
+     //alert(111);
+     //获取分类id
+     var gid=$('#turn').find('.name').val();
+     //alert(aid);
+     if(gid){
+        $.post(turn,{aid:aid,gid:gid},function(data){
+           //console.log(data);
+           if(data){
+              noticInfo('恭喜,转载成功!');
+              $('#turn').hide();
+              $('#turn_bg').remove();
+
+           }else{
+              noticInfo('转载失败!');
+           }
+        },'json');
+     }
+  });
+   //关闭
+   $('span.turn-cencle').click(function(){
+      $('#turn').hide();
+      $('#turn_bg').remove();
+   });
+
+    /**
+     * User/index页面的js处理
+     */
+     //文章的异步删除
+   $('span.del_article').bind('click',function(){
+       //alert(111);
+        var aid=$(this).attr('aid');
+       var isdel=confirm('确认删除该篇文章?');
+      var ParentObj=$(this).parents('.wz');
+      if(isdel){
+         $.post(delArticle,{aid:aid},function(data){
+            if(data){
+                 noticInfo('删除成功!');
+               ParentObj.slideUp('slow',function(){
+                  ParentObj.remove();
+               });
+            }else{
+               noticInfo('删除失败！');
+            }
+         },'json');
+      }
+   });
+
+   //文章修改分类
+   //原先文章分类id
+   var gid='';
+   $('.alter').click(function(){
+      var left=($(window).width()-$('#alter').width())/2;
+      var top=$(document).scrollTop()+($(window).height()-$('#alter').height())/2;
+      $('#alter').show().css({left:left,top:top});
+      createBg('alter_bg');
+      //获取需要修改的文章id
+      var aid=$(this).attr('aid');
+      gid=$(this).attr('gid');
+      //alert(aid);
+      //alert(gid);
+      $('#alter').find('.name').val(gid);
+      $('#alter').find('input.aid').val(aid);
+
+   });
+   //文章修改分类提交
+   $("form[name='form']").submit(function(){
+      //修改后的分类id
+      var agid=$('#alter').find('.name').val();
+      //console.log(agid);
+      if(agid == gid){
+         $('#alter').hide();
+         $('#alter_bg').remove();
+         return false;
+      }
+      $('#alter').find('input.gid').val(agid);
+
+   });
+   //关闭文章修改框
+   $('span.alter-cencle').click(function(){
+      $('#alter').hide();
+      $('#alter_bg').remove();
+   });
+
    /*
     * 表情处理
     * 以原生js添加添加点击事件，不走jQuery队列事件机制
@@ -431,4 +599,49 @@ function check (str) {
       }
    }
    return num;
+}
+/**
+ * 创建全屏透明背景层
+ * @param id
+ */
+function createBg(id){
+   $('<div id="'+id+'"></div>').appendTo('body').css({//appendTo把所有匹配的元素追加到另一个指定的元素元素集合中。
+      'width':$(document).width(),
+      'height':$(document).height(),
+      'position':'absolute',
+      'top' : 0,
+      'left': 0,
+      'z-index':2,//层级权限
+      'opacity':0.3,//透明度
+      'filter':'Alpha(Opacity=30)',
+      'backgroundColor' : '#000'
+   });
+}
+/**
+ * 元素拖拽
+ * @param obj 拖拽的对象
+ * @param element 触发拖拽的对象
+ */
+function drag (obj, element) {
+   var DX, DY, moving;
+   element.mousedown(function (event) {
+      DX = event.pageX - parseInt(obj.css('left'));	//鼠标距离事件源宽度
+      DY = event.pageY - parseInt(obj.css('top'));	//鼠标距离事件源高度
+      moving = true;	//记录拖拽状态
+   });
+   $(document).mousemove(function (event) {
+      if (!moving) return;
+      var OX = event.pageX, OY = event.pageY;	//移动时鼠标当前 X、Y 位置
+      var	OW = obj.outerWidth(), OH = obj.outerHeight();	//拖拽对象宽、高
+      var DW = $(window).width(), DH = $('body').height();  //页面宽、高
+      var left, top;	//计算定位宽、高
+      left = OX - DX < 0 ? 0 : OX - DX > DW - OW ? DW - OW : OX - DX;
+      top = OY - DY < 0 ? 0 : OY - DY > DH - OH ? DH - OH : OY - DY;
+      obj.css({
+         'left' : left + 'px',
+         'top' : top + 'px'
+      });
+   }).mouseup(function () {
+      moving = false;	//鼠标抬起消取拖拽状态
+   });
 }

@@ -39,6 +39,13 @@
                 <li class="set-album"><span>展示设置</span></li>
                 </ul>
             </div>
+        <if condition="!$album">
+            <div class="album_content1">
+                <div class="album_info">
+                    还没有相册赶快去<span class="create-album"><a href="javascript:;">创建吧!</a></span>
+                </div>
+            </div>
+        </if>
         <div class="album_content">
             <ul>
                 <foreach name="album" item="v">

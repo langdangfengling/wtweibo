@@ -63,7 +63,25 @@
 #subArticle .container tr.submit input{width: 200px;height: 50px;font-size:18px;}
 #subArticle .container tr.submit input:hover{width: 200px;height: 50px;background-color: #0a8cd2;font-size: 18px;color: #ececec;}
 #subArticle .container .setEditor{position:absolute;width: 800px;height: 30px;left:192px;bottom: -13px;}
-
+/*修改文章类别弹出框样式*/
+#alter {width:300px;height:140px;z-index:5;position:absolute;background:#fff;border:3px solid #9D9D9D;border-radius:4px;display: none;z-index: 10;position: absolute;}
+#alter .alter-head{width:100%;height:29px;background:#F6F6F6;border-bottom:1px solid #FF9B00;}
+#alter .alter-head .alter-text{display:block;width:250px;height:30px;line-height:30px;font-weight: bold;text-indent: 1em;cursor: move;}
+#alter .alter-name {width: 250px;height: 36px;line-height: 36px;margin: 20px auto;background: #f9f9f9;text-align: center;border-radius: 2px;}
+#alter .alter-name .name{width: 180px;height: 25px;}
+#alter .alter-btn-wrap {width: 295px;height: 36px;line-height: 36px;text-align:right;margin-bottom:10px;}
+#alter .alter-btn-wrap .alter-sure {background: #F9AB00;color: #fff;font-weight: bold;border:1px solid #FF9B00;width:40px;height: 20px;cursor: pointer;border-radius: 5px;}
+#alter .alter-btn-wrap span.alter-cencle {background: #f6f6f6;display: inline-block;width: 40px;height: 20px;line-height: 20px;border: 1px solid #ccc;border-radius: 4px;text-align: center;cursor: pointer;margin-right: 10px;font-size: 12px;}
+/*转发框*/
+#turn {width:300px;height:140px;z-index:5;position:absolute;background:#fff;border:3px solid #9D9D9D;border-radius:4px;display: none;z-index: 10;position: absolute;}
+#turn .turn-head{width:100%;height:29px;background:#F6F6F6;border-bottom:1px solid #FF9B00;}
+#turn .turn-head .turn-text{display:block;width:250px;height:30px;line-height:30px;font-weight: bold;text-indent: 1em;cursor: move;}
+#turn .turn-name {width: 250px;height: 36px;line-height: 36px;margin: 20px auto;background: #f9f9f9;text-align: center;border-radius: 2px;}
+#turn .turn-name .name{width: 180px;height: 25px;}
+#turn .turn-btn-wrap {width: 295px;height: 36px;line-height: 36px;text-align:right;margin-bottom:10px;}
+#turn .turn-btn-wrap span{background: #f6f6f6;display: inline-block;width: 40px;height: 20px;line-height: 20px;border: 1px solid #ccc;border-radius: 4px;text-align: center;margin-right: 10px;font-size: 12px;}
+#turn .turn-btn-wrap span.turn-sure {background: #F9AB00;color: #fff;font-weight: bold;border:1px solid #FF9B00;}
+/*文章评论样式*/
 
 /*
 *消息提示框样式

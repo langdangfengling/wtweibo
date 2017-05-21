@@ -299,23 +299,24 @@ class CommonController extends Controller
             echo json_encode(array('status' => 0));
         }
     }
-    /**
-     * 用户模板设置
-     */
-    public function editTpl()
-    {
-        if (!IS_AJAX) {
-            $this->error('非法提交');
-        }
-        $data = array(
-            'style' => I('post.tpl'),
-        );
-        if (M('userinfo')->where(array('uid' => session('uid')))->save($data)) {
-            echo 1;
-        } else {
-            echo 0;
-        }
-    }
+
+//    /**
+//     * 用户模板设置
+//     */
+//    public function editTpl()
+//    {
+//        if (!IS_AJAX) {
+//            $this->error('非法提交');
+//        }
+//        $data = array(
+//            'style' => I('post.tpl'),
+//        );
+//        if (M('userinfo')->where(array('uid' => session('uid')))->save($data)) {
+//            echo 1;
+//        } else {
+//            echo 0;
+//        }
+//    }
     /*
      * 异步推送消息
      */
@@ -385,4 +386,36 @@ class CommonController extends Controller
         $this->assign('page',$Page->myde_write());
         $this->display('comments');
     }
+    //index中文章异步删除
+    public function delArticle(){
+        if(!IS_AJAX){
+            $this->error('非法提交');
+        }
+        $aid=I('post.aid','','intval');
+//        echo $aid;
+        $preg="/<[img|IMG].*?src=[\'|\"](.*?(?:[\.gif|\.jpg]))[\'|\"].*?[\/]?>/";
+        $content=M('article')->where(array('id' => $aid))->getField('content');
+        $content=htmlspecialchars_decode($content);
+//        var_dump($content);
+        preg_match_all($preg,$content,$src);
+        if(M('article')->delete($aid)){
+            //删除微博中存在的图片
+//          //删除微博中存在的图片
+            if(is_array($src) && !empty($src)){
+                foreach($src[1] as $v){
+                    $v=substr($v,9,255);
+                    unlink($v);
+                }
+            }
+            //该用户对应的发布文章数减1
+            M('userinfo')->where(array('uid' => $_SESSION['uid']))->setDec('article',1);
+            //对应文章评论，收藏都应该删除
+            M('comment')->where(array('aid' => $aid))->delete();
+            M('collect')->where(array('aid' => $aid))->delete();
+            echo 1;
+        }else{
+            echo 0;
+        }
+    }
+
 }

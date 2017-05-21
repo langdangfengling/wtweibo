@@ -29,7 +29,7 @@
 #news .news_content .news_top div.a_info{float:left;width: 370px;height:30px;font-size: 14px;color:darkgray;line-height: 42px;overflow: hidden;}
 #news .news_content .news_top div.a_info span{margin-left:10px;}
 #news .news_content .news_top .news_tool_h{width:100%;height:30px;position:absolute;top:40px;left:0;font-size: 13px;color: #1aacff;line-height: 30px;}
-#news .news_content .news_top .news_tool_h ul li{float:left;margin-left: 5px;width:60px;padding:0 5px;border-right:1px gainsboro solid; }
+#news .news_content .news_top .news_tool_h ul li{float:left;margin-left: 5px;width:80px;padding:0 5px;border-right:1px gainsboro solid; }
 #news .news_content .news_top .news_tool_h ul li.alter{width: 90px;}
 #news .news_content .news_top .news_tool_h ul li.delete_a{border: none;}
 #news .news_content .news_top .news_tool_h ul li b{width:15px;height:15px;display:inline-block;margin-right: 5px;}
@@ -42,7 +42,7 @@
 #news .news_content .news_text img{width:500px;float: none;}/* 清除图片浮动*/
 #news .news_bottom{width:710px;height:auto;margin-top:5px;}
 #news .news_bottom .news_tool_b{width:100%;height:40px;font-size: 13px;color: #1aacff;line-height: 40px;border-bottom:1px gainsboro solid;padding-bottom: 10px; }
-#news .news_bottom .news_tool_b ul li{float:left;margin-left: 5px;width:60px;padding:0 5px;border-right:1px gainsboro solid; }
+#news .news_bottom .news_tool_b ul li{float:left;margin-left: 5px;width:80px;padding:0 5px;border-right:1px gainsboro solid; }
 #news .news_bottom .news_tool_b ul li.alter{width: 90px;}
 #news .news_bottom .news_tool_b ul li.delete_a{border: none;}
 #news .news_bottom .news_tool_b ul li b{width:15px;height:15px;display:inline-block;margin-right: 5px;}
@@ -58,6 +58,7 @@
 #news .news_bottom .visitor_info ul li{margin:10px 15px;float:left;}
 /*评论样式*/
 #news .news_bottom .comments{width: 100%;padding:10px 10px;}
+#news .news_bottom .comments .info{width: 50%;height:35px;margin: 0 auto;text-align: center;line-height:35px; }
 #news .news_bottom .comments .title{font-family:"Microsoft YaHei"; font-size:18px; font-weight:normal; height:40px; line-height:40px; overflow:hidden; border-bottom:1px solid #dcdcdc;margin-bottom:20px;}
 #news .news_bottom .comments .num_area{color:#999; font-size:12px; font-weight:normal}
 #news .news_bottom .comments .comment_send{font-size:12px; position:relative; padding:20px 0;}

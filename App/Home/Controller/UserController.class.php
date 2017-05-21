@@ -30,9 +30,9 @@ class UserController extends CommonController
         //存入session中，在right.html中统一获取用户数据，避免其他页面无法获得用户信息
 
         //读取用户发布文章数据
-        //将我和我关注的用户所有的微博数据都得到，输出到模板中
+        //将我和我关注的用户所有的文章数据都得到，输出到模板中
         $uids=array(session('uid'));
-        $where=array('funs'=>session('uid'));
+        $where=array('fans'=>session('uid'));
         if($result=M('follow')->where($where)->field('follow')->select()){
 //                  dump($result);die;
             //将我关注用户的id加入到$uids数组中
@@ -47,12 +47,34 @@ class UserController extends CommonController
         );
         $articleView=new ArticleViewModel();
         //分页显示
-        $db=M('article');
-        $count=$db->where($where)->count();
+        $count=$articleView->where($where)->count();
         $page=new Page($count,3);
         $limit=$page->firstRow.','.$page->listRows;
         $article=$articleView->getAll($where,$limit);
-               // dump($article);
+
+        //右栏显示好友分组相关微博
+        if($gid=I('get.gid','','intval')){
+            //得到我关注好友的id
+            $where=array('gid'=>$gid);
+            $result=M('follow')->where($where)->select();
+            $follow=array();
+            if($result) {
+                foreach ($result as $k => $v) {
+                    $follow[$k] = $v['follow'];
+                }
+                $where = array('uid' => array('IN', $follow));
+                $count=$articleView->where($where)->count();
+                $page=new Page($count,3);
+                $limit=$page->firstRow.','.$page->listRows;
+                $article = $articleView->getAll($where, $limit);
+            }else{
+                $article=false;
+                $count=0;
+                $page=new Page($count,3);
+                $limit=$page->firstRow.','.$page->listRows;
+            }
+        }
+        // dump($article);
         //    匹配文章内容中图片的src正则表达式
 //        $preg='<img[\s]+src[\s]*=[\s]*(([\'\"](?<src>[^\'\"]*)[\'\"])|(?<src>[^\s]*))';//不行
 //        $preg='/<img.+src=\"?(.+\.(jpg|gif|bmp|bnp|png))\"?.+>/i'; //OK 不懂怎么可以匹配 ？？？？？？？？？？/这个可以找到文章所有的图片标签，单全部集合在一个字符串中，不好提取地址
@@ -68,31 +90,11 @@ class UserController extends CommonController
                 $article[$k]['src']=$src[1];
                 $article[$k]['content'] = strip_tags($article[$k]['content']);//去除字符串中html和php标签
                 $article[$k]['content'] = substr($article[$k]['content'], 0, 360);
+                //文章评论数
+                $article[$k]['commentcount']=M('comment')->where(array('fid' => 0,'aid' =>$v['id']))->count();
             }
         }
 //                   dump($article);  die;
-        //右栏显示好友分组相关微博
-        if($gid=I('get.gid','','intval')){
-            //得到我关注好友的id
-            $where=array('gid'=>$gid);
-            $result=M('follow')->where($where)->select();
-            $follow=array();
-            if($result) {
-                foreach ($result as $k => $v) {
-                    $follow[$k] = $v['follow'];
-                }
-                $where = array('uid' => array('IN', $follow));
-                $count=$db->where($where)->count();
-                $page=new Page($count,3);
-                $limit=$page->firstRow.','.$page->listRows;
-                $article = $articleView->getAll($where, $limit);
-            }else{
-                $article=false;
-                $count=0;
-                $page=new Page($count,3);
-                $limit=$page->firstRow.','.$page->listRows;
-            }
-        }
         //分页自定义样式
         $page->lastSuffix=false;//最后一页是否显示总页数
         $page->rollPage=4;//分页栏每页显示的页数
@@ -101,7 +103,7 @@ class UserController extends CommonController
         $page->setConfig('first','【首页】');
         $page->setConfig('last','【末页】');
         $page->setConfig('theme','共%TOTAL_ROW%条记录，当前是%NOW_PAGE%/%TOTAL_PAGE% %FIRST% %UP_PAGE% %DOWN_PAGE% %END%');
-        $this->article=$article;
+        $this->article=$article?$article:false;
         $this->page=$page->show();
         $this->display();
     }
@@ -120,42 +122,44 @@ class UserController extends CommonController
         if(M('article')->data($data)->add()){
             //用户发布文章数+1
             M('userinfo')->where(array('uid' => session('uid')))->setInc('article',1);
-            $this->success('发布成功',$_SERVER['HTTP_REFERER']);
+            $this->success('发布成功',U('User/index'));
+        }else{
+            $this->error('发布失败');
         }
     }
-    //全文读取文章.并且读取该文章下的评论数据
+    //全文读取文章.并且读取该文章下的所有有关数据
     public function article(){
         if(!IS_GET){
             $this->error('非法请求');
         }
         //文章
         $id=I('get.id','','intval');
+        //给该文章阅读数+1
+        M('article')->where(array('id' => $id))->setInc('readcount',1);
         $ArticleView=new ArticleViewModel();
         $where=array('id' =>$id);
-        $article=$ArticleView->where($where)->find();
+        $article=$ArticleView->getOne($where);
+//        var_dump($article);die;
+        if(!$article){
+            $this->error('没有找到相关页面');
+            return false;
+        }
         //评论数据
         $where=(array('aid' => $id,'fid' => 0));//这里一定要带上条件fid=0，然后commentview类里对评论重新组合
         $commentView=new CommentViewModel();
-        $count=$commentView->where($where)->count();
+        $commentcount=$commentView->where($where)->count();//这里的comment不要用文章表中的comment数，那个是将回复也算进去了
         //导入第三方分页显示类库
         import("Common.Org.PageAjax");
-        $Page = new \PageAjax($count,5,1,2);//这里文章页显示的评论数据是自然加载，默认显示第一页数据，此时的都不带a连接，这里如果想异步获取数据，那么就需要再写一个方法来异步获取评论，并传递page（当前页）参数
+        $Page = new \PageAjax($commentcount,5,1,2);//这里文章页显示的评论数据是自然加载，默认显示第一页数据，此时的都不带a连接，这里如果想异步获取数据，那么就需要再写一个方法来异步获取评论，并传递page（当前页）参数
 //        dump($count);die;
         $limit=5;
         $comments=$commentView->getAll($where,$limit);
-//        var_dump($comments);die;
-//         dump($article);die;
-
-//        $page=$Page->show();
-//        var_dump($page);die;
-        $this->count=$count;
+        $this->commentcount=$commentcount;
         $this->article=$article;
-        $this->comments=$comments;
+        $this->comments=$comments?$comments:0;
         $this->assign('page',$Page->myde_write());
         $this->display();
     }
-
-
     //文章评论异步提交
     public function sendComment()
     {
@@ -263,6 +267,116 @@ class UserController extends CommonController
             echo 'false';
         }
     }
+ //文章异步收藏
+  public function keep(){
+      if(!IS_AJAX){
+          $this->error('非法请求');
+      }
+      $aid=I('post.aid','','intval');
+      $data=array('aid' => $aid,'time' => time(),'uid' => session('uid'));
+      //如果已收藏直接返回
+      $db=M('collect');
+      $where=array('aid' => $aid,'uid' => session('uid'));
+      $id=$db->where($where)->getField('id');
+      if($id){
+          echo json_encode(array('status' => -1,'msg' => '您已收藏过该篇文章!'));
+          return false;
+      }
+      if($db->data($data)->add()){
+          //该微博数收藏+1
+          M('article')->where(array('aid' => $id))->setInc('collect',1);
+          echo json_encode(array('status' => 1,'msg' => '恭喜！收藏成功'));
+      }else{
+          echo json_encode(array('status' => 0, 'msg' => '收藏失败'));
+      }
+  }
+    //文章删除
+    public function delarticle()
+    {
+        if (!IS_GET) {
+            $this->error('非法提交');
+        }
+        $aid = I('get.aid', '', 'intval');
+        //增加签名防止用户直接在url上进行删除操作，这样就只能在document删除按钮中进行操作
+        $sign = I('get.sign');
+        $preg="/<[img|IMG].*?src=[\'|\"](.*?(?:[\.gif|\.jpg]))[\'|\"].*?[\/]?>/";
+        $content=M('article')->where(array('id' => $aid))->getField('content');
+        $content=htmlspecialchars_decode($content);
+//        var_dump($content);
+        preg_match_all($preg,$content,$src);
+//        $src=substr($src[1][0],9,255);
+//        var_dump($src);die;
+        $db=M('article');
+        if ($sign == md5($aid)) {
+//        echo $aid;
+            if ($db->delete($aid)) {
+                //删除微博中存在的图片
+                if(is_array($src) && !empty($src)){
+                    foreach($src[1] as $v){
+                        $v=substr($v,9,255);
+                            unlink($v);
+                        }
+                    }
+                //该用户对应的发布文章数减1
+                M('userinfo')->where(array('uid' => $_SESSION['uid']))->setDec('article', 1);
+                //对应文章评论，收藏都应该删除
+                M('comment')->where(array('aid' => $aid))->delete();
+                M('collect')->where(array('aid' => $aid))->delete();
+                //如果该篇文章是转发的，那么原文章转发数-1
+                $isturn=$db->where(array('id' => $aid))->getField('isturn');
+                if($isturn){
+                    $db->where(array('id' => $isturn))->setDec('turn',1);
+                }
+                $this->success('删除成功!', U('User/index'));
+            } else {
+                $this->error('删除该篇文章失败!');
+            }
+        }else{
+            $this->error('非法操作');
+        }
+    }
+    //文章类别修改
+    public function alterAroup(){
+        if(!IS_POST){
+            $this->error('非法请求');
+        }
+//        var_dump($_POST);die;
+        $aid=I('post.aid','','intval');
+        $gid=I('post.gid','','intval');
+        if(M('article')->where(array('id' => $aid))->setField('gid',$gid)){
+            $this->success('修改成功',$_SERVER['HTTP_REFERER']);
+        }else{
+            $this->error('修改失败');
+        }
+    }
+    //文章转发
+    public function turn(){
+        if(!IS_AJAX){
+            $this->error('非法操作');
+        }
+        $aid=I('post.aid','','intval');
+        //获取原微博数据
+        $db=M('article');
+        $article=$db->where(array('id' => $aid))->find();
+        //获取数据
+        $data=array(
+            'isturn' => $aid,
+            'content' => $article['content'],
+            'turn' =>$article['turn'],//转发的次数继承自原文章的次数，收藏和评论就不用
+            'time' => time(),
+            'gid' => I('post.gid','','intval'),
+            'name' => $article['name'],
+        );
+        if($db->data($data)->add()){
+            //该用户发布文章+1
+            M('userinfo')->where(array('uid' => session('uid')))->setInc('article',1);
+            //该文章转发数+1
+            $db->where(array('id' => $aid))->setInc('turn',1);
+            echo 1;
+        }else{
+            echo 0;
+        }
+    }
 
 
     /**
@@ -295,51 +409,6 @@ class UserController extends CommonController
         $this->follow_user=$follow_user;
         $this->fans_user=$fans_user;
         $this->display();
-    }
-    //用户粉丝，关注列表,用同一个方法进行处理
-    public function followList(){
-        $type=I('get.type','','intval');//获得传过来的type以确定是得到粉丝还是关注用户列表
-        $uid=I('get.uid','','intval');
-        //获取关注，粉丝用户id
-        $where=$type?array('fans' =>$uid):array('follow' => $uid);
-        $field=$type?'follow':'fans';
-        $db=M('follow');
-        $count=$db->where($where)->count();
-//        dump($count);
-        $page=new Page($count,5);
-        $limit=$page->firstRow.','.$page->listRows;
-        $uids=$db->where($where)->limit($limit)->select();
-        if($uids) {
-            foreach ($uids as $key => $val) {
-                $uids[$key] = $val[$field];
-            }
-//            dump($uids);die;
-            $where=array('uid'=>array('in',$uids));
-            $fields=array('uid','username','face60','sex','fans','follow','article');
-            $users=M('userinfo')->where($where)->field($fields)->select();
-//            dump($users);die;
-            $this->users=$users;
-        }
-        $follow=M('follow')->where(array('fans'=>$uid))->field('follow')->select();
-        if($follow){
-            foreach ($follow as $k => $v) {
-                $follow[$k]=$v['follow'];
-            }
-        }
-//        dump($follow);
-        $fans=M('follow')->where(array('follow'=>$uid))->field('fans')->select();
-        if($fans){
-            foreach($fans as $k => $v){
-                $fans[$k] = $v['fans'];
-            }
-        }
-//        dump($fans);die;
-        $this->type=$type;
-        $this->count=$count;
-        $this->follow1=$follow;
-        $this->fans1=$fans;
-        $this->page=$page->show();
-        $this->display('followList');
     }
 
     /**
@@ -545,6 +614,10 @@ class UserController extends CommonController
 //        dump($id);die;
        //获取相册信息
         $album1=M('album')->where(array('id' => $id))->find();
+        if(!$album1){
+            $this->error('你要找得页面不存在');
+            return false;
+        }
         $db=M('photo');
         $count=$db->where(array('aid' => $id))->count();
         $page=new Page($count,15);

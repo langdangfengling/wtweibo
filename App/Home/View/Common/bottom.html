@@ -120,6 +120,51 @@
         </div>
     </div>
 </div>
+
+<!--修改文章类弹出框-->
+<php>
+    $agroups=M('agroup')->where(array('uid' => session('uid')))->select();
+</php>
+<div id="alter">
+    <form action="{:U('User/alterAroup')}" method="post" name="form">
+    <div class="alter-head">
+        <span class='alter-text fleft'>修改类别</span>
+    </div>
+    <div class='alter-name'>
+        选择:
+       <select class="name">
+           <foreach name="agroups" item="v">
+           <option value="{$v.id}">{$v.name}</option>
+           </foreach>
+       </select>
+    </div>
+        <input class="aid" name="aid" type="hidden" />
+        <input class="gid" name="gid" type="hidden" />
+    <div class='alter-btn-wrap'>
+        <input type="submit" class='alter-sure' value="确定" />
+        <span class='alter-cencle'><a href="javascript:;">取消</a></span>
+    </div>
+    </form>
+</div>
+<!--文章转发框-->
+<div id="turn">
+        <div class="turn-head">
+            <span class='turn-text fleft'>转发</span>
+        </div>
+        <div class='turn-name'>
+            转发至:
+            <select class="name">
+                <foreach name="agroups" item="v">
+                    <option value="{$v.id}">{$v.name}</option>
+                </foreach>
+            </select>
+        </div>
+        <div class='turn-btn-wrap'>
+            <span class='turn-sure'><a href="javascript:;">确定</a></span>
+            <span class='turn-cencle'><a href="javascript:;">取消</a></span>
+        </div>
+</div>
+
 <!--[if IE 6]>
 <script type="text/javascript" src="__PUBLIC__/Js/DD_belatedPNG_0.0.8a-min.js"></script>
 <script type="text/javascript">

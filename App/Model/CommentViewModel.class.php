@@ -14,7 +14,9 @@ use Think\Model\ViewModel;
 class CommentViewModel extends ViewModel
 {
    public $viewFields=array(
-       'comment' => array('id','content','time','uid','fid','aid'),
+       'comment' => array('id','content','time','uid'=>'cid','fid','aid'),
+       'article' => array('name'=>'title','gid','_on'=>'comment.aid=article.id'),
+       'agroup' =>array('name' =>'gname','uid','_on' => 'agroup.id = article.gid'),
        'userinfo' => array('username','face60' =>'face','_on' => 'comment.uid = userinfo.uid'),
    );
     public function getAll($where,$limit){

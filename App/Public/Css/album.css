@@ -7,6 +7,8 @@
 #album .album_head ul li.sz-photo a .icon{width:15px;height:15px;cursor:pointer;background-position:250px -24px;position: absolute;left:10px;top:12px;}
 #album .album_head ul li.create-album{border:1px lightgrey solid;width:90px;margin-left: 20px;}
 #album .album_head ul li.set-album{border:1px lightgrey solid;width:90px;margin-left: 20px;}
+#album .album_content1{width:100%;height:350px;}
+#album .album_content1 .album_info{width:200px;margin: 0 auto;line-height: 350px;font-size: 16px;}
 #album .album_content{width:100%;height:auto;overflow:hidden; margin-top:10px;padding:0 10px;}
 #album .album_content ul li{width: 175px;height:206px;border: 1px #d3d3d3 solid;margin: 20px 8px;float:left;box-shadow: gainsboro 1px 1px 1px;}
 #album .album_content ul li div.cover{width: 160px;height:150px;margin: 7px auto;position: relative;}

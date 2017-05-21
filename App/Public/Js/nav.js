@@ -311,11 +311,23 @@ $(function () {
         var obj1 = $(this).next();
         var P = $(this).find('p');
         if (obj1.css('display') === 'none') {
-            $(this).next().show();
+           obj1.show();
             P.css({background: '#51ADFF'});
         } else {
             obj1.hide();
             P.css({background: ''});
+        }
+    });
+    //鼠标离开时需关闭选项框
+    //
+    $('div.choice').bind({
+       mouseover:function(){
+            $(this).show();
+           $(this).prev().find('p').css('background' ,'#51ADFF')
+        },
+        mouseout:function(){
+            $(this).hide();
+            $(this).prev().find('p').css('background' ,'');
         }
     });
     $("div.choice ul li").live('click',function(){
@@ -385,10 +397,10 @@ $(function () {
 
     //关闭添加相册框
     $('.ablum-cencle').click(function(){
-        var obj=$(this).parents('#c-album');
+        var obj=$(this).parents('#c-album-2');
         obj.find("input[name='name']").val('');
         obj.find('textarea').val('');
-        $('#c-album').hide();
+        $('#c-album-2').hide();
         $('#ablum-bg').remove();
     });
 

@@ -1,0 +1,92 @@
+<include file="Common:header"/>
+<title>我的评论</title>
+<meta name="keywords" content="个人博客" />
+<meta name="description" content="" />
+<link rel="stylesheet" href="__PUBLIC__/Css/nav.css"/>
+<link rel="stylesheet" href="__PUBLIC__/Css/index.css"/>
+<link rel="stylesheet" href="__PUBLIC__/Css/right.css"/>
+<link rel="stylesheet" href="__PUBLIC__/Css/bottom.css"/>
+<script type="text/javascript" src="__PUBLIC__/Js/jquery.min.js"></script>
+<script type="text/javascript" src="__PUBLIC__/Js/jquery.SuperSlide.2.1.1.js"></script>
+<script type="text/javascript" src="__PUBLIC__/Js/nav.js"></script>
+<script type="text/javascript" src="__PUBLIC__/Js/bottom.js"></script>
+<script type="text/javascript" src="__PUBLIC__/Js/jNotify.jquery.js"></script>
+<script charset="utf-8" src="__PUBLIC__/kindeditor/kindeditor-min.js"></script>
+<script charset="utf-8" src="__PUBLIC__/kindeditor/lang/zh_CN.js"></script>
+<script type="text/javascript">
+    var delFollow="{:U('Common/delFollow')}";
+</script>
+<!--[if lt IE 9]>
+
+<![endif]-->
+
+<!--nav start-->
+<include file="Common:nav"/>
+<!--nav end-->
+<!--content start-->
+<div id="content" >
+    <!--=====左侧=====-->
+    <include file='Common:left'/>
+    <!--left end -->
+    <div class="fleft" id="c_left">
+        <div class="s_tuijian">
+            <h2>我收到的<span>评论</span></h2>
+        </div>
+        <div class="content_text">
+            <!--评论-->
+            <div class="comments">
+                <if condition='!$comments'>
+                    <div class="info">还没有收到任何的评论</div>
+                    <else/>
+                    <!--评论展示区-->
+                    <div class="title">
+                        评论<span class="num_area">（<em class="comments_num" id="comments_num">{$count}</em>）</span>
+                    </div>
+                    <div  class="comment_wrap" id="comment_wrap">
+                        <ul class="comment_listBox">
+                            <volist name="comments" id="v">
+                                <li class="comment_list clearfix"> <!--if condition="$comments_num%10-1 eq $key or $key%10 eq 9">style='border-bottom:none'-->
+                                    <div class="comment_avatar">
+                                        <span class='userPic'><img width="36" height="36" src="<if condition='$v[face]'>__ROOT__/{$v.face}<else/>__PUBLIC__/Images/noface.gif</if>" alt=""></span>
+                                        <span class="grey">{$v.username}</span>
+                                    </div>
+                                    <div class="comment_conBox">
+                                        <div class="comment_avatar_time">
+                                            <div class="time">{$v.time|time_format=###}</div> {$v.id}楼
+                                        </div>
+                                        <div class="comment_conWrap clearfix">
+                                            <div class="comment_action"><a class="reply">回复</a> </div>
+                                            <div class="comment_con">{$v.content|replace_weibo=###}</div>
+                                        </div>
+                                        <!--回复框-->
+                                        <div fid='{$v.id}' class='reply_area'>
+                                            <textarea  class="textarea_comment" sign='comment2' name="content" autocomplete="off"></textarea>
+                                            <div class="btn_p clearfix">
+                                                <span class="comment_tip"></span>
+                                                <button class="btn_subGrey btn">提交</button>
+                                                <ul class='fleft'>
+                                                    <li title='表情'><i class='icon icon-phiz phiz' sign='comment2'></i></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <!--end 回复框-->
+                                    </div>
+                                </li>
+                            </volist>
+                        </ul>
+                        <div class="pager">{$page}</div>
+                    </div>
+                </if>
+                <!--end 评论信息展示区-->
+            </div>
+            <!--end 评论区-->
+        </div>
+    <!--==========内容主体结束==========-->
+    </div>
+    <include file="Common:right" />
+    <!--right end-->
+    <div class="clear"></div>
+    <!--content end-->
+</div>
+<!--footer start-->
+<include file="Common:bottom" />

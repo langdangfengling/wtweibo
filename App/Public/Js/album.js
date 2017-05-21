@@ -22,6 +22,7 @@ $('.create-album').click(function(){
         var album=$(this).parents('#c-album');
         var obj=album.find("input[name='name']");
         var ulobj=album.prev().prev().find('.album_content ul');
+        var albumInfo=album.prev().prev().find('.album_content1');
         var pname=obj.val();
         var pdepict=album.find("textarea").val();
        //为空时背景闪烁
@@ -59,8 +60,9 @@ $('.create-album').click(function(){
                 ulobj.prepend(str);
                 album.hide();
                 $('#ablum-bg').remove();
+                albumInfo.remove();
             }else{
-                alert(data.msg);
+                noticInfo(data.msg);
             }
         },'json');
     });
@@ -155,7 +157,7 @@ $('.del_album').live('click',function(){
     var del=confirm('确认删除该相册吗?');
     if(del){
         $.post(delAlbum,{aid:aid},function(data){
-            console.log(data);
+            //console.log(data);
             if(data){
                 obj.fadeOut('slow',function(){
                     obj.remove();
@@ -166,6 +168,51 @@ $('.del_album').live('click',function(){
         },'json');
     }
 });
+    //消息提示框效果函数
+    function successInfo(msg) {
+        jSuccess(msg, {
+            VerticalPosition: 'center',
+            HorizontalPosition: 'center'
+        });
+    }
+    //autoHide	是否自动隐藏提示条	true
+    //clickOverlay	是否单击遮罩层才关闭提示条	false
+    //MinWidth	最小宽度	200
+    //TimeShown	显示时间：毫秒	1500
+    //ShowTimeEffect	显示到页面上所需时间：毫秒	200
+    //HideTimeEffect	从页面上消失所需时间：毫秒	200
+    //LongTrip	当提示条显示和隐藏时的位移	15
+    //HorizontalPosition	水平位置:left, center, right	right
+    //VerticalPosition	垂直位置：top, center, bottom	bottom
+    //ShowOverlay	是否显示遮罩层	true
+    //ColorOverlay	设置遮罩层的颜色	#000
+    //OpacityOverlay	设置遮罩层的透明度	0.3
+    function noticInfo(msg) {
+        jNotify(msg);
+    }
+
+    function errorInfo(msg) {
+        jError(msg);
+    }
+
+    function treeInfo(){
+        jSuccess("操作成功，2秒后显示下一个提示框!!", {
+            TimeShown: 2000,
+            onClosed: function () {
+                jNotify("注意：点击这里显示下一个提示框", {
+                    VerticalPosition: 'top',
+                    autoHide: false,
+                    onClosed: function () {
+                        jError("出错啦! 演示结束,<br /> 请点击背景层关闭提示框。", {
+                            clickOverlay: true,
+                            autoHide: false,
+                            HorizontalPosition: 'left'
+                        });
+                    }
+                });
+            }
+        });
+    }
 });
 /************效果函数******************/
 /**
