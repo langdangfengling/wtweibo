@@ -230,29 +230,67 @@ $(function() {
          return false;
       }
       //异步提交
-      var aid=$(this).parents('#news').attr('aid');
-      //alert(aid);
+      var articel_aid=$(this).parents('#news').attr('aid');
+      var manager_aid=$(this).parents('.comment_conBox').find('a').attr('aid');
+      //alert(manager_aid);
+      var aid=articel_aid?articel_aid:manager_aid;
       $.post(sendComment,{aid:aid,content:textarea_content,fid:fid},function(data){
+         //console.log(data);
          if(data != 'false'){
-            if(fid === '0') {
+            if(data == -1){
+               replyObj.hide();
+               $('#phiz').hide();
+               textareaObj.val('');
+               successInfo('回复成功!');
+            }
+            if(fid === '0' && data != -1) {
                ulParent.prepend(data);
                //隐藏表情框
                $('#phiz').hide();
                //评论框内容清空
                textareaObj.val('');
                successInfo('评论成功!该文章评论数+<strong>1</strong>');
-            }else{
+            }
+            if(fid !== '0' && data != -1){
                //console.log(data);
                divParent.prepend(data);
                replyObj.hide();
                $('#phiz').hide();
                textareaObj.val('');
-               successInfo('评论成功!该文章评论数+<strong>1</strong>');
+               successInfo('已回复!');
             }
          }else{
             errorInfo('评论失败，请稍后再试试吧!')
          }
       },'html');
+   });
+//评论异步删除
+   $('a.del_comment').bind({
+      mouseout:function(){
+         $(this).css('color','darkgrey');
+      },
+      mouseover:function(){
+         $(this).css('color','red');
+      },
+      click:function(){
+         var id=$(this).attr('id');
+         var fid=$(this).attr('fid');
+         //alert(fid);
+         var isdel=confirm('确定删除?');
+         var obj=$(this).parents('.comment_list');
+         if(isdel){
+            $.post(delComment,{id:id,fid:fid},function(data){
+               if(data){
+               obj.slideUp('slow',function(){
+                  obj.remove();
+               });
+               }else{
+                  errorInfo('删除失败!');
+               }
+            },'json');
+         }
+      },
+
    });
 
 //评论异步分页显示
@@ -473,67 +511,54 @@ $(function() {
    });
 
    /**
-    * 文章转发框处理
+    * 用户私信
     */
-   //$('.turn').click(function(){
-   //   //获取需要转发微博的相关数据，并赋值到转发框
-   //   var orgObj=$(this).parents('.wb_tool').prev();
-   //   var author=orgObj.find('.author').html();
-   //   var content=orgObj.find('.content p').html();
-   //   //获取原微博的id
-   //   var id=$(this).attr('id');
-   //   //如果要转发的微博不是原微博而也是转发的微博，那么就获取它转发的原始微博id，转发始终是转发最原先的那篇微博
-   //   var tid=$(this).attr('tid')?$(this).attr('tid'):0;
-   //   var cons='';
-   //   if(tid) {
-   //      var author = orgObj.find('.author a').html();
-   //      cons =replace_weibo( '//@' + author + ':' + content);
-   //      //alert(cons);
-   //      author = $.trim(orgObj.find('.turn_name').html());
-   //      content = orgObj.find('.turn_cons p').html();
-   //   }
-   //   $('form[name=turn] p').html(author+'::'+content);
-   //   $('.turn-cname').html(author);
-   //   $('form[name=turn] textarea').val(cons);
-   //   //提取原微博id
-   //   $('form[name=turn] input[name=id]').val(id);
-   //   //提取转发微博id1
-   //   $('form[name=turn] input[name=tid]').val(tid);
-   //
-   //   //隐藏表情框
-   //   $('#phiz').hide();
-   //   //点击转发创建透明背景层
-   //   createBg('opacity_bg');
-   //   //定位转发框居中
-   //   var turnLeft=($(window).width()-$('#turn').width())/2;
-   //   var turnTop=$(document).scrollTop()+($(window).height()-$('#turn').height())/2;
-   //   $('#turn').css({
-   //      'left':turnLeft,
-   //      'top':turnTop,
-   //   }).fadeIn().find('textarea').focus(function(){
-   //      var content=$(this).val();
-   //      var lengths=check(content);//调用check函数检查输入内容字数
-   //      //最大允许输入140个字
-   //      if(lengths[0]>140){
-   //         $(this).val(content.substring(0,Math.ceil(lengths[1]))); //这里不是很明白
-   //      }
-   //      var num=140-Math.ceil(length[0]);
-   //      var msg=num<0?0:num;
-   //      //当前字数同步到显示提示
-   //      $('$turn_num').html(msg);
-   //   }).focus().blur(function(){
-   //      $(this).css('borderColor','#CCCCCC');//失去焦点时还原边框颜色
-   //   });
-   //});
-   //drag($('#turn'),$('.turn_text'));//拖拽转发框
+   $('span.send').click(function(){
+      //让私信框居中显示
+      var letterLeft=($(window).width()-$('#letter').width())/2;
+      var letterTop=$(document).scrollTop()+($(window).height()-$('#letter').height())/2;
+      var letterObj=$('#letter').show().css({
+         left:letterLeft,
+         top:letterTop,
+      });
+      createBg('letter-bg');
+      drag(letterObj,letterObj.find('.letter_head'));
+   });
 
-
-
-
-
-
-
-
+   //关闭私信弹出框
+   $('span.letter-cencle').click(function(){
+      $('#letter').hide();
+      $('#letter-bg').remove();
+   });
+   //私信回复
+   $('.l-reply').click(function(){
+      var uname=$(this).parent('.tright').prev().find('a').html();
+      var letterLeft=($(window).width()-$('#letter').width())/2;
+      var letterTop=$(document).scrollTop()+($(window).height()-$('#letter').height())/2;
+      var letterObj=$('#letter').show().css({
+         left:letterLeft,
+         top:letterTop,
+      }).find("input[name='name']").val(uname);
+      createBg('letter-bg');
+      drag(letterObj,letterObj.find('.letter_head'));
+   });
+   //异步删除私信
+   $('span.del-letter').click(function(){
+      var lid=$(this).attr('lid');
+      var del=confirm('确定删除该条私信');
+      var lobj=$(this).parents('dl')
+      if(del){
+         $.post(delLetter,{lid:lid},function(data){
+            if (data) {
+               lobj.slideUp('slow',function(){
+                  lobj.remove();
+               })
+            }else{
+               alert('删除失败，请重试！');
+            }
+         },'json')
+      }
+   });
 
 
 //消息提示框效果函数

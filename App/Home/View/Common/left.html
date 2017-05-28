@@ -1,7 +1,7 @@
 <!--=====左侧=====-->
-<div id="left" class='fleft'>
+<aside id="left" class='fleft'>
     <ul class='left_nav'>
-        <li><a href="__APP__"><i class='icon icon-home'></i>&nbsp;&nbsp;首页</a></li>
+        <li><a href="{:U('User/index')}"><i class='icon icon-home'></i>&nbsp;&nbsp;首页</a></li>
         <li><a href="{:U('Manager/atme')}"><i class='icon icon-at'></i>&nbsp;&nbsp;提到我的</a></li>
         <li><a href="{:U('Manager/comment')}"><i class='icon icon-comment'></i>&nbsp;&nbsp;评论</a></li>
         <li><a href="{:U('Manager/letter')}"><i class='icon icon-letter'></i>&nbsp;&nbsp;私信</a></li>
@@ -10,16 +10,16 @@
     <div class="group">
         <fieldset><legend>分组</legend></fieldset>
         <ul>
-            <li><a href="__APP__"><i class='icon icon-group'></i>&nbsp;&nbsp;全部</a></li>
+            <li><a href="{:U('User/index')}"><i class='icon icon-group'></i>&nbsp;&nbsp;全部</a></li>
             <foreach name='group' item='v'>
                 <li>
-                    <a href="{:U('Index/index', array('gid' => $v['id']))}"><i class='icon icon-group'></i>&nbsp;&nbsp;{$v.name}</a>
+                    <a href="{:U('User/index', array('gid' => $v['id']))}"><i class='icon icon-group'></i>&nbsp;&nbsp;{$v.name}</a>
                 </li>
             </foreach>
         </ul>
         <span id='create_group'>创建新分组</span>
     </div>
-</div>
+</aside>
 
 <!--==========创建分组==========-->
 <script type='text/javascript'>

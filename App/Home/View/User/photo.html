@@ -49,6 +49,9 @@
             </div>
         </div>
         <div class="photo_content">
+            <if condition="!$photos">
+                <div class="info">还没有照片,赶快去上传吧!</div>
+            </if>
             <ul>
                 <foreach name="photos" item="v">
                     <php>extract($v);</php>

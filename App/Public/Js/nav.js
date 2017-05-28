@@ -77,35 +77,7 @@ $(function () {
     },function(){
         $('#model').hide();
     });
-
-    //选中模板并添加选中样式
-    $('#model ul li').click(function(){
-        $(this).addClass('theme-cur').siblings().removeClass('theme-cur');
-    });
-
-    //异步提交选中模板数据
-    $('span.model_save').click(function(){
-        //获取修改的模板数据
-        var tpl=$('.theme-cur').attr('theme');
-        if(tpl==null){
-            alert('请选择一套模板!');
-        }else {
-            $.post(editTpl, {tpl: tpl}, function (data) {
-                console.log(data);
-                if (!data) {
-                    alert('设置失败，请重试！');
-                } else {
-                    document.location.reload();
-                }
-            }, 'json');
-        }
-    });
-    //取消设置模板
-    $('span.model_cancel').click(function(){
-        $('#model').hide();
-        $('#edit_tpl_bg').remove();
-    });
-    /**
+     /**
      * 头部搜索框
      */
         //移入时改变背景
@@ -113,20 +85,20 @@ $(function () {
         $(this).css('backgroundPosition', '-237px -5px');
         $('#sech_sub').css('backgroundPosition', '-443px -5px');
     }, function () {
-        if ($(this).val() == '搜索微博、找人') {
+        if ($(this).val() == '搜索用户') {
             $(this).css('backgroundPosition', '0 -5px');
             $('#sech_sub').css('backgroundPosition', '-206px -5px');
         }
         //获得焦点时清空默认文字
     }).focus(function () {
-        if ($(this).val() == '搜索微博、找人') {
+        if ($(this).val() == '搜索用户') {
             $(this).val('');
         }
         //失去焦点时
     }).blur(function () {
         //添加默认文字
         if ($(this).val() == '') {
-            $(this).val('搜索微博、找人')
+            $(this).val('搜索用户')
         }
         //恢复原背景
         $(this).css('backgroundPosition', '0 -5px');
@@ -145,7 +117,7 @@ $(function () {
      */
         //移入时改变背景
     $('#sech-cons').focus(function () {
-        if ($(this).val() == '搜索微博、找人') {
+        if ($(this).val() == '搜索用户') {
             $(this).val('');
         }
         ;
@@ -153,17 +125,10 @@ $(function () {
     }).blur(function () {
         //添加默认文字
         if ($(this).val() == '') {
-            $(this).val('搜索微博、找人')
+            $(this).val('搜索用户')
         }
         ;
     });
-
-    ////搜索切换
-    //$('.search-type').click(function(){
-    //    $('.cur').removeClass('cur');
-    //    $(this).addClass('cur');
-    //    $('form[name=search]').attr('action',$(this).attr('url'));
-    //});
     /**
      * 返回顶部功能
      */

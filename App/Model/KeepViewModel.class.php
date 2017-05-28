@@ -11,7 +11,7 @@ use Think\Model\ViewModel;
 class KeepViewModel extends ViewModel
 {
     public $viewFields=array(
-        'collect' => array('id' => 'kid','time'=>'ktime','_type' => 'inner'),
+        'collect' => array('id' => 'kid','time'=>'ktime','_type' => 'inner','uid' => 'keep_uid'),
         'article' => array('id', 'content', 'isturn', 'time', 'turn', 'collect', 'readcount', 'comment', 'gid','name'=>'title',//read是关键字
             '_type' => 'inner' ,'_on' => 'collect.aid =  article.id'//左外连接查询,针对下个表有效
         ),

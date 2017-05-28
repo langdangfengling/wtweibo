@@ -2,7 +2,7 @@
 #top_wrap{
     width:100%;
     height:40px;
-    background:url(../Images/top_bg.png) no-repeat center 38px;
+    /*background:url(../Images/top_bg.png) no-repeat center 38px;*/
     position:fixed;
     _position:absolute;
     left:0;
@@ -13,7 +13,7 @@
     width:100%;
     height:38px;
     background: #333333;
-    background:url(../Images/nav_bg.png) repeat-x;
+    /*background:url(../Images/nav_bg.png) repeat-x;*/
 }
 #top .top_wrap{
     width:980px;
@@ -49,6 +49,7 @@
 #sech_text{
     width:186px;
     height:24px;
+    font-size: 12px;
     line-height:24px;
     border:0;
     padding:0 10px;
@@ -118,8 +119,9 @@
 #header{width:1000px;height:39px;margin:0 auto;}
 #nav{width:1000px;margin:20px auto 10px auto;height:30px;}
 #nav ul li{width:140px;height:30px;line-height:30px;float:left;text-align:center;margin:0px 2px 0px 0px;}
-#nav ul li a{color:#506F70;font-size:16px;width:140px;height:30px;display:block;}
-#nav ul li a:hover{display:block;width:140px;height:30px;background:#829696;border-radius:3px;color:#fff;}
+#nav ul li a{color: #343434;font-size:16px;width:140px;height:30px;display:block;}
+#nav ul li a:hover{display:block;width:140px;height:30px;background: #f16e50;border-radius:3px;color:#fff;}
+
 #nava{display:block;color:#fff;width:140px;height:30px;background:#829696;border-radius:3px;}
 /*****加关注弹出框*****/
 #follow {

@@ -1,24 +1,24 @@
 @import "common.css";
 /*header end*/
-#content{width:1000px;margin:5px auto;height:auto;overflow: hidden;}
+#content{width:1000px;margin:5px auto;overflow: hidden;}
 #c_left{width:658px; background:#fff;border-radius:1px;}
 #c_left .s_tuijian{width:630px;height:68px;margin-left:10px;background:url("../Images/r_line.jpg") bottom left repeat-x;}
 .s_tuijian h2{width:630px;height:37px;background:url("../Images/tj.png") no-repeat;padding:20px 0px 5px 60px;
 color:#D242DF;font-size:18px;margin-left:5px;}
-.s_tuijian h2 span{color:#3798A5;padding-left:3px;}
+.s_tuijian h2 span{color:#3798A5;padding-left:3px;font-size: 14px;}
 /*left end*/
 /********************************中部**************************************/
 /*****左侧*****/
 #left{
     width:100px;
-    height:auto;
     padding:20px 0;
-    background:#EFF8FC;
+    background:#E8E5DD;
     border-right: 2px solid #E2EEF4;
+    overflow: hidden;
 }
 #left .left_nav{
-    width:49px;
-    height:auto;
+    width:98px;
+    height:190px;
 }
 #left .left_nav li{
     width:129px;
@@ -57,7 +57,7 @@ color:#D242DF;font-size:18px;margin-left:5px;}
     margin:10px 0;
 }
 #left .group ul li{
-    width:129px;
+    width:88px;
     height:38px;
     overflow: hidden;
     padding-left: 10px;
@@ -240,6 +240,39 @@ color:#D242DF;font-size:18px;margin-left:5px;}
     color: #088CDB;
 }
 .friend .more{float: right;padding-right:30px;font-size: 20px;color: #00FFE4;}
+/*私信*/
+.letter dl {
+    width: 520px;
+    padding: 20px;
+    height: auto;
+    overflow: hidden;
+    border-bottom: 1px solid #E6E6E6;
+}
+.letter dt {
+    width: 50px;
+    height: 80px;
+    float: left;
+}
+.letter dd {
+    width: 450px;
+    height: auto;
+    overflow: hidden;
+    line-height: 20px;
+    float: left;
+    padding-left: 20px;
+}
+.letter .tright{
+    text-align: right;
+    margin-top: 20px;
+}
+.letter .tright span {
+    cursor: pointer;
+    color: #A2CCEA;
+}
+.letter .tright .send_time {
+    float: left;
+}
+
 /*文章*/
 #c_left .content_text .comments{width:650px;margin-top:5px;}
 #c_left .content_text .comments .info{width:350px;margin:0 auto;heigth:200px;line-height:200px;text-align: center; }
@@ -312,18 +345,13 @@ color:#D242DF;font-size:18px;margin-left:5px;}
 #c_left .content_text .comments .blockquote_wrap{margin-bottom:10px; padding-top:8px}
 #c_left .content_text .comments .comment_blockquote{background-color:#f8f8f8; border:1px solid #dcdcdc; margin-top:-1px; padding:15px 19px}
 #c_left .content_text .comments .reply_area{display:none;}
-#c_left .content_text .comments .reply_area_sub{display:none;}
 #c_left .content_text .comments .reply_area textarea{height:40px; margin:5px 0 12px; padding:5px; width:510px; color:#666}
-#c_left .content_text .comments .reply_area_sub textarea{height:40px; margin:5px 0 12px; padding:5px; width:570px; color:#666}
 #c_left .content_text .comments .reply_area .btn{width:70px; height:28px; font-size:12px; line-height:26px}
-#c_left .content_text .comments .reply_area_sub .btn{width:70px; height:28px; font-size:12px; line-height:26px}
 #c_left .content_text .comments .comment_floor{color:#999; float:right; margin:-14px -12px 0 0}
-#c_left .content_text .comments .comment_action_sub{visibility:hidden; float:right; text-align:right}
 #c_left .content_text .comments .comment_con{overflow:hidden; padding-right:15px; width:650px}
 #c_left .content_text .comments .comment_con p{display:inline; word-break:break-all; word-wrap:break-word}
 #c_left .content_text .comments .comment_action{text-align:right; float:right}
-#c_left .content_text .comments .comment_action a,.comment_action_sub a{color:#999; font-size:12px; padding-left:12px; text-decoration:none}
-#c_left .content_text .comments .comment_action a,.comment_action_sub a{color:#999; font-size:12px; padding-left:12px; text-decoration:none}
+#c_left .content_text .comments .comment_action a{color:#999; font-size:12px; padding-left:12px; text-decoration:none;cursor: pointer;}
 #c_left .content_text .comments .send_prompt{width:150px;height: 22px;line-height: 22px;text-align: right;margin-bottom: 10px;}
 .reply{cursor: pointer;}
 
@@ -335,6 +363,101 @@ color:#D242DF;font-size:18px;margin-left:5px;}
 }
 
 /*左侧end*/
-
+/*****发送私信弹出框*****/
+#letter {
+    width: 400px;
+    height: auto;
+    overflow: hidden;
+    z-index: 5;
+    position: absolute;
+    background:#fff;
+    border:3px solid #9D9D9D;
+    border-radius: 4px;
+    display: none;
+}
+#letter .letter_head{
+    width:400px;
+    height:29px;
+    background: #F6F6F6;
+    border-bottom: 1px solid #FF9B00;
+}
+#letter .letter_head .letter_text{
+    display:block;
+    width:400px;
+    height:30px;
+    line-height:30px;
+    font-weight: bold;
+    text-indent: 1em;
+    cursor: move;
+}
+#letter .send-user {
+    width: 340px;
+    height: 36px;
+    line-height: 36px;
+    margin: 20px auto;
+    background: #f9f9f9;
+    border-radius: 2px;
+    padding-left: 20px;
+}
+#letter .send-user input {
+    width: 120px;
+    height: 20px;
+    line-height: 20px;
+    padding : 2px 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+#letter .send-cons {
+    width: 320px;
+    height: auto;
+    overflow: hidden;
+    margin: 20px auto;
+    background: #f9f9f9;
+    border-radius: 2px;
+    padding-left: 40px;
+}
+#letter .send-cons textarea {
+    width: 240px;
+    height: 80px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    resize:none;
+    padding: 5px;
+}
+#letter .lt-btn-wrap {
+    width: 400px;
+    height: 36px;
+    line-height: 36px;
+    text-align: right;
+    margin-bottom: 10px;
+}
+#letter .lt-btn-wrap span {
+    display: inline-block;
+    width: 58px;
+    height: 22px;
+    line-height: 22px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    text-align: center;
+    cursor: pointer;
+    margin-right: 10px;
+}
+#letter .lt-btn-wrap .send-lt-sub {
+    display: inline-block;
+    width: 58px;
+    height: 22px;
+    line-height: 22px;
+    border-radius: 4px;
+    text-align: center;
+    cursor: pointer;
+    margin-right: 10px;
+    background: #F9AB00;
+    color: #fff;
+    font-weight: bold;
+    border:1px solid #FF9B00;
+}
+#letter .lt-btn-wrap .letter-cencle {
+    background: #f6f6f6;
+}
 /*content end*/
 

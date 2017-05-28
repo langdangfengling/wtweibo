@@ -28,7 +28,7 @@ class MhTags extends TagLib
         $str = '';
         $str .= '<?php ';
         $str .= '$where = array("uid" => ' .$id . ');';
-        $str .= '$field = array("username","face80" => "face","follow","fans","weibo","uid");';
+        $str .= '$field = array("username","face230" => "face","follow","fans","article","uid");';
         $str .= '$userinfo = M("userinfo")->where($where)->field($field)->find();';
         $str .='extract($userinfo);';
 //        $str .='dump($userinfo);';
@@ -46,8 +46,8 @@ class MhTags extends TagLib
         $str .= '$follow=implode(\',\',$follow);';
 //        $str .= 'dump($follow);die;';
         $str .= 'if($follow): ;';
-        $str .='$sql="SELECT `uid`,`username`,`face50` as `face`,COUNT(f.`follow`) AS `count` FROM `wt_follow` AS f  LEFT JOIN `wt_userinfo` AS u
-                ON f.`follow`=u.`uid` WHERE f.`funs` IN (" . $follow . ") AND f.`follow` NOT IN (".$follow.") AND f.`follow` !=" .$uid. " GROUP BY f.`follow` ORDER BY `count` DESC LIMIT 4";';
+        $str .='$sql="SELECT `uid`,`username`,`face60` as `face`,COUNT(f.`follow`) AS `count` FROM `wt_follow` AS f  LEFT JOIN `wt_userinfo` AS u
+                ON f.`follow`=u.`uid` WHERE f.`fans` IN (" . $follow . ") AND f.`follow` NOT IN (".$follow.") AND f.`follow` !=" .$uid. " GROUP BY f.`follow` ORDER BY `count` DESC LIMIT 4";';
         $str .='$friend=$db->query($sql);';
 //        $str .='echo $db->getLastSql();';
         $str .='foreach($friend as $v) : ;';

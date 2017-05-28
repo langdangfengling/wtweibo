@@ -9,6 +9,7 @@
 
 namespace Home\Controller;
 
+use Model\ArticleViewModel;
 use Think\Controller;
 use Think\Image;
 use Think\Upload;
@@ -416,6 +417,59 @@ class CommonController extends Controller
         }else{
             echo 0;
         }
+    }
+    //right.html 中推荐，最新，随机文章获取
+    public function getArticle(){
+        if(!IS_AJAX){
+            $this->error('非法请求');
+        }
+        $str=I('post.str');
+        //将我和我关注的用户所有的文章数据都得到
+        $uid=session('uid');
+        $uids=array($uid);
+        $where=array('fans'=>$uid);
+        if($result=M('follow')->where($where)->field('follow')->select()){
+//                  dump($result);die;
+            //将我关注用户的id加入到$uids数组中
+            foreach($result as $v){
+                $uids[]=$v['follow'];
+            }
+        }
+//       dump($uids);die;
+        //调用微博视图模型得到所有数据
+        $where=array(
+            'uid'=>array('in',$uids),
+        );
+        $articleView=new ArticleViewModel();
+        $count=$articleView->where($where)->count();
+        $num=rand($count);
+        $limit=$num.','.'5';
+        switch ($str) {
+            case 'new':
+               $article=$articleView->where($where)->field(array('id','title','isturn'))->order('time DESC')->limit(5)->select();
+                break;
+            case 'hot':
+                $article=$articleView->where($where)->field(array('id','title','isturn'))->order('turn DESC')->limit(5)->select();
+                break;
+            case 'suiji':
+                $article=$articleView->where($where)->field(array('id','title','isturn'))->limit($limit)->select();
+                break;
+        }
+//        var_dump($article);die;
+      if($article){
+//           echo json_encode($article);
+          $str1='';
+          foreach($article as $v) {
+              if ($v['isturn']) {
+                  $str1 .= '<li><a href="' . U('User/article', array('id' => $v['id'])) . '" title="' . $v['title'] . '">' . $v['title'] . '(转)</a></li>';
+              }else{
+                  $str1 .= '<li><a href="' . U('User/article', array('id' => $v['id'])) . '" title="' . $v['title'] . '">' . $v['title'] . '</a></li>';
+              }
+          }
+          echo $str1;
+      }else{
+          echo 'false';
+      }
     }
 
 }

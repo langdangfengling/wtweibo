@@ -1,6 +1,44 @@
-#bottom{width: 980px;height:auto;overflow: hidden;background: #FAFAFA;border:1px red solid;}
-#bottom p{text-align:center;font-size:14px;color:#231C25;}
-#bottom p a{color:#231C25;}
+/** 页脚 **/
+#footer {
+    padding: 10px 0;
+    background: #262627;
+    overflow: hidden;
+}
+
+#footer .foot {
+    width: 1100px;
+    margin: 0 auto;
+    color: #fff;
+}
+#footer .foot a{
+    color: #fff;
+}
+
+#footer .foot a:hover{
+    color: #39f;
+}
+#footer .foot .site-info{
+    float: left;
+}
+
+#footer .foot .footer-tool{
+    float: right;
+}
+/*返回顶部、查看评论、转到底部*/
+/*.tools {*/
+    /*position: fixed;*/
+    /*bottom: 50px;*/
+    /*right: 35px;*/
+    /*z-index: 1000;*/
+    /*cursor: pointer;*/
+/*}*/
+/*.tools div.tools_top {*/
+    /*height: 32px;*/
+    /*width: 32px;*/
+    /*background: url(../Images/back-top-btn.png) no-repeat;*/
+    /*margin-top: 5px;*/
+    /*display: none;*/
+/*}*/
 /**表情**/
 #phiz{
     width:362px;

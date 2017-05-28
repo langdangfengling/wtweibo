@@ -10,6 +10,7 @@
 <script type="text/javascript" src="__PUBLIC__/Js/jquery.SuperSlide.2.1.1.js"></script>
 <script type="text/javascript" src="__PUBLIC__/Js/nav.js"></script>
 <script type="text/javascript" src="__PUBLIC__/Js/bottom.js"></script>
+<script type="text/javascript" src="__PUBLIC__/Js/right.js"></script>
 <script type="text/javascript" src="__PUBLIC__/Js/jNotify.jquery.js"></script>
 <script charset="utf-8" src="__PUBLIC__/kindeditor/kindeditor-min.js"></script>
 <script charset="utf-8" src="__PUBLIC__/kindeditor/lang/zh_CN.js"></script>
@@ -31,7 +32,7 @@
     <!--left end -->
     <div class="fleft" id="c_left">
         <div class="s_tuijian">
-            <h2>我的<span>收藏({$count})</span></h2>
+            <h2><span><if condition='isset($atme)'>@我({$count})<else/>收藏({$count})</if></span></h2>
         </div>
         <div class="content_text">
             <!--wz-->
@@ -68,8 +69,15 @@
                                     <span class="see"><a href="{:U('User/article',array('id' => $id))}" title="阅读全文">查看全文</a></span>
                                     <span class="see_count"><a href="{:U('User/article',array('id' => $id))}" title="阅读全文">阅读({$readcount})</a></span>
                                     <span class="comment"><a href="{:U('User/article',array('id' => $id))}" title="评论">评论({$commentcount})</a></span>
+                                    <if condition="isset($_SESSION['uid']) && $_SESSION['uid'] == $v['uid'] && !isset($v['kid'])">
+                                        <span class="alter" aid="{$id}" gid="{$gid}" uid="{$uid}">修改分类</span>
+                                        <span class="del_article" aid="{$id}" uid="{$uid}">删除</span>
+                                    </if>
+                                    <if condition='isset($v["kid"])'>
                                     <span class="keep_time" >收藏于{$ktime|time_format=###}</span>
                                     <span class="keep_cancel" title="取消收藏" kid="{$kid}" aid="{$id}">取消收藏</span>
+                                        <esel />
+                                    </if>
                                 </dd>
                                 <div class="clear"></div>
                             </dl>

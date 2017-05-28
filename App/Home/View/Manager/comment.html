@@ -10,11 +10,14 @@
 <script type="text/javascript" src="__PUBLIC__/Js/jquery.SuperSlide.2.1.1.js"></script>
 <script type="text/javascript" src="__PUBLIC__/Js/nav.js"></script>
 <script type="text/javascript" src="__PUBLIC__/Js/bottom.js"></script>
+<script type="text/javascript" src="__PUBLIC__/Js/right.js"></script>
 <script type="text/javascript" src="__PUBLIC__/Js/jNotify.jquery.js"></script>
 <script charset="utf-8" src="__PUBLIC__/kindeditor/kindeditor-min.js"></script>
 <script charset="utf-8" src="__PUBLIC__/kindeditor/lang/zh_CN.js"></script>
 <script type="text/javascript">
     var delFollow="{:U('Common/delFollow')}";
+    var sendComment="{:U('Manager/sendComment')}";
+    var delComment="{:U('Manager/delComment')}";
 </script>
 <!--[if lt IE 9]>
 
@@ -52,14 +55,14 @@
                                     </div>
                                     <div class="comment_conBox">
                                         <div class="comment_avatar_time">
-                                            <div class="time">{$v.time|time_format=###}</div> {$v.id}楼
+                                            <div class="time">{$v.time|time_format=###}</div>所属文章:<a href="{:U('User/article',array('id' => $v['aid']))}" aid="{$v.aid}">{$v.title}</a>
                                         </div>
                                         <div class="comment_conWrap clearfix">
-                                            <div class="comment_action"><a class="reply">回复</a> </div>
+                                            <div class="comment_action"><a class="reply">回复</a> <a class="del_comment" id="{$v.id}" fid="{$v['fid']}">删除</a> </div>
                                             <div class="comment_con">{$v.content|replace_weibo=###}</div>
                                         </div>
                                         <!--回复框-->
-                                        <div fid='{$v.id}' class='reply_area'>
+                                        <div fid="{$v['fid']?$v['fid']:$v['id']}" class='reply_area'>
                                             <textarea  class="textarea_comment" sign='comment2' name="content" autocomplete="off"></textarea>
                                             <div class="btn_p clearfix">
                                                 <span class="comment_tip"></span>
@@ -74,7 +77,7 @@
                                 </li>
                             </volist>
                         </ul>
-                        <div class="pager">{$page}</div>
+                        <div class="page">{$page}</div>
                     </div>
                 </if>
                 <!--end 评论信息展示区-->

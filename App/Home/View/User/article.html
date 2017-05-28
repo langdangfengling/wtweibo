@@ -6,10 +6,11 @@
 <link rel="stylesheet" href="__PUBLIC__/Css/style.css"/>
 <link rel="stylesheet" href="__PUBLIC__/Css/right.css"/>
 <link rel="stylesheet" href="__PUBLIC__/Css/bottom.css"/>
-<script type="text/javascript" src="__PUBLIC__/Js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="__PUBLIC__/Js/jquery.min.js"></script>
 <!--<script type="text/javascript" src="js/jquery.SuperSlide.2.1.1.js"></script>-->
 <script type="text/javascript" src="__PUBLIC__/Js/nav.js"></script>
 <script type="text/javascript" src="__PUBLIC__/Js/bottom.js"></script>
+<script type="text/javascript" src="__PUBLIC__/Js/right.js"></script>
 <script type="text/javascript" src="__PUBLIC__/Js/jNotify.jquery.js"></script>
 <script charset="utf-8" src="__PUBLIC__/kindeditor/kindeditor-min.js"></script>
 <script charset="utf-8" src="__PUBLIC__/kindeditor/lang/zh_CN.js"></script>
@@ -173,14 +174,15 @@
                  <!--end 评论信息展示区-->
                  <!--评论发表框-->
                  <div class="comment_send clearfix" id="comment_send">
+                     <php>$user=M('userinfo')->where(array('uid' => session('uid')))->field('username,face60')->find();extract($user);</php>
                      <div class='send_prompt fright'>
                          <span>你还可以输入<span id='send_num'>140</span>个字</span>
                      </div>
                      <div class="comment_avatar">
                         <span class="userPic">
-                            <img class='userPic avatar user_my_avatar' width="60" height="60" src="__PUBLIC__/Images/avatar.jpg" alt="头像">
+                            <img class='userPic avatar user_my_avatar' width="60" height="60" src="<if condition='$face60'>__ROOT__/{$face60}<else />__PUBLIC__/Images/avatar.jpg</if>" alt="头像">
                         </span>
-                         <font class="username">浪荡枫林</font>
+                         <font class="username">{$username}</font>
                      </div>
                      <div class="comment_sendPart" fid="0">
                         <textarea id="textareaComment" sign='comment' class="textarea_comment" name="content"  autocomplete="off">发布评论</textarea>

@@ -48,11 +48,19 @@ class UserController extends CommonController
         $articleView=new ArticleViewModel();
         //分页显示
         $count=$articleView->where($where)->count();
-        $page=new Page($count,3);
+        $page=new Page($count,5);
         $limit=$page->firstRow.','.$page->listRows;
         $article=$articleView->getAll($where,$limit);
-
-        //右栏显示好友分组相关微博
+        //只显示自己发布的文章
+        if($uid=I('get.uid','','intval')){
+            $where=array('uid' => $uid);
+            //分页显示
+            $count=$articleView->where($where)->count();
+            $page=new Page($count,5);
+            $limit=$page->firstRow.','.$page->listRows;
+            $article=$articleView->getAll($where,$limit);
+        }
+        //右栏显示好友分组相关文章
         if($gid=I('get.gid','','intval')){
             //得到我关注好友的id
             $where=array('gid'=>$gid);
@@ -64,14 +72,13 @@ class UserController extends CommonController
                 }
                 $where = array('uid' => array('IN', $follow));
                 $count=$articleView->where($where)->count();
-                $page=new Page($count,3);
+                $page=new Page($count,5);
                 $limit=$page->firstRow.','.$page->listRows;
                 $article = $articleView->getAll($where, $limit);
             }else{
-                $article=false;
                 $count=0;
-                $page=new Page($count,3);
-                $limit=$page->firstRow.','.$page->listRows;
+                $article=false;
+                $page=new Page($count,5);
             }
         }
         // dump($article);
@@ -119,12 +126,37 @@ class UserController extends CommonController
             'gid' => I('post.gid'),
             'time' => time(),
         );
-        if(M('article')->data($data)->add()){
+        if($aid=M('article')->data($data)->add()){
+            // 针对微博内容，处理提到哪些用户，并存入atme表中
+            $this->_atmeHandle($data['content'],$aid);
             //用户发布文章数+1
             M('userinfo')->where(array('uid' => session('uid')))->setInc('article',1);
             $this->success('发布成功',U('User/index'));
         }else{
             $this->error('发布失败');
+        }
+    }
+
+    /**
+     * atme文章处理
+     * @param $content
+     * @param $aid
+     */
+    private function _atmeHandle($content,$aid){
+        $preg = '/@(\S+?)\s/is';
+        preg_match_all($preg,$content,$arr);
+//       dump($arr);die;
+        if(!empty($arr[1])){
+            //根据用户名得到用户id
+            $where=array('username' => array('in',$arr[1]));
+            $uids=M('userinfo')->where($where)->getField('uid',true);
+            //将数据写入数据库
+            foreach ($uids as $v) {
+                $data=array('uid'=>$v,'aid' =>$aid);
+                //消息推送
+//                set_msg($v,3);
+                M('atme')->add($data);
+            }
         }
     }
     //全文读取文章.并且读取该文章下的所有有关数据
@@ -193,30 +225,6 @@ class UserController extends CommonController
 
 //            //推送消息
 //            set_msg($uid,1);
-//            //评论同时转发时处理
-//            $isturn=I('post.isturn','','intval');
-////            dump($isturn);die;
-//            if($isturn){
-//                //读取转发微博内容与id
-//                $field=array('id','content','isturn');
-//                $weibo=$db->field($field)->find($data['wid']);
-//                $tid=$weibo['isturn']?$weibo['isturn']:$weibo['id'];
-//                $content=$weibo['isturn']?$data['content'].'@//'.$username.':'.$weibo['content']:$data['content'];//如果要转发的微博不是原微博，那么内容就是我评论的内容加上要转发微博的内容，否则只是我评论的内容
-//                //将我转发的微博以及评论的内容存入到数据库中
-//                $cons=array(
-//                    'isturn' =>$tid,
-//                    'uid' =>$data['uid'],
-//                    'content' =>$content,
-//                    'time' => $data['time'],
-//                );
-//                if($db->add($cons)){
-//                    //微博转发数加+1
-//                    $db->where(array('id'=>$weibo['id']))->setInc('turn',1);
-//                }
-//                echo 1;
-//                die;//这里如果评论同时转发的话就不用异步显示评论，需要将页面刷新重新载入转发后的微博
-//            }
-
             if (!$fid) {//评论字符串
                 $str = '';
                 $str .= '<li class="comment_list clearfix"><div class="comment_avatar">';
@@ -392,7 +400,7 @@ class UserController extends CommonController
         if($followids){
            $where=array('uid' =>array('in',$followids));
             $follow_count=count($followids);
-            $follow_user=$db->where($where)->Field(array('uid','username','location','face60','sex','follow','fans','article'))->limit(5)->select();
+            $follow_user=$db->where($where)->Field(array('uid','username','location','face80','sex','follow','fans','article'))->limit(5)->select();
         }
 //        dump($follow_user);
         //得到我的粉丝用信息
@@ -400,7 +408,7 @@ class UserController extends CommonController
         if($fansids){
             $where=array('uid' =>array('in',$fansids));
             $fans_count=count($fansids);
-            $fans_user=$db->where($where)->Field(array('uid','username','location','face60','sex','follow','fans','article'))->limit(5)->select();
+            $fans_user=$db->where($where)->Field(array('uid','username','location','face80','sex','follow','fans','article'))->limit(5)->select();
         }
         $this->followids=$followids?$followids:null;
         $this->fansids=$fansids?$fansids:null;
