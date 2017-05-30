@@ -1,0 +1,76 @@
+<include file="Common:header" />
+<title>相片展示-个人博客</title>
+<meta name="" content="个人博客" />
+<meta name="description" content="" />
+<link rel="stylesheet" href="__PUBLIC__/Css/style.css"/>
+<link rel="stylesheet" href="__PUBLIC__/Css/photo.css"/>
+<link rel="stylesheet" href="__PUBLIC__/Css/nav.css"/>
+<link rel="stylesheet" href="__PUBLIC__/Css/bottom.css"/>
+<script type="text/javascript" src="__PUBLIC__/Js/jquery.min.js"></script>
+<script type="text/javascript" src="__PUBLIC__/Js/jquery.SuperSlide.2.1.1.js"></script>
+<script type="text/javascript" src="__PUBLIC__/Js/nav.js"></script>
+<script type="text/javascript" src="__PUBLIC__/Js/bottom.js"></script>
+<script type="text/javascript" src="__PUBLIC__/Js/jNotify.jquery.js"></script>
+<script charset="utf-8" src="__PUBLIC__/kindeditor/kindeditor-min.js"></script>
+<script charset="utf-8" src="__PUBLIC__/kindeditor/lang/zh_CN.js"></script>
+<script charset="utf-8" src="__PUBLIC__/Js/photo.js"></script>
+<script type="text/javascript">
+    var addPhoto="{:U('User/createAlbum')}";
+    var addAlbum="{:U('User/createAlbum')}";
+    var PUBLIC="__PUBLIC__/Images";
+    var sendPhoto="{:U('Common/sendPhoto')}";
+    var CONTROLLER="__CONTROLLER__";
+    var delPhoto="{:U('User/delPhoto')}";
+</script>
+
+<include file="Common:anav"/>
+<!--header end-->
+<!--content start-->
+<div id="content">
+    <!--left-->
+    <div class="fleft" id="photo">
+        <div class="weizi">
+            <div class="wz_text">当前位置：<a href="#">首页</a>><h1>个人相册</h1>{$album1.name}</div>
+        </div>
+        <div class="photo_head" aid="{$album1.id}">
+            <div class="cover_min">
+                <img src="<if condition='$album1[cover]'>
+                 __UPLOADS__/{$album1.cover}
+                <else/>__PUBLIC__/Images/cover.png
+                </if>" width="70" height="70" />
+            </div>
+            <div class="photo_info">
+                <div class="album-name"><a href="javascript:;">{$album1.name}</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="photo_count"><strong>{$count}</strong>张</span></div>
+            </div>
+        </div>
+        <div class="photo_content">
+            <if condition="!$photos">
+                <div class="info">该用户还未上传任何照片</div>
+            </if>
+            <ul>
+                <foreach name="photos" item="v">
+                    <php>extract($v);</php>
+                    <li>
+                        <img src="<if condition='$photo150'>__ROOT__/{$photo150}<else/>__PUBLIC__/Images/cover.png</if>" width="175" height="125" alt="{$v.name}" />
+                        <div class="photo_name"><sapn>{$v.name}</sapn></div>
+                        <div class="delp" pid="{$id}"></div>
+                    </li>
+                </foreach>
+            </ul>
+        </div>
+        <div class="page">{$page}</div>
+    </div>
+    <div class="clear"></div>
+</div>
+<!--content end-->
+<!--大图预览-->
+<div class="tips"></div>
+<div class="bgimg">
+<img class="fimg" src="" alt="" width="900" height="560" />
+<a class="btn" id="btn-l" href="javascript:">&lt;</a>
+<a class="btn" id="btn-r" href="javascript:">&gt;</a>
+</div>
+<!--end-->
+<!--footer-->
+<include file="Common:bottom" />
+

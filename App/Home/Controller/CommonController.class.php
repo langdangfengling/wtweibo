@@ -51,7 +51,7 @@ class CommonController extends Controller
         //判断用户是否已登录
         if (!isset($_SESSION['uid'])) {
             header('Content-type:text/html;charset=utf-8');
-            redirect(U('Login/index'), 3, '请先登录....');
+            redirect(U('Index/index'), 3);
         }
     }
     /**
@@ -425,7 +425,7 @@ class CommonController extends Controller
         }
         $str=I('post.str');
         //将我和我关注的用户所有的文章数据都得到
-        $uid=session('uid');
+        $uid=I('post.uid','','intval');
         $uids=array($uid);
         $where=array('fans'=>$uid);
         if($result=M('follow')->where($where)->field('follow')->select()){

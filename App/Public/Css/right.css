@@ -2,8 +2,8 @@
 #c_right{width:240px;}
 /*#c_right .s_about{width:240px;border:1px solid #ccc;background:#fff;}*/
 #c_right .s_about{width:240px;border:1px solid #ccc;background:#E8E5DD;}
-#c_right .s_about h2{width:210px;margin:0 auto;font-size:16px;color:#333;padding:10px 0px 3px 10px;border-bottom:1px solid #555;}
-#c_right .s_about img{margin:0 auto;margin-top:10px;}
+#c_right .s_about h2{width:100%;margin:0 auto;font-size:16px;color:#333;padding:10px 0px 3px 0px;border-bottom:1px solid #555;background: #f16e50;text-indent: 5px;}
+#c_right .s_about img{margin:0 5px;padding-top:10px;}
 #c_right .s_about p{padding-left:30px;}
 #c_right .s_about p.qq{padding-left:17px;}
 #c_right .s_about p .b_1{display:block;width:90px;height:30px; background:url("../Images/qq.png") no-repeat; float: left;margin-top: 20px}
@@ -48,10 +48,10 @@
     width: 100%;
     height: 30px;
     line-height: 30px;
-    padding:0 5px;
     color:#333333;
     font-weight: bold;
     background: #f16e50;
+    text-indent: 5px;
 }
 #c_right .maybe fieldset ul{
     padding-top:10px;
@@ -135,7 +135,7 @@
 #c_right .lanmubox .hd ul li{float:left;width:80px;height:30px;line-height:30px;text-align:center; cursor:pointer; background: #f16e50;}
 #c_right .lanmubox .hd .hd_3{width:76px;}
 #c_right .lanmubox .hd ul li.on{height:30px;background:#E8E5DD;border:1px solid #ccc;border-bottom:2px solid #fff;}
-#c_right .lanmubox .bd{width:240px;height:145px;zoom:1;background:url("../images/list.png") 5px 5px no-repeat;overflow:hidden;}
+#c_right .lanmubox .bd{width:240px;height:145px;zoom:1;background:url("../Images/list.png") 5px 5px no-repeat;overflow:hidden;}
 #c_right .lanmubox .bd ul li{width:210px;padding-left:25px;height:29px;line-height:29px;}
 #c_right .lanmubox .bd ul li:hover{padding-left:35px;transition: all 0.5s;-webkit-transition: all 0.5s; -moz-transition: all 0.5s; -o-transition: all 0.5s;}
 #c_right .lanmubox .bd ul li a{color:#444;font-size:14px;}

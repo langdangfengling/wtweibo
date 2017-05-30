@@ -1,79 +1,47 @@
 <div class="right" id="c_right">
     <div class="s_about">
-        <php>$uid=session('user_id');$userinfo=M('userinfo')->where(array('uid'=>$uid))->field(array('id','thumb','face80','style'),true)->find();</php>
-        <h2>关于博主</h2>
-        <img src="<if condition='$userinfo["face230"]'>__ROOT__/{$userinfo.face230}<else/>__PUBLIC__/Images/noface.gif</if>" width="230" height="230" alt="博主"/>
-        <p>博主：{$userinfo.username}</p>
-        <p>职业：{$userinfo.profession}</p>
-        <p>简介：{$userinfo.intro}</p>
-        <p class="qq">
-            <a href="#" title="联系博主"><span class="left b_1"></span></a><a href="#" title="加入QQ群，一起学习！"><span class="left b_2"></span></a>
-        <div class="clear"></div>
-        </p>
-        <ul class='num_list'>
-            <li><a href="{:U('/Home/follow/'.$uid)}"><strong>{$userinfo.follow}</strong><span>关注</span></a></li>
-            <li><a href="{:U('/Home/fans/'.$uid)}"><strong>{$userinfo.fans}</strong><span>粉丝</span></a></li>
-            <li class='noborder'><a href=""><strong>{$userinfo.article}</strong><span>微博</span></a></li>
-        </ul>
-    </div>
-    <!--可能感兴趣的人-->
-    <div class="maybe">
-        <fieldset>
-            <legend>可能感兴趣的人</legend>
-            <ul>
-                <!--<friend uid="$_SESSION['uid']">-->
-                    <li>
-                        <dl>
-                            <dt>
-                                <a href=""><img src="<if condition='$face'>
-                              __ROOT__/{$face}
-                              <else/>
-                              __PUBLIC__/Images/noface.gif
-                              </if>" alt="" width='30' height='30'/></a>
-                            </dt>
-                            <dd><a href="">浪荡枫林</a></dd>
-                            <dd>共3个共同好友</dd>
-                        </dl>
-                        <span class='heed_btn add-fl' uid='{$v.uid}'><strong>+&nbsp;</strong>关注</span>
-                    </li>
-                <!--</friend>-->
+        <userinfo id="session('account_id')">
+            <h2>关于博主</h2>
+            <img src="<if condition='$face'>__ROOT__/{$face}<else/>__PUBLIC__/Images/noface.gif</if>" width="230" height="230" alt="博主"/>
+            <p>博主：{$username}</p>
+            <p>职业：{$profession}</p>
+            <p>简介：{$intro}</p>
+            <p class="qq">
+                <a href="#" title="联系博主"><span class="left b_1"></span></a><a href="#" title="加入QQ群，一起学习！"><span class="left b_2"></span></a>
+            <div class="clear"></div>
+            </p>
+            <ul class='num_list'>
+                <li><a href="{:U('/Home/follow/'.$uid)}"><strong>{$follow}</strong><span>关注</span></a></li>
+                <li><a href="{:U('/Home/fans/'.$uid)}"><strong>{$fans}</strong><span>粉丝</span></a></li>
+                <li class='noborder'><a href="{:U('Account/index',array('uid' => $uid))}"><strong>{$article}</strong><span>文章</span></a></li>
             </ul>
-        </fieldset>
+        </userinfo>
     </div>
     <!--栏目分类-->
     <div class="lanmubox">
+        <script type="text/javascript">
+            var getArticle="{:U('Common/getArticle')}";
+        </script>
         <div class="hd">
-            <ul><li>精心推荐</li><li>最新文章</li><li class="hd_3">随机文章</li></ul>
+            <ul><li class="on" theme="hot" uid="{$_SESSION['account_id']}">精心推荐</li><li theme="new" uid="{$_SESSION['account_id']}">最新文章</li><li class="hd_3" theme="suiji" uid="{$_SESSION['account_id']}">随机文章</li></ul>
         </div>
         <div class="bd">
-            <ul>
-                <li><a href="#" title="网站项目实战开发（-）">网站项目实战开发（-）</a></li>
-                <li><a href="#" title="关于响应式布局">关于响应式布局</a></li>
-                <li><a href="#" title="如何创建个人博客网站">如何创建个人博客网站</a></li>
-                <li><a href="#" title="网站项目实战开发（二）">网站项目实战开发（二）</a></li>
-                <li><a href="#" title="为什么新站前期排名老是浮动？(转)">为什么新站前期排名老是浮动？(转)</a></li>
-            </ul>
-            <ul>
-                <li><a href="#" title="网站项目实战开发（-）">网站项目实战开发（-）</a></li>
-                <li><a href="#" title="关于响应式布局">关于响应式布局</a></li>
-                <li><a href="#" title="如何创建个人博客网站">如何创建个人博客网站</a></li>
-                <li><a href="#" title="网站项目实战开发（二）">网站项目实战开发（二）</a></li>
-                <li><a href="#" title="为什么新站前期排名老是浮动？(转)">为什么新站前期排名老是浮动？(转)</a></li>
-            </ul>
-            <ul>
-                <li><a href="#" title="网站项目实战开发（-）">网站项目实战开发（-）</a></li>
-                <li><a href="#" title="关于响应式布局">关于响应式布局</a></li>
-                <li><a href="#" title="如何创建个人博客网站">如何创建个人博客网站</a></li>
-                <li><a href="#" title="网站项目实战开发（二）">网站项目实战开发（二）</a></li>
-                <li><a href="#" title="为什么新站前期排名老是浮动？(转)">为什么新站前期排名老是浮动？(转)</a></li>
-            </ul>
-
-
+            <ul></ul>
         </div>
     </div>
     <!--end-->
-    <div class="link">
-        <h2>友情链接</h2>
-        <p><a href="http://www.duanliang920.com">段亮个人博客</a></p>
+    <!--最近访客-->
+    <div class="visitor">
+        <h4>最近访客</h4>
+        <ul>
+            <li><img src="" width="60" height="60" /><p>浪荡枫林</p> </li>
+            <li><img src="" width="60" height="60" /><p>浪荡枫林</p> </li>
+            <li><img src="" width="60" height="60" /><p>浪荡枫林</p> </li>
+        </ul>
     </div>
+    <div class="link">
+        <h4>友情链接</h4>
+        <p><a href="">ghjgjg</a></p>
+    </div>
+
 </div>

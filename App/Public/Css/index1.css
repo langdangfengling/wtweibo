@@ -1,0 +1,96 @@
+@import "common.css";
+/**背景图片**/
+.fixedTop {
+    position: fixed;
+    width: 100%;
+    left: 0;
+    top: 0;
+}
+.fixedBottom {
+    position: fixed;
+    width: 100%;
+    left: 0;
+    bottom: 0;
+}
+/**圆角*/
+/* Mixin 四边圆角 */
+/**boxS*/
+.box_S {
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+}
+* {
+    margin: 0;
+    padding: 0;
+    outline: none;
+}
+body {
+    color: #ffffff;
+    font-size: 14px;
+    font-family: tahoma, "Microsoft YaHei", 'PingFang SC', 'Helvetica Neue', 'Helvetica', 'STHeitiSC-Light', 'Arial', sans-serif;
+}
+/**Nested Rules  嵌套的规则**/
+.bordered {
+    border-bottom: solid 1px #e8e8e8;
+}
+.borderTop {
+    border-top: solid 1px #e8e8e8;
+}
+.blockMid {
+    display: block;
+    margin: 0 auto;
+}
+.prelative {
+    position: relative;
+}
+.pabsolute {
+    position: absolute;
+}
+.content {
+    padding: 0 4%;
+}
+.pright {
+    right: 4%;
+}
+.bgcolor {
+    background: #fa5527;
+}
+.white {
+    color: #ffffff;
+}
+.content {
+    width: 1144px;
+    margin: 0 auto;
+}
+.iconlogo {
+    display: block;
+    margin: 0 auto;
+    padding: 45px 0;
+}
+.lay_wrap{width:1000px;height:500px;margin:0 auto;overflow: hidden;}
+.lay_wrap .logo{width:100%;height:150px;margin-bottom: 30px;}
+.lay_wrap .logo img{margin-top:10px;margin-left: 20px;}
+.lay_wrap .logo .text1{float: right;width:600px;height:135px;line-height:135px;margin-right:20px;margin-top: 10px;text-align: center;font-size: 20px;font-family: "Microsoft YaHei", 微软雅黑, "Microsoft JhengHei", 华文细黑, STHeiti, MingLiu;}
+.lay_wrap .pic{width:50%;height:350px;float:left;}
+.lay_wrap .login{width:50%;height:350px;float:left;overflow: hidden;background:#fff;color: #1D1A1A;}
+.lay_wrap .login p{width: 100%;height: 40px;line-height: 40px;text-align: center;font-size: 18px;}
+.lay_wrap .login p.info{width: 100%;height:20px;line-height:20px;text-align: center;font-size: 14px;}
+.lay_wrap .login .user_pic{height:210px;margin:10px auto;}
+.lay_wrap .login .user_pic img{margin-left: 210px;margin-top: 65px;}
+.lay_wrap .login .foot{height:30px;width: 100%;}
+.lay_wrap .login .foot .foot1{width: 300px;margin-left: 180px;text-align: right;height: 30px;line-height: 30px;}
+.lay_wrap .login .foot1 a{font-size: 12px;}
+/*@media screen and (max-width:359px){
+  body{ font-size: 12px;}
+}
+@media only screen and (min-width:360px)and(max-width:639px ){
+  body{ font-size: 13px;}
+}
+@media screen and (min-width:640px)and(max-width:749px ){
+  body{ font-size: 16px;}
+}
+@media screen and (min-width:750px){
+  body{ font-size: 24px;}
+}
+*/

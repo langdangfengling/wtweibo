@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>枫林博客</title>
+    <link type="text/css" rel="stylesheet" href="__PUBLIC__/Css/index1.css" />
+    <script type="text/javascript" src="__PUBLIC__/Js/jquery.min.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/Js/modernizr-2.6.2.min.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/Js/starbg.js"></script>
+    <style>
+        *{ margin:0; padding:0;}
+        canvas{ display: block; margin: 0; width:100%; height:100%; position: fixed; left: 0; right: 0; top:0; bottom:0;
+            z-index: -1; }
+        .content{ width: 1144px; margin: 0 auto; padding-top:200px;}
+		.rabitBg{ position:fixed; left:0; top:50%;}
+    </style>
+</head>
+<body>
+   <canvas id="fullstarbg">你的浏览器不支持canvas标签</canvas>
+   <div class="content">
+     <img src="__PUBLIC__/Images/rabit.png" class="rabitBg" />
+       <div class="lay_wrap">
+           <div class="logo">
+               <img src="__PUBLIC__/Images/logo1.png" height="130" />
+               <!--<div class="text1">欢迎来到一缕阳光微博!</div>-->
+           </div>
+           <div>
+               <div class="pic">
+                   <img src="__PUBLIC__/Images/sun.jpg" width="500" height="350" />
+               </div>
+               <div class="login">
+                   <p>快速安全登录</p>
+                   <p class="info">请点击下面图像授权登录</p>
+                   <div class="user_pic"><img src="" width="80" height="80"  /></div>
+                   <div class="foot">
+                       <div class="foot1">
+                       <a href="{:U('Login/index')}">账号密码登录</a>
+                       <span>|</span>
+                       <a href="{:U('Login/register')}">注册新账号</a>
+                       </div>
+                   </div>
+               </div>
+           </div>
+       </div>
+   </div>
+</body>
+</html>

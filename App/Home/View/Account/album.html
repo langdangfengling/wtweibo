@@ -1,0 +1,66 @@
+<include file="Common:header" />
+<title>相册展示-个人博客</title>
+<meta name="" content="个人博客" />
+<meta name="description" content="" />
+<link rel="stylesheet" href="__PUBLIC__/Css/style.css"/>
+<link rel="stylesheet" href="__PUBLIC__/Css/album.css"/>
+<link rel="stylesheet" href="__PUBLIC__/Css/nav.css"/>
+<link rel="stylesheet" href="__PUBLIC__/Css/bottom.css"/>
+<script type="text/javascript" src="__PUBLIC__/Js/jquery.min.js"></script>
+<script type="text/javascript" src="__PUBLIC__/Js/album.js"></script>
+<script type="text/javascript" src="__PUBLIC__/Js/nav.js"></script>
+<script type="text/javascript" src="__PUBLIC__/Js/bottom.js"></script>
+<script type="text/javascript" src="__PUBLIC__/Js/jNotify.jquery.js"></script>
+<script charset="utf-8" src="__PUBLIC__/kindeditor/kindeditor-min.js"></script>
+<script charset="utf-8" src="__PUBLIC__/kindeditor/lang/zh_CN.js"></script>
+<script type="text/javascript">
+    var addAlbum="{:U('User/createAlbum')}";
+    var PUBLIC="__PUBLIC__/Images";
+    var getAlbum="{:U('User/getAlbum')}";
+    var delAlbum="{:U('User/delAlbum')}";
+    var sendPhoto="{:U('Common/sendPhoto')}";
+    var CONTROLLER="__CONTROLLER__";
+    var getPhoto="{:U('User/photo')}";
+</script>
+
+<include file="Common:anav"/>
+    <!--header end-->
+    <!--content start-->
+<div id="content">
+    <!--left-->
+    <div class="fleft" id="album">
+        <div class="weizi">
+            <div class="wz_text">当前位置：<a href="#">首页</a>><h1>个人相册</h1></div>
+        </div>
+        <div class="album_content">
+            <if condition="$album">
+            <ul>
+                <foreach name="album" item="v">
+                    <php>extract($v);</php>
+
+                <li>
+                    <div class="cover">
+                        <a href="{:U('Account/photo',array('aid' => $id))}" ><img src="<if condition='$cover'>__ROOT__/{$cover}<else/>__PUBLIC__/Images/cover.png</if>" width="160" height="150" />
+                        </a>
+                        <div class="set"><img src="__PUBLIC__/Images/xiala2.png" width="20" height="20"/></div>
+                        <div class="set_con">
+                            <div><img src="__PUBLIC__/Images/tubiao/options.png"/><p class="edit_album" aid="{$id}">编辑</p></div>
+                            <div><img src="__PUBLIC__/Images/tubiao/reply.png"/><p class="" aid="{$id}">制作封面</p></div>
+                            <div><img src="__PUBLIC__/Images/tubiao/stop.png"/><p class="del_album" aid="{$id}">删除</p></div>
+                        </div>
+                    </div>
+                    <div class="name"><sapn>{$name}</sapn></div>
+                </li>
+                </foreach>
+            </ul>
+                <else/>
+                <div class="info">该用户还没有创建任何相册!</div>
+            </if>
+        </div>
+    </div>
+    <div class="clear"></div>
+</div>
+    <!--content end-->
+  <!--footer-->
+<include file="Common:bottom" />
+

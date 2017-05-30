@@ -16,7 +16,7 @@ return array(
     //URL路由配置
     'URL_ROUTER_ON' => true,//开启路由功能
     'URL_ROUTE_RULES' => array(//定义路由规则
-        ':uid\d' => 'Home/User/index',//表示只会匹配数字参数，如果你需要更加多的变量类型检测
+        ':user_id\d' => 'Home/Account/index',//表示只会匹配数字参数，如果你需要更加多的变量类型检测
         'follow/:uid\d' =>array('Home/Manager/followList','type=1'),//1为关注，0为粉丝
         'fans/:uid\d' => array('Home/Manager/followList','type=0'),
 //        'photo/:uid\d' => 'Home/User/photo', //相册

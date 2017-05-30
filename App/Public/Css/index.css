@@ -288,7 +288,7 @@ color:#D242DF;font-size:18px;margin-left:5px;}
 .wz dl dd.text div.a_pic{height: 120px;}
 .wz dl dd.text div.a_pic img{margin-left:30px;margin-top:10px;}
 .wz dl dd .dd_text_1{height:130px;display:block;overflow:hidden;}
-.wz dl dd .dd_text_2{line-height:30px;margin-top:10px;}
+.wz dl dd .dd_text_2{line-height:30px;margin-top:10px;overflow:hidden;}
 .wz dl dd .dd_text_2 span{color: #acacac;display:block;}
 .wz dl dd .dd_text_2 span a{color: #acacac;}
 .wz dl dd .dd_text_2 .author{width:140px;height:30px;background:url("../Images/tx.jpg") 5px 7px no-repeat;padding-left:25px;margin-left:170px;}

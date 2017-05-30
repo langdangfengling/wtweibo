@@ -47,7 +47,7 @@
             var getArticle="{:U('Common/getArticle')}";
         </script>
         <div class="hd">
-            <ul><li class="on" theme="hot">精心推荐</li><li theme="new">最新文章</li><li class="hd_3" theme="suiji">随机文章</li></ul>
+            <ul><li class="on" theme="hot" uid="{$_SESSION['uid']}">精心推荐</li><li theme="new" uid="{$_SESSION['uid']}">最新文章</li><li class="hd_3" theme="suiji" uid="{$_SESSION['uid']}">随机文章</li></ul>
         </div>
         <div class="bd">
             <ul></ul>

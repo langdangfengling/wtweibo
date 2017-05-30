@@ -19,7 +19,7 @@ class LoginController extends Controller
     public function index(){
 //        如果存在session就直接跳转到首页
         if(isset($_SESSION['uid'])){
-            redirect(__APP__);
+            redirect('User/index');
         }
         $this->display();
     }

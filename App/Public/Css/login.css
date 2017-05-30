@@ -1,3 +1,4 @@
+@import "common.css";
 /*
  *
  * Template Name: Fullscreen Login
@@ -196,8 +197,9 @@ button:active {
 }
 input.auto{
     width: 20px;
+    height: 20px;
     left: 22px;
-    top:-37px;
+    top:-29px;
     position: absolute;
 }
 .autoload{
@@ -214,9 +216,9 @@ p.runregist{
     /*word-spacing: 10px;*/
 }
 p.runregist a{
-    color: red;
-
+    color: darkgrey;
 }
+.logo{width:300px;height: 100px;position: absolute;left: 20px;top:15px;}
 /*CSS3 INPUT获取焦点时效果*/
 /*textarea:focus,*/
 /*select:focus,*/

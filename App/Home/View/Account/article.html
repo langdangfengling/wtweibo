@@ -1,0 +1,203 @@
+<include file="Common:header" />
+<title>浅谈：html5和html的区别-个人博客</title>
+<meta name="keywords" content="个人博客" />
+<meta name="description" content="" />
+<link rel="stylesheet" href="__PUBLIC__/Css/nav.css"/>
+<link rel="stylesheet" href="__PUBLIC__/Css/style.css"/>
+<link rel="stylesheet" href="__PUBLIC__/Css/right.css"/>
+<link rel="stylesheet" href="__PUBLIC__/Css/bottom.css"/>
+<script type="text/javascript" src="__PUBLIC__/Js/jquery.min.js"></script>
+<!--<script type="text/javascript" src="js/jquery.SuperSlide.2.1.1.js"></script>-->
+<script type="text/javascript" src="__PUBLIC__/Js/nav.js"></script>
+<script type="text/javascript" src="__PUBLIC__/Js/bottom.js"></script>
+<script type="text/javascript" src="__PUBLIC__/Js/right.js"></script>
+<script type="text/javascript" src="__PUBLIC__/Js/jNotify.jquery.js"></script>
+<script charset="utf-8" src="__PUBLIC__/kindeditor/kindeditor-min.js"></script>
+<script charset="utf-8" src="__PUBLIC__/kindeditor/lang/zh_CN.js"></script>
+<!--[if lt IE 9]>
+<script src="js/html5.js"></script>
+<![endif]-->
+<script type="text/javascript">
+    var sendComment="{:U('User/sendComment')}";
+    var getComments="{:U('Common/getComments')}";
+    var addArticleGroup="{:U('Common/addArticleGroup')}";
+    var keep="{:U('User/keep')}";
+    var turn="{:U('User/turn')}";
+    var uid="{:session('uid')}";
+</script>
+<include file="Common:anav" />
+       <!--nav end-->
+    <!--content start-->
+    <div id="content">
+       <!--left-->
+         <div class="fleft" id="news" aid="{$article.id}" uid="{$article.uid}">
+           <div class="weizi">
+           <div class="wz_text">当前位置：<a href="#">首页</a>><a href="#">{$article.gname}</a>><span>文章内容</span></div>
+           </div>
+           <div class="news_content">
+                  <div class="news_top">
+                    <h2>{$article.title}</h2>
+                      <div class="a_info">
+                      <span>{$article.time|time_format=###}</span>
+                      <span>阅读({$article.readcount})</span>
+                          <if condition="$article['isturn']">
+                              <span>转载自:<a href="{:U('/Home/'.$article['isturn']['uid'])}" target="_Blank">{$article.isturn.username}</a></span>
+                              <else />
+                              <span>{$article.username}</span>
+                          </if>
+                      </div>
+                      <div class="news_tool_h">
+                          <ul>
+                                <li class="keep" aid="{$article.id}"><a href="javascript:;"><b></b>收藏({$article.collect})</a></li>
+                                <li class="comment" aid="{$article.id}"><a href="javascript:;"><b></b>评论({$article.commentcount})</a></li>
+                                <if condition="$article['isturn']">
+                                    <li class="turn" aid="{$article.isturn.id}"><a href="javascript:;"><b></b>转发({$article.isturn.turn})</a></li>
+                                    <else/>
+                                <li class="turn" aid="{$article.id}"><a href="javascript:;"><b></b>转发({$article.turn})</a></li>
+                                    </if>
+                          </ul>
+                      </div>
+                    <div class="clear"></div>
+                  </div>
+                    <div class="news_text">{$article.content|htmlspecialchars_decode=###}</div>
+           </div>
+         <div class="news_bottom">
+             <div class="news_tool_b">
+                 <ul>
+                     <li class="keep" aid="{$article.id}"><a href="javascript:;"><b></b>收藏({$article.collect})</a></li>
+                     <li class="comment" aid="{$article.id}"><a href="javascript:;"><b></b>评论({$commentcount})</a></li>
+                     <if condition="$article['isturn']">
+                         <li class="turn" aid="{$article.isturn.id}"><a href="javascript:;"><b></b>转发({$article.isturn.turn})</a></li>
+                         <else/>
+                         <li class="turn" aid="{$article.id}"><a href="javascript:;"><b></b>转发({$article.turn})</a></li>
+                     </if>
+                 </ul>
+             </div>
+             <div class="visitor">
+                 <div class="visitor_head">本文最近訪客 &nbsp;&nbsp;&nbsp;&nbsp;<span class="more">查看最近12位訪客↓</span></div>
+                 <div class="visitor_info">
+                     <ul>
+                         <li>
+                             <div class="user" >
+                                 <img src="" width="50" height="50"/>
+                                 <p class="username">浪荡枫林</p>
+                                 <p class="time">2014年5月</p>
+                             </div>
+                         </li>
+                     </ul>
+                 </div>
+             </div>
+             <!--评论-->
+             <div class="comments">
+                 <if condition='!$comments'>
+                 <div class="info">还没有人发表评论&nbsp;<b style="color: #1aacff;cursor: pointer;">来坐第一个沙发</b></div>
+                     <else/>
+                 <!--评论展示区-->
+                 <div class="title">
+                     评论<span class="num_area">（<em class="comments_num" id="comments_num">{$commentcount}</em>）</span>
+                 </div>
+                 <div  class="comment_wrap" id="comment_wrap">
+                     <ul class="comment_listBox">
+                         <volist name="comments" id="v">
+                             <li class="comment_list clearfix"> <!--if condition="$comments_num%10-1 eq $key or $key%10 eq 9">style='border-bottom:none'-->
+                             <div class="comment_avatar">
+                                 <span class='userPic'><img width="36" height="36" src="<if condition='$v[face]'>__ROOT__/{$v.face}<else/>__PUBLIC__/Images/noface.gif</if>" alt=""></span>
+                                 <span class="grey">{$v.username}</span>
+                             </div>
+                             <div class="comment_conBox">
+                                 <div class="comment_avatar_time">
+                                     <div class="time">{$v.time|time_format=###}</div> {$v.id}楼
+                                 </div>
+                                 <div class="comment_conWrap clearfix">
+                                     <div class="comment_action"><a class="reply">回复</a> </div>
+                                     <div class="comment_con">{$v.content|replace_weibo=###}</div>
+                                 </div>
+                                 <!--回复框-->
+                                 <div fid='{$v.id}' class='reply_area'>
+                                     <textarea  class="textarea_comment" sign='comment2' name="content" autocomplete="off"></textarea>
+                                     <div class="btn_p clearfix">
+                                         <span class="comment_tip"></span>
+                                         <button class="btn_subGrey btn">提交</button>
+                                         <ul class='fleft'>
+                                             <li title='表情'><i class='icon icon-phiz phiz' sign='comment2'></i></li>
+                                         </ul>
+                                     </div>
+                                 </div>
+                                 <!--end 回复框-->
+                                 <!--回复内容展示区-->
+                                 <div class="blockquote_wrap">
+                                     <volist name="v['reply']" id="vo">
+                                         <blockquote class="comment_blockquote">
+                                             <div class="comment_floor">{$vo.time|time_format=###}</div>
+                                             <div class="comment_conWrap clearfix">
+                                                 <div class="comment_con">
+                                                     {$vo.username}：
+                                                     <p>{$vo.content|replace_weibo=###}</p>
+                                                 </div>
+                                                 <div class="comment_action_sub">
+                                                     <a class="reply" >回复</a>
+                                                 </div>
+                                             </div>
+                                             <div fid="{$vo.fid}" class="reply_area_sub">
+                                                 <textarea class="textarea_comment" sign='comment1' autocomplete="off" name="content"></textarea>
+                                                 <div class="btn_p clearfix">
+                                                     <span class="comment_tip"></span>
+                                                     <button class="btn_subGrey btn" >提交</button>
+                                                     <ul class='fleft'>
+                                                         <li title='表情'><i class='icon icon-phiz phiz' sign='comment1'></i></li>
+                                                     </ul>
+                                                 </div>
+                                             </div>
+                                         </blockquote>
+                                     </volist>
+                                 </div>
+                                 <!-- end 回复内容展示区-->
+                             </div>
+                             </li>
+                         </volist>
+                     </ul>
+                         <div class="pager">{$page}</div>
+                 </div>
+                 </if>
+                 <!--end 评论信息展示区-->
+                 <!--评论发表框-->
+                 <div class="comment_send clearfix" id="comment_send">
+                     <php>$user=M('userinfo')->where(array('uid' => session('uid')))->field('username,face60')->find();extract($user);</php>
+                     <div class='send_prompt fright'>
+                         <span>你还可以输入<span id='send_num'>140</span>个字</span>
+                     </div>
+                     <div class="comment_avatar">
+                        <span class="userPic">
+                            <img class='userPic avatar user_my_avatar' width="60" height="60" src="<if condition='$face60'>__ROOT__/{$face60}<else />__PUBLIC__/Images/avatar.jpg</if>" alt="头像">
+                        </span>
+                         <font class="username">{$username}</font>
+                     </div>
+                     <div class="comment_sendPart" fid="0">
+                        <textarea id="textareaComment" sign='comment' class="textarea_comment" name="content"  autocomplete="off">发布评论</textarea>
+                         <div class="btn_p clearfix">
+                             <span class="comment_tip" id="comment_tip_0" data-top="11" data-foot="36"></span>
+                             <button class="btn_subGrey btn" type="button">提 交</button>
+                             <ul class='fleft'>
+                                 <li title='表情'><i class='icon icon-phiz phiz' sign='comment'></i></li>
+                             </ul>
+                         </div>
+                     </div>
+                 </div>
+                 <!--end 评论发表框-->
+             </div>
+             <!--end 评论区-->
+       </div>
+        <!--=====回复框=====-->
+         <!--end left -->
+     </div>
+         <!--right-->
+         <include file="Common:aright" />
+         <!--end  right-->
+         <div class="clear"></div>
+  </div>
+    <!--content end-->
+    <!--footer-->
+   <include file="Common:bottom" />
+    <!--footer end-->
+
+

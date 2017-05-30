@@ -21,18 +21,11 @@ class UserController extends CommonController
    */
     protected $userinfo;
     public function index(){
-        //进入其他用户主页
-        if(isset($_GET['uid']) && $_GET['uid'] != session('uid')) {
-            $uid = I('get.uid', '', 'intval');
-            session('user_id',$uid);
-            $this->display('Account/index');
-        }
-        //存入session中，在right.html中统一获取用户数据，避免其他页面无法获得用户信息
-
         //读取用户发布文章数据
         //将我和我关注的用户所有的文章数据都得到，输出到模板中
-        $uids=array(session('uid'));
-        $where=array('fans'=>session('uid'));
+        $uid=session('uid');
+        $uids=array($uid);
+        $where=array('fans'=>$uid);
         if($result=M('follow')->where($where)->field('follow')->select()){
 //                  dump($result);die;
             //将我关注用户的id加入到$uids数组中
@@ -52,7 +45,7 @@ class UserController extends CommonController
         $limit=$page->firstRow.','.$page->listRows;
         $article=$articleView->getAll($where,$limit);
         //只显示自己发布的文章
-        if($uid=I('get.uid','','intval')){
+        if($_GET['uid'] && $uid=I('get.uid','','intval')){
             $where=array('uid' => $uid);
             //分页显示
             $count=$articleView->where($where)->count();
@@ -110,6 +103,7 @@ class UserController extends CommonController
         $page->setConfig('first','【首页】');
         $page->setConfig('last','【末页】');
         $page->setConfig('theme','共%TOTAL_ROW%条记录，当前是%NOW_PAGE%/%TOTAL_PAGE% %FIRST% %UP_PAGE% %DOWN_PAGE% %END%');
+        $this->uid=$uid?$uid:false;
         $this->article=$article?$article:false;
         $this->page=$page->show();
         $this->display();
@@ -186,7 +180,7 @@ class UserController extends CommonController
 //        dump($count);die;
         $limit=5;
         $comments=$commentView->getAll($where,$limit);
-        $this->commentcount=$commentcount;
+        $this->assign('commentcount',$commentcount);
         $this->article=$article;
         $this->comments=$comments?$comments:0;
         $this->assign('page',$Page->myde_write());
@@ -548,8 +542,21 @@ class UserController extends CommonController
      */
     //读取相册
     public function album(){
-        $album=M('album')->where(array('uid' => session('uid')))->order('time DESC')->select();
+        $db=M('album');
+        $count=$db->where(array('uid' => session('uid')))->count();
+        $page=new Page($count,12);
+        $limit=$page->firstRow.','.$page->listRows;
+        $album=$db->where(array('uid' => session('uid')))->order('time DESC')->limit($limit)->select();
+        //分页自定义样式
+        $page->lastSuffix=false;//最后一页是否显示总页数
+        $page->rollPage=4;//分页栏每页显示的页数
+        $page->setConfig('prev','【上一页】');
+        $page->setConfig('next','【下一页】');
+        $page->setConfig('first','【首页】');
+        $page->setConfig('last','【末页】');
+        $page->setConfig('theme','共%TOTAL_ROW%条记录，当前是%NOW_PAGE%/%TOTAL_PAGE% %FIRST% %UP_PAGE% %DOWN_PAGE% %END%');
         $this->album=$album?$album:false;
+        $this->page=$page->show();
         $this->display();
     }
     //异步创建相册
@@ -664,6 +671,19 @@ class UserController extends CommonController
         }else {
             echo 0;
         }
+    }
+    /**
+     * 退出登录操作
+     */
+    public function loginOut(){
+        //删除session变量
+        session_unset();
+        //销毁session数据区
+        session_destroy();
+        //删除自动登录的cookie值
+        @setcookie('autoload','',time()-3600,'/');
+        //跳转至登录页面
+        redirect(U('Index/index'));
     }
 
 }

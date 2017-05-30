@@ -6,21 +6,22 @@ body{
 #logo{
 	width: 780px;
 	height: 53px;
-	background: url(../Images/logo.png) no-repeat;
+	background: url(../Images/logo1.png) no-repeat;
 	margin: 20px auto;
 }
 #reg-wrap{
 	width: 740px;
 	height: auto;
 	overflow: hidden;
-	border-top: 2px solid #00FFE4;
+	/*border-top: 2px solid #00FFE4;*/
 	margin: 0 auto;
-	background: #DFECFD;;
+	/*background: #DFECFD;*/
 	padding: 20px;
+	/*opacity: 0.8;*/
 }
 #reg-wrap fieldset{
 	padding: 20px;
-	border: 1px solid #ccc;
+	/*border: 1px solid #ccc;*/
 	border-radius: 4px;
 }
 #reg-wrap fieldset legend {
@@ -35,7 +36,7 @@ body{
 	width: 100px;
 	text-align: right;
 	padding-right: 20px;
-	color: #777;
+	color: #343434;
 }
 .input {
 	width: 200px;
