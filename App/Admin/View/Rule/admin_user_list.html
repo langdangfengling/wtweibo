@@ -1,0 +1,52 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <include file="Common/meta" />
+</head>
+<body>
+    <div class="info-center">
+        <div class="page-header">
+            <div class="pull-left">
+                <h4>管理员列表</h4>      
+            </div>
+            <a href="{:U('rule/add_admin')}"  class="btn btn-primary pull-right margin-top">添加管理员</a>
+        </div>
+        <div class="clearfix"></div>
+        <div class="table-margin">
+            <table class="table table-hover table-header" id="list-table">
+                <thead>
+                    <tr>
+                        <td>管理员账号</td>
+                        <td>所属用户组</td>
+                        <td>状态</td>
+                        <td class="w10">操作</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <foreach name="data" item="vo">
+                        <tr>
+                            <td>{$vo['admin_name']}</td>
+                            <td>
+                                {$vo['title']}
+                            </td>
+                            <td>
+                                <if condition="$vo.status eq 1">
+                                    允许登陆
+                                <else/>
+                                    <font color="red">禁止登陆</font>
+                                </if>
+                            </td>
+                            <if condition="$vo.group_id neq 1">
+                            <td>
+                                <a href="{:U('Admin/Rule/edit_admin',array('id'=>$vo['admin_id']))}"> 修改权限或密码</a>
+                            </td>
+                            </if>
+                        </tr>
+                    </foreach>
+                </tbody>
+            </table>
+        </div>
+    </div> 
+    <script type="text/javascript" src="__ADMIN_JS__/common.js"></script>
+</body>
+</html>

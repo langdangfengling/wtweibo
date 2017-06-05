@@ -1,0 +1,146 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <include file="Common/meta" />
+</head>
+<body>
+    <div class="info-center">
+        <div class="page-header">
+            <div class="pull-left">
+                <h4>权限列表</h4>      
+            </div>
+            <a href="javascript:;" onclick="add()" class="btn btn-primary pull-right margin-top">添加权限</a>
+        </div>
+        <div class="clearfix"></div>
+        <div class="table-margin">
+            <div id="warp">
+                <foreach name="data" item="app">
+                    <div class="app">
+                        <p>
+                            <strong>{$app.title}</strong>
+                            [<a href="javascript:;" ruleid="{$app['id']}" onclick="add_child(this)">添加子权限</a>]
+                            [<a href="javascript:;" ruleid="{$app['id']}" rulename="{$app['name']}" ruletitle="{$app['title']}" onclick="edit(this)">修改</a>]
+                            [<a href="javascript:if(confirm('确定删除？'))location='{:U('Rule/delete',array('id'=>$app['id']))}'">删除</a>]
+                        </p>
+                        <foreach name="app._data" item="action">
+                            <dl>
+                                <dt>
+                                    <strong>{$action.title}</strong>
+                                    [<a href="javascript:;" ruleid="{$action['id']}" onclick="add_child(this)">添加子权限</a>]
+                                   [<a href="javascript:;" ruleid="{$action['id']}" rulename="{$action['name']}" ruletitle="{$action['title']}" onclick="edit(this)">修改</a>]
+                                   [<a href="javascript:if(confirm('确定删除？'))location='{:U('Rule/delete',array('id'=>$action['id']))}'">删除</a>]
+                               </dt>
+                               <foreach name="action._data" item="method">
+                                   <dd>
+                                       <span>{$method.title}</span>
+                                       [<a href="javascript:;" ruleid="{$method['id']}" onclick="add_child(this)">添加子权限</a>]
+                                       [<a href="javascript:;" ruleid="{$method['id']}" rulename="{$method['name']}" ruletitle="{$method['title']}" onclick="edit(this)">修改</a>]
+                                       [<a href="javascript:if(confirm('确定删除？'))location='{:U('Rule/delete',array('id'=>$method['id']))}'">删除</a>]
+                                   </dd>
+                               </foreach>
+                           </dl>
+                       </foreach>
+                   </div>
+               </foreach>
+           </div>
+       </div>
+   </div>
+   <div class="modal fade" id="bjy-add" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+       <div class="modal-dialog">
+           <div class="modal-content">
+               <div class="modal-header">
+                   <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                   <h4 class="modal-title" id="myModalLabel"> 添加权限</h4>
+               </div>
+               <div class="modal-body">
+                   <form id="bjy-form" class="form-horizontal" action="{:U('Admin/Rule/add')}" method="post">
+                       <input type="hidden" name="pid" value="0">
+                       <table class="table table-hover contact-template-form">
+                           <tbody><tr>
+                               <td width="20%" align="right">权限名：</td>
+                               <td>
+                                   <input class="form-control" type="text" name="title">
+                               </td>
+                           </tr>
+                           <tr>
+                               <td width="20%" align="right">权限：</td>
+                               <td>
+                                   <input class="form-control" type="text" name="name">输入模块/控制器/方法即可 例如 Admin/Rule/index</td>
+                           </tr>
+                           <tr>
+                               <th></th>
+                               <td>
+                                   <input class="btn btn-primary" type="submit" value="添加">
+                               </td>
+                           </tr>
+                       </tbody></table>
+                   </form>
+               </div>
+           </div>
+       </div>
+   </div>
+   <div class="modal fade" id="bjy-edit" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+       <div class="modal-dialog">
+           <div class="modal-content">
+               <div class="modal-header">
+                   <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                   <h4 class="modal-title" id="myModalLabel"> 修改权限</h4>
+               </div>
+               <div class="modal-body">
+                   <form id="bjy-form" class="form-horizontal" action="{:U('Admin/Rule/edit')}" method="post">
+                       <input type="hidden" name="id">
+                       <table class="table table-hover contact-template-form">
+                           <tbody><tr>
+                               <td width="20%" align="right">权限名：</td>
+                               <td>
+                                   <input class="form-control" type="text" name="title">
+                               </td>
+                           </tr>
+                           <tr>
+                               <td width="20%" align="right">权限：</td>
+                               <td>
+                                   <input class="form-control" type="text" name="name">输入模块/控制器/方法即可 例如 Admin/Rule/index</td>
+                           </tr>
+                           <tr>
+                               <td></td>
+                               <td>
+                                   <input class="btn btn-primary" type="submit" value="修改">
+                               </td>
+                           </tr>
+                       </tbody></table>
+                   </form>
+               </div>
+           </div>
+       </div>
+   </div>
+   <script type="text/javascript" src="__ADMIN_JS__/common.js"></script>
+   <script type="text/javascript">
+       //添加主权限
+   function add(){
+       $("input[name='title'],input[name='name']").val('');
+       $("input[name='pid']").val(0);
+       $('#bjy-add').modal('show');
+   }
+
+   // 添加子权限
+   function add_child(obj){
+       var ruleId=$(obj).attr('ruleId');
+       $("input[name='pid']").val(ruleId);
+       $("input[name='title']").val('');
+       $("input[name='name']").val('');
+       $('#bjy-add').modal('show');
+   }
+
+   // 修改权限
+   function edit(obj){
+       var ruleId=$(obj).attr('ruleId');
+       var ruletitle=$(obj).attr('ruletitle');
+       var ruleName=$(obj).attr('ruleName');
+       $("input[name='id']").val(ruleId);
+       $("input[name='title']").val(ruletitle);
+       $("input[name='name']").val(ruleName);
+       $('#bjy-edit').modal('show');
+   }
+   </script>
+</body>
+</html>
