@@ -62,6 +62,9 @@
     cursor: pointer;
     background:url(../Images/top_bg.png) no-repeat -206px -5px;
 }
+#top .top_wrap .userPic{
+    line-height: 60px;
+}
 #top .top_wrap .user{
     max-width: 80px;
     padding:0 10px;
@@ -78,6 +81,7 @@
 }
 #top .top_wrap .top_right{
     margin-left:20px;
+    width:auto;
 }
 #top .top_wrap .top_right li{
     width:38px;

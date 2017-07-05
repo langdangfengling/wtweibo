@@ -17,6 +17,7 @@
                     <input type='submit' value='' id='sech_sub' class='fleft'/>
                 </form>
             </div>
+            <div class="userPic fleft"><a href="{:U('Home/'.session('uid'))}"><img src="__ROOT__/<?php echo (M('userinfo')->where(array('uid'=>session('uid')))->getField('face60')); ?>" width="30" height="30" /></a></div>
             <div class="user fleft"><a href="{:U('Home/'.session('uid'))}"><?php echo (M('userinfo')->where(array('uid'=>session('uid')))->getField('username')); ?></a></div>
             <ul class='top_right fleft'>
                 <li title='快速发微博' class='fast_send'><i class='icon icon-write'></i></li>
@@ -40,13 +41,16 @@
                     <i class='icon icon-news'></i>
                     <ul>
                         <li class='news_comment hidden'>
-                            <a href=""></a>
+                            <a href="{:U('Manager/comment')}"></a>
                         </li>
                         <li class='news_letter hidden'>
-                            <a href=""></a>
+                            <a href="{:U('Manager/letter')}"></a>
                         </li>
                         <li class='news_atme hidden'>
-                            <a href=""></a>
+                            <a href="{:U('Manager/atme')}"></a>
+                        </li>
+                        <li class='news_guest hidden'>
+                            <a href="{:U('User/guest')}"></a>
                         </li>
                     </ul>
                 </li>
@@ -74,7 +78,7 @@
 <script type='text/javascript'>
     var addFollow = "{:U('Common/addFollow')}";
 //    var editTpl="{:U('Common/editTpl')}";
-//    var getMsgUrl="{:U('Common/getMsg')}";
+    var getMsgUrl="{:U('Common/getMsg')}";
 </script>
 <?php  $group = M('group')->where(array('uid' => session('uid')))->select(); ?>
 <div id='follow'>
@@ -118,7 +122,7 @@
         <div class="choice ">
             <ul>
                 <foreach name="albums" item="v">
-            <li><img src="<if condition='$v[cover]'>__UPLOAD__/{$v.cover}<else/>__PUBLIC__/Images/cover.png"</if> /><span aid="{$v.id}">{$v.name}</span></li>
+            <li><img src="<if condition='$v[cover]'>__UPLOAD__/{$v.cover}<else/>__PUBLIC__/Images/cover.png</if>" /><span aid="{$v.id}">{$v.name}</span></li>
                 </foreach>
             </ul>
             <div class="create_album_1"><a href="javascript:;">创建相册</a></div>

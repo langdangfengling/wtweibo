@@ -52,6 +52,39 @@ function time_format($time){
 }
 
 /**
+ * 格式化时间
+ * @param $time 要格式化的时间戳
+ * @return 已格式化的时间返回
+ */
+function time_format1($time){
+    //当前时间
+    $now =time();
+    //今天零时零分零秒的时间戳
+    $today=  strtotime(date('y-m-d',$now));
+//    echo date('Y-m-d H:i:s',$today);
+    //传递时间与当前时间的相关秒数
+    $diff=$now-$time;
+    $str='';
+    switch($time){
+        case $diff<60:
+            $str=$diff.'秒前';
+            break;
+        case $diff<3600:
+            $str=floor($diff/60).'分钟前';
+            break;
+        case $diff<(3600*8);
+            $str=floor($diff/3600).'小时前';
+            break;
+        case $time>$today:
+            $str='今天&nbsp;'.date('H:i',$time);
+            break;
+        default:
+            $str=date('Y-m-d',$time);
+            break;
+    }
+    return $str;
+}
+/**
  * 替换微博内容的URL地址、@用户与表情
  * @param $content
  * @return mix
@@ -90,7 +123,7 @@ function replace_weibo($content){
 
 /**
  * @param $uid 推送消息属于的用户
- * @param $type 1 表示评论 2表示私信 3表示@我的
+ * @param $type 1 表示评论 2表示私信 3表示@我的 4表示留言
  * @param $flush true 表示已读  false 表示未读
  */
 function set_msg($uid,$type,$flush=false){
@@ -105,6 +138,8 @@ function set_msg($uid,$type,$flush=false){
         case 3:
             $name='atme';
             break;
+        case 4:
+            $name='guest';
     }
 
     if($flush){

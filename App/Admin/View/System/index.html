@@ -1,0 +1,41 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <include file="Common/meta" />
+</head>
+<body>
+<div class="info-center">
+    <div class="page-header">
+        <div class="pull-left">
+            <h4>网站设置</h4>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+    <div>
+        <form action="{:U('editSystem')}" method="post" >
+            <table class="table">
+                <tr><td align="right" width="45%">网站名字:</td><td  align="left"><input type="text" name="webname" value='{$conf.WEBNAME}' /></td></tr>
+                <tr><td align="right" width="45%">版权信息:</td><td align="left"><input type="text" name="copy"  value='{$conf.COPY}'/></td></tr>
+                <tr>
+                    <td align="right" width="45%">是否开放注册:</td>
+                    <td align="left">
+                        <input style="display: inline-block;" type="radio" value="1" name="regisOn" class="radio" {$conf['REGIS_ON'] == 1 ? 'checked="checked"' : false} />&nbsp;&nbsp;开启&nbsp;&nbsp;
+                        <input  style="display: inline-block;" type="radio" value="0" name="regisOn" class="radio" {$conf['REGIS_ON'] == 0 ? 'checked="checked"' : false} />&nbsp;&nbsp;关闭&nbsp;&nbsp;
+                    </td>
+                </tr>
+                <tr><td colspan="2" align="center"><input type="submit" value="保存修改" class="big-btn" /></td></tr>
+            </table>
+        </form>
+    </div>
+</div>
+<script type="text/javascript" src="__ADMIN_JS__/common.js"></script>
+<script>
+    function f(obj){
+        $(obj).addClass('focus');
+    }
+    function b(obj){
+        $(obj).removeClass('focus');
+    }
+</script>
+</body>
+</html>

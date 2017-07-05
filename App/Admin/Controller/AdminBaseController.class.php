@@ -8,6 +8,7 @@
 // +----------------------------------------------------------------------
 namespace Admin\Controller;
 use Common\Controller\BaseController;
+
 class AdminBaseController extends BaseController{
 	/**
 	 * 初始化方法

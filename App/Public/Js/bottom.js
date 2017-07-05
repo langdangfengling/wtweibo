@@ -232,9 +232,11 @@ $(function() {
       //异步提交
       var articel_aid=$(this).parents('#news').attr('aid');
       var manager_aid=$(this).parents('.comment_conBox').find('a').attr('aid');
+      //文章发布者
+      var uid=$(this).parents('#news').attr('uid');
       //alert(manager_aid);
       var aid=articel_aid?articel_aid:manager_aid;
-      $.post(sendComment,{aid:aid,content:textarea_content,fid:fid},function(data){
+      $.post(sendComment,{aid:aid,content:textarea_content,fid:fid,uid:uid},function(data){
          //console.log(data);
          if(data != 'false'){
             if(data == -1){

@@ -1,0 +1,83 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <include file="Common/meta" />
+    <style type="text/css">
+        div.pic{position: absolute;display: none;z-index: 10;}
+        div.tip{width:100%;height:100%;background:rgba(0,0,0,0.5);position:absolute;top:0;display:none;}
+    </style>
+</head>
+<body>
+<div class="pic">
+    <img src="" width="600" height="400"/>
+</div>
+<div class="tip" onclick="cancel(this)"></div>
+<div class="info-center">
+    <div class="page-header">
+        <div class="pull-left">
+            <h4>用户相片列表</h4>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+    <div class="table-margin">
+        <table class="table table-hover table-header" id="list-table">
+            <thead>
+            <tr>
+                <td width="20" align="center">ID</td>
+                <td width="80" align="center">相片名称</td>
+                <td width="110" align="center">相片</td>
+                <td width="90" align="center">上传时间</td>
+                <td width="90" align="center">所属相册</td>
+                <td width="30" align="center" class="w15">操作</td>
+            </tr>
+            </thead>
+            <tbody>
+            <volist name="data" id="v">
+                <tr>
+                    <td width="30" align="center">{$v.id}</td>
+                    <td width="80" align="center">{$v.name}</td>
+                    <td width="80" align="center"><img src="__ROOT__/{$v.photo150}" src1="{$v.photo}" width="60"  height="60" onclick="show_pic(this)" style="cursor: pointer;"/> </td>
+                    <td width="100" align="center">{$v.time|date='Y-m-d H:i:s',###}</td>
+                    <td width="100" align="center">{$v.aid}</td>
+                    <td width="90" align="center">
+                            <a href="javascript:if(confirm('确定删除？'))location='{:U('Admin/Album/delPhoto',array('id'=>$v['id']))}'">删除</a>
+                    </td>
+                </tr>
+            </volist>
+            <tr><td class="page" colspan="8" align="center">{$page}</td></tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<script type="text/javascript" src="__ADMIN_JS__/common.js"></script>
+<script>
+    var ROOT=''
+    function f(obj){
+        $(obj).addClass('focus');
+    }
+    function b(obj){
+        $(obj).removeClass('focus');
+    }
+    function show_pic(obj){
+         var divobj=$('div.pic');
+         var src='__ROOT__/'+$(obj).attr('src1');
+         divobj.find('img').attr('src',src);
+         var left=($(window).width()-divobj.width())/2;
+         var top=$(document).scrollTop()+($(window).height()-divobj.height())/2;
+        $('div.tip').show();
+         divobj.show().css({
+            left:left,
+            top:top,
+        });
+    }
+    function cancel(obj){
+        if($(obj).css('display') == 'block'){
+            $(obj).css('display','none');
+            $('div.pic').hide();
+        }else{
+            return false;
+        }
+    }
+</script>
+</body>
+</html>

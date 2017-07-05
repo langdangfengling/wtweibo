@@ -7,6 +7,7 @@
  */
 
 namespace Home\Controller;
+use Common\Org\Data;
 use Model\AlbumModel;
 use Model\AlbumViewModel;
 use Model\CommentViewModel;
@@ -74,27 +75,7 @@ class UserController extends CommonController
                 $page=new Page($count,5);
             }
         }
-        // dump($article);
-        //    匹配文章内容中图片的src正则表达式
-//        $preg='<img[\s]+src[\s]*=[\s]*(([\'\"](?<src>[^\'\"]*)[\'\"])|(?<src>[^\s]*))';//不行
-//        $preg='/<img.+src=\"?(.+\.(jpg|gif|bmp|bnp|png))\"?.+>/i'; //OK 不懂怎么可以匹配 ？？？？？？？？？？/这个可以找到文章所有的图片标签，单全部集合在一个字符串中，不好提取地址
-        $preg="/<[img|IMG].*?src=[\'|\"](.*?(?:[\.gif|\.jpg]))[\'|\"].*?[\/]?>/";
-        //.*连在一起就意味着任意数量的不包含换行的字符。现在\bhi\b.*\bLucy\b的意思就很明显了：先是一个单词hi,然后是任意个任意字符(但不能是换行)，最后是Lucy这个单词。
-//                需对文章内容稍作处理，存在数据库中的数据已经被转义，所以需要反转义回来,然后在截取一段字作文文章的描述
-        if($article) {
-            foreach ($article as $k => $v) {
-                $article[$k]['content'] = htmlspecialchars_decode($v['content']);//反转义
-                //如果文章内容中存在图片，文章中图片的路径src
-                preg_match_all($preg,$article[$k]['content'],$src);
-//                var_dump($src);
-                $article[$k]['src']=$src[1];
-                $article[$k]['content'] = strip_tags($article[$k]['content']);//去除字符串中html和php标签
-                $article[$k]['content'] = substr($article[$k]['content'], 0, 360);
-                //文章评论数
-                $article[$k]['commentcount']=M('comment')->where(array('fid' => 0,'aid' =>$v['id']))->count();
-            }
-        }
-//                   dump($article);  die;
+        $article=Data::dealData($article);
         //分页自定义样式
         $page->lastSuffix=false;//最后一页是否显示总页数
         $page->rollPage=4;//分页栏每页显示的页数
@@ -148,7 +129,7 @@ class UserController extends CommonController
             foreach ($uids as $v) {
                 $data=array('uid'=>$v,'aid' =>$aid);
                 //消息推送
-//                set_msg($v,3);
+                set_msg($v,3);
                 M('atme')->add($data);
             }
         }
@@ -211,14 +192,16 @@ class UserController extends CommonController
             $field = array('username', 'face60' => 'face');
             $where = array('uid' => $data['uid']);
             $user = M('userinfo')->where($where)->field($field)->find();
-//            //文章的发布者用户信息
-//            $uid=I('post.uid','','intval');
+            //文章的发布者用户信息
+            $uid=I('post.uid','','intval');
 //            $where=array('uid'=>$uid);
 //            $username=M('userinfo')->where($where)->getField('username');
 
-
-//            //推送消息
-//            set_msg($uid,1);
+         //如果自己给自己的文章进行回复或评论就不推送
+            if($uid != $data['uid']){
+                //推送消息
+                set_msg($uid,1);
+            }
             if (!$fid) {//评论字符串
                 $str = '';
                 $str .= '<li class="comment_list clearfix"><div class="comment_avatar">';
@@ -420,6 +403,8 @@ class UserController extends CommonController
         /**
          * 读取该用户留言数据，展示在模板中
          */
+        //        //读取推送消息
+        set_msg(session('uid'),3,true);
         //留言分页显示
         $where = array('uid' => session('uid'));
         $guestView = new GuestViewModel();

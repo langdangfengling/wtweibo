@@ -5,8 +5,8 @@
 *          $myde_size - 一页显示的记录数
 *          $myde_page - 当前页
 *          $myde_url - 获取当前的url
-* @功能:   分页实现
-* @作者:   宋海阁
+* @功能:   异步分页实现
+* @作者:   王涛
 */
 class PageAjax {
     private $myde_total;          //总记录数

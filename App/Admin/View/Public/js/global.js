@@ -20,7 +20,7 @@ $(function(){
 			$(this).find("span:first-child").addClass("glyphicon-chevron-down");
 			$(this).removeClass("sublist-up");
 			$(this).addClass("sublist-down");
-            $(".navContent").slideUp(300)
+            $(".navContent").slideUp(300);
             $(this).next(".navContent").slideDown(300);
 
 		}	
@@ -144,11 +144,11 @@ function changeTableVal(table,id_name,id_value,field,obj)
     var src = "";
     if($(obj).attr('src').indexOf("cancel.png") > 0 )
     {          
-        src = '/Public/Admin/images/yes.png';
+        src = '/Admin/View/Public/images/yes.png';
         var value = 1;
         
     }else{                    
-        src = '/Public/Admin/images/cancel.png';
+        src = '/Admin/View/Public/images/cancel.png';
         var value = 0;
     }                                                 
     $.ajax({
@@ -157,6 +157,16 @@ function changeTableVal(table,id_name,id_value,field,obj)
             $(obj).attr('src',src);           
         }
     });     
+}
+
+//搜索
+ function search() {
+    var keyword = $("input[name='keyword']").val();
+    if (keyword == '') {
+        layer.msg('请输入您想要搜索的内容');
+        return false;
+    }
+     return true;
 }
 
 /**

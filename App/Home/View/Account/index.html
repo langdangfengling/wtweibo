@@ -1,5 +1,5 @@
 <include file="Common:header"/>
-<title>他的主页</title>
+<title>{$Think.config.WEBNAME}--个人主页</title>
 <meta name="keywords" content="个人博客" />
 <meta name="description" content="" />
 <link rel="stylesheet" href="__PUBLIC__/Css/nav.css"/>
@@ -48,7 +48,7 @@
                         <div class="wz">
                             <h3><a href="{:U('Account/article',array('id' => $id))}" title="{$title}">{$title}</a></h3>
                             <dl>
-                                <dt> <a href="{:U('/Home/'.$uid)}"><img src="<if condition='$face'>__ROOT__/{$face}<else/>__PUBLIC__/Images/noface.gif</if>" width="60"  height="60" alt=""></a></dt>
+                                <dt> <a href="{:U('/Home/'.$uid)}" target="_blank"><img src="<if condition='$face'>__ROOT__/{$face}<else/>__PUBLIC__/Images/noface.gif</if>" width="60"  height="60" alt=""></a></dt>
                                 <dd class="text">
                                     <if condition="$src">
                                         <div class="a_pic">

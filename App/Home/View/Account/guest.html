@@ -1,5 +1,5 @@
 <include file="Common:header" />
-<title>留言板-个人博客</title>
+<title>{$Think.config.WEBNAME}--留言板</title>
 <meta name="keywords" content="个人博客" />
 <meta name="description" content="" />
 <link rel="stylesheet" href="__PUBLIC__/Css/right.css"/>
@@ -20,7 +20,7 @@
 <script src="js/html5.js"></script>
 <![endif]-->
 <script type="text/javascript">
-    var guestUrl="{:U('guest')}";
+    var guestUrl="{:U('Account/runGuest')}";
     var PUBLIC="__PUBLIC__/Images/guestimg/";
     var UPLOADS="__ROOT__/";
     var delGuest="{:U('delGuest')}";
@@ -86,7 +86,7 @@
 
 
                   <!--回复框-->
-                  <div id="reply" class="hidden">
+                  <div class="reply" class="hidden">
                       <p class="bq"><span class="emotion phiz fleft" sign='comment{$key}'></span></p>
                       <textarea cols="30" rows="3" class="input" sign='comment{$key}' ></textarea>
                       <p class="btn"><input type="button" class="sub_btn" value="确定" />

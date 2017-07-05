@@ -30,19 +30,24 @@ class AccountController extends CommonController
         }
         $account_id=I('get.user_id','','intval');
         session('account_id',$account_id);//这里如果打开多个用户主页会导致前后覆盖 待解决
-        $uids=array($account_id);
-        $where=array('fans'=>$account_id);
-        if($result=M('follow')->where($where)->field('follow')->select()){
-//                  dump($result);die;
-            //将我关注用户的id加入到$uids数组中
-            foreach($result as $v){
-                $uids[]=$v['follow'];
-            }
-        }
+        //这里将访问者写入库
+        $visitor=session('uid');
+//        var_dump($visitor);die;
+        $this->recordVisitor($visitor,$account_id);
+        //读取用户以及该用户关注的用户的文章  这里按想法只读取用户的文章就行
+//        $uids=array($account_id);
+//        $where=array('fans'=>$account_id);
+//        if($result=M('follow')->where($where)->field('follow')->select()){
+////                  dump($result);die;
+//            //将我关注用户的id加入到$uids数组中
+//            foreach($result as $v){
+//                $uids[]=$v['follow'];
+//            }
+//        }
 //       dump($uids);die;
         //调用微博视图模型得到所有数据
         $where=array(
-            'uid'=>array('in',$uids),
+            'uid'=>$account_id,
         );
         $articleView=new ArticleViewModel();
         //分页显示
@@ -50,15 +55,15 @@ class AccountController extends CommonController
         $page=new Page($count,5);
         $limit=$page->firstRow.','.$page->listRows;
         $article=$articleView->getAll($where,$limit);
-        //只显示自己发布的文章
-        if($_GET['uid'] && $uid=I('get.uid','','intval')){
-            $where=array('uid' => $uid);
-            //分页显示
-            $count=$articleView->where($where)->count();
-            $page=new Page($count,5);
-            $limit=$page->firstRow.','.$page->listRows;
-            $article=$articleView->getAll($where,$limit);
-        }
+//        //只显示自己发布的文章
+//        if($_GET['uid'] && $uid=I('get.uid','','intval')){
+//            $where=array('uid' => $uid);
+//            //分页显示
+//            $count=$articleView->where($where)->count();
+//            $page=new Page($count,5);
+//            $limit=$page->firstRow.','.$page->listRows;
+//            $article=$articleView->getAll($where,$limit);
+//        }
         // dump($article);
         //    匹配文章内容中图片的src正则表达式
 //        $preg='<img[\s]+src[\s]*=[\s]*(([\'\"](?<src>[^\'\"]*)[\'\"])|(?<src>[^\s]*))';//不行
@@ -88,7 +93,6 @@ class AccountController extends CommonController
         $page->setConfig('first','【首页】');
         $page->setConfig('last','【末页】');
         $page->setConfig('theme','共%TOTAL_ROW%条记录，当前是%NOW_PAGE%/%TOTAL_PAGE% %FIRST% %UP_PAGE% %DOWN_PAGE% %END%');
-        $this->uid=$uid?$uid:false;
         $this->article=$article?$article:false;
         $this->page=$page->show();
         $this->display();
@@ -101,6 +105,26 @@ class AccountController extends CommonController
         }
         //文章
         $id=I('get.id','','intval');
+        //这里将访问者写入库
+        $visitor=session('uid');
+        $data=array(
+            'visitor' => $visitor,
+            'time' => time(),
+            'uid' => session('account_id'),
+            'aid' => $id,
+        );
+        //自己访问不计入内
+        if($visitor != session('account_id')){
+            $db=M('visitors');
+            $where=array('visitor' => $visitor,'aid' => $id);
+            //如果保存的最近访问者已经存在，则更新数据
+            $old_visitor=$db->where($where)->find();
+            if($old_visitor){
+                $db->where($where)->save($data);
+            }else{
+                $db->data($data)->add();
+            }
+        }
         //给该文章阅读数+1
         M('article')->where(array('id' => $id))->setInc('readcount',1);
         $ArticleView=new ArticleViewModel();
@@ -235,8 +259,10 @@ class AccountController extends CommonController
             'guest_uid' =>session('uid'),//留言者
             'content' =>I('post.content'),
             'guesttime' => time(),
-            'uid' => session('user_id'),//留言所属用户
+            'uid' => session('account_id'),//留言所属用户
         );
+        //        //读取推送消息
+        set_msg(session('account_id'),4);
         if(M('guest')->data($data)->add()){
             //异步读取刚刚留言的信息
             $user=M('userinfo')->where(array('uid' => $data['guest_uid']))->field(array('username','face60' => 'face'))->find();

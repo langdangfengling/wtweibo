@@ -93,6 +93,8 @@ class ManagerController extends CommonController
         //获取该用户文章所有的评论，并可以对评论进行删除，回复,自己的评论不显示在内
           //1.获取改用户发布的文章id
         $uid=session('uid');
+        //        //读取推送消息
+        set_msg($uid,1,true);
         $where=array('uid' => $uid,'cid' => array('NEQ',$uid));
         $commentView=new CommentViewModel();
         $count=$commentView->where($where)->count();
@@ -165,7 +167,7 @@ class ManagerController extends CommonController
     public function atme()
     {
 //        //读取推送消息
-//        set_msg(session('uid'),3,true);
+        set_msg(session('uid'),3,true);
         //从表中读取数据
         $where = array('uid' => session('uid'));
         $aids = M('atme')->where($where)->getField('aid', true);
@@ -215,7 +217,7 @@ class ManagerController extends CommonController
      */
     public function letter(){
         //读取推送消息
-//        set_msg(session('uid'),2,true);
+        set_msg(session('uid'),2,true);
         //读取私信
         $where=array('uid' => session('uid'));
         $count=M('letter')->where($where)->count();
@@ -250,7 +252,7 @@ class ManagerController extends CommonController
         );
         if (M('letter')->data($data)->add()) {
             //推送消息
-//            set_msg($uid,2);
+            set_msg($uid,2);
             $this->success('发送成功', U('User/index'));
         } else{
             $this->error('发送失败，请重试.....!');

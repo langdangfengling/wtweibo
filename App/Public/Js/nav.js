@@ -633,7 +633,10 @@ $(function () {
             }
         });
     }
+    //自动请求内存中是否有消息推送
+    get_msg(getMsgUrl);
 });
+
 //异步轮询函数
 function get_msg(url){
     $.getJSON(url,function(data){//getJSON 使用 AJAX 请求来获得 JSON 数据，并输出结果： jQuery.getJSON(url,data,success(data,status,xhr)) url，请求的服务地址，data:请求服务器携带的数据，sunccess 请求成功执行的函数
@@ -667,6 +670,9 @@ function news(json){
             break;
         case 3:
             $('#news ul li.news_atme').show().find('a').html(json.total + '条@我!');
+            break;
+        case 4:
+            $('#news ul li.news_guest').show().find('a').html(json.total+'条留言!');
             break;
     }
     var obj = $('#news');

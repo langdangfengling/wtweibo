@@ -2,8 +2,8 @@
             <volist name="comments" id="v">
                 <li class="comment_list clearfix"> <!--if condition="$comments_num%10-1 eq $key or $key%10 eq 9">style='border-bottom:none'-->
                     <div class="comment_avatar">
-                        <span class='userPic'><img width="36" height="36" src="<if condition='$v[face]'>__ROOT__/{$v.face}<else/>__PUBLIC__/Images/noface.gif</if>" alt=""></span>
-                        <span class="grey">{$v.username}</span>
+                        <span class='userPic'><a href="{:U('/Home/'.$v['uid'])}" target="_blank"> <img width="36" height="36" src="<if condition='$v[face]'>__ROOT__/{$v.face}<else/>__PUBLIC__/Images/noface.gif</if>" alt=""></a></span>
+                        <span class="grey"><a href="{:U('/Home/'.$v['uid'])}" target="_blank">{$v.username}</a></span>
                     </div>
                     <div class="comment_conBox">
                         <div class="comment_avatar_time">
@@ -32,7 +32,8 @@
                                     <div class="comment_floor">{$vo.time|time_format=###}</div>
                                     <div class="comment_conWrap clearfix">
                                         <div class="comment_con">
-                                            {$vo.username}：
+                                            <a href="{:U('/Home/'.$vo['uid'])}" target="_blank">
+                                            {$vo.username}</a>：
                                             <p>{$vo.content}</p>
                                         </div>
                                         <div class="comment_action_sub">

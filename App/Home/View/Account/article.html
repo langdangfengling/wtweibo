@@ -1,5 +1,5 @@
 <include file="Common:header" />
-<title>浅谈：html5和html的区别-个人博客</title>
+<title>{$Think.config.WEBNAME}--个人文章</title>
 <meta name="keywords" content="个人博客" />
 <meta name="description" content="" />
 <link rel="stylesheet" href="__PUBLIC__/Css/nav.css"/>
@@ -75,15 +75,18 @@
              </div>
              <div class="visitor">
                  <div class="visitor_head">本文最近訪客 &nbsp;&nbsp;&nbsp;&nbsp;<span class="more">查看最近12位訪客↓</span></div>
+                 <php>$visitors=M('visitors')->where(array('wt_visitors.uid' => session('account_id'),'wt_visitors.aid' => array('gt',0)))->field('wt_userinfo.face60,wt_userinfo.username,wt_visitors.visitor,wt_visitors.time')->join('LEFT JOIN wt_userinfo ON wt_userinfo.uid=wt_visitors.visitor')->limit(12)->select();</php>
                  <div class="visitor_info">
                      <ul>
+                         <foreach name="visitors" item="v">
                          <li>
                              <div class="user" >
-                                 <img src="" width="50" height="50"/>
-                                 <p class="username">浪荡枫林</p>
-                                 <p class="time">2014年5月</p>
+                                 <img src="<if condition='$v[face60]'>__ROOT__/{$v.face60}<else/>__PUBLIC__/Images/noface.gif</if>"  />
+                                 <p class="username"><if condition='count($v["username"]) gt 4'>{$v.username|substr=###,4}....<else/>{$v.username}</if></p>
+                                 <p class="time">{$v.time|time_format=###}</p>
                              </div>
                          </li>
+                             </foreach>
                      </ul>
                  </div>
              </div>

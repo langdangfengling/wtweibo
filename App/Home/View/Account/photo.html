@@ -1,5 +1,5 @@
 <include file="Common:header" />
-<title>相片展示-个人博客</title>
+<title>{$Think.config.WEBNAME}--相片展示</title>
 <meta name="" content="个人博客" />
 <meta name="description" content="" />
 <link rel="stylesheet" href="__PUBLIC__/Css/style.css"/>
@@ -53,7 +53,6 @@
                     <li>
                         <img src="<if condition='$photo150'>__ROOT__/{$photo150}<else/>__PUBLIC__/Images/cover.png</if>" width="175" height="125" alt="{$v.name}" />
                         <div class="photo_name"><sapn>{$v.name}</sapn></div>
-                        <div class="delp" pid="{$id}"></div>
                     </li>
                 </foreach>
             </ul>

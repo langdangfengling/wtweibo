@@ -20,7 +20,9 @@
 #footer .foot .site-info{
     float: left;
 }
-
+#footer .foot .auth{
+    float: right;
+}
 #footer .foot .footer-tool{
     float: right;
 }

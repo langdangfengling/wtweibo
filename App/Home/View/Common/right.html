@@ -56,16 +56,16 @@
     <!--end-->
     <!--最近访客-->
     <div class="visitor">
-       <h4>最近访客</h4>
+        <php>$visitors=M('visitors')->where(array('wt_visitors.uid' => session('uid'),'wt_visitors.aid' => 0))->field('wt_userinfo.face60,wt_userinfo.username,wt_visitors.visitor,wt_visitors.time')->join('LEFT JOIN wt_userinfo ON wt_userinfo.uid=wt_visitors.visitor')->limit(6)->select();</php>
+        <h4>最近访客</h4>
         <ul>
-            <li><img src="" width="60" height="60" /><p>浪荡枫林</p> </li>
-            <li><img src="" width="60" height="60" /><p>浪荡枫林</p> </li>
-            <li><img src="" width="60" height="60" /><p>浪荡枫林</p> </li>
+            <foreach name="visitors" item="v">
+                <li><img src="<if condition='$v[face60]'>__ROOT__/{$v.face60}<else/>__PUBLIC__/Images/noface.gif</if>"  width="50" height="50" /><p><if condition='count($v["username"]) gt 4'>{$v.username|substr=###,4}....<else/>{$v.username}</if></p><p>{$v.time|time_format1=###}</p> </li>
+            </foreach>
         </ul>
     </div>
     <div class="link">
         <h4>友情链接</h4>
-        <p><a href="">ghjgjg</a></p>
     </div>
 
 </div>

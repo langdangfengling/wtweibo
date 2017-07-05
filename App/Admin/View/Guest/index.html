@@ -1,0 +1,67 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <include file="Common/meta" />
+</head>
+<body>
+<div class="info-center">
+    <div class="page-header">
+        <div class="pull-left">
+            <h4>用户留言列表</h4>
+        </div>
+    </div>
+    <div class="search-box">
+        <form action="{:U('Admin/Guest/index')}" method="get" onsubmit="return search()">
+            <label>关&nbsp;键&nbsp;字&nbsp;:</label>
+            <input name="keyword" type="text" onfocus="f(this)" onblur="b(this)" />
+            <input type="submit"  class="serch"  value="" name="submiting"/>
+        </form>
+    </div>
+    <div class="clearfix"></div>
+    <div class="table-margin">
+        <table class="table table-hover table-header" id="list-table">
+            <thead>
+            <tr>
+                <td width="20" align="center">ID</td>
+                <td width="80" align="center">留言者</td>
+                <td width="110" align="center">内容</td>
+                <td width="90" align="center">留言时间</td>
+                <td width="90" align="center">留言所属</td>
+                <td width="30" align="center" class="w15">操作</td>
+            </tr>
+            </thead>
+            <tbody>
+            <if condition="$data">
+            <volist name="data" id="v">
+                <tr>
+                    <td width="30" align="center">{$v.id}</td>
+                    <td width="80" align="center">{$v.gusername}</td>
+                    <td width="80" align="center">{$v.content|str_replace=$keyword,"<span style='color:red;'>$keyword</span>",###}......</td>
+                    <td width="100" align="center">{$v.guesttime|date='Y-m-d H:i:s',###}</td>
+                    <td width="100" align="center">{$v.username}</td>
+                    <td width="90" align="center">
+                            <a href="javascript:if(confirm('确定删除？'))location='{:U('Admin/Guest/delGuest',array('id'=>$v['id']))}'">删除</a>
+                    </td>
+                </tr>
+            </volist>
+             <else/>
+                <tr>
+                    <td class="noresult" align="center" colspan="7">没有找到与<span style="color: red;">{$keyword}</span>相关留言</td>
+                </tr>
+            </if>
+            <tr><td class="page" colspan="8" align="center">{$page}</td></tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<script type="text/javascript" src="__ADMIN_JS__/common.js"></script>
+<script>
+    function f(obj){
+        $(obj).addClass('focus');
+    }
+    function b(obj){
+        $(obj).removeClass('focus');
+    }
+</script>
+</body>
+</html>

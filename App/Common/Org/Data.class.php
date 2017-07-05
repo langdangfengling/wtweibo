@@ -2,9 +2,36 @@
 /**
  * 数据处理类
  */
-namespace Org\Nx;
+namespace Common\Org;
 final class Data
 {
+    /**
+     * 对文章内容进行处理，提取文章中的图片路径，以及内容反转义并截取一段显示
+     * @param  array $data
+     * @return array
+     */
+    static public function dealData($data){
+        //    匹配文章内容中图片的src正则表达式
+//        $preg='<img[\s]+src[\s]*=[\s]*(([\'\"](?<src>[^\'\"]*)[\'\"])|(?<src>[^\s]*))';//不行
+//        $preg='/<img.+src=\"?(.+\.(jpg|gif|bmp|bnp|png))\"?.+>/i'; //OK 不懂怎么可以匹配 ？？？？？？？？？？/这个可以找到文章所有的图片标签，单全部集合在一个字符串中，不好提取地址
+        $preg="/<[img|IMG].*?src=[\'|\"](.*?(?:[\.gif|\.jpg]))[\'|\"].*?[\/]?>/";
+        //.*连在一起就意味着任意数量的不包含换行的字符。现在\bhi\b.*\bLucy\b的意思就很明显了：先是一个单词hi,然后是任意个任意字符(但不能是换行)，最后是Lucy这个单词。
+//                需对文章内容稍作处理，存在数据库中的数据已经被转义，所以需要反转义回来,然后在截取一段字作文文章的描述
+        if($data) {
+            foreach ($data as $k => $v) {
+                $data[$k]['content'] = htmlspecialchars_decode($v['content']);//反转义
+                //如果文章内容中存在图片，文章中图片的路径src
+                preg_match_all($preg,$data[$k]['content'],$src);
+//                var_dump($src);
+                $data[$k]['src']=$src[1];
+                $data[$k]['content'] = strip_tags($data[$k]['content']);//去除字符串中html和php标签
+                $data[$k]['content'] = substr($data[$k]['content'], 0, 360);
+                //文章评论数
+                $data[$k]['commentcount']=M('comment')->where(array('fid' => 0,'aid' =>$v['id']))->count();
+            }
+        }
+        return $data;
+    }
     /**
      * 返回多层栏目
      * @param $data 操作的数组

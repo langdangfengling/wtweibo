@@ -1,0 +1,75 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <include file="Common/meta" />
+</head>
+<body>
+<div class="info-center">
+    <div class="page-header">
+        <div class="pull-left">
+            <h4>用户检索</h4>
+        </div>
+    </div>
+    <div class="search-box">
+        <form action="{:U('Admin/User/serchUser')}" method="get" onsubmit="return search()">
+        <label>关&nbsp;键&nbsp;字&nbsp;:</label>
+        <input name="keyword" type="text" onfocus="f(this)" onblur="b(this)" />
+        <input type="submit"  class="serch"  value=""/>
+        </form>
+    </div>
+    <div class="clearfix"></div>
+    <div class="table-margin">
+        <table class="table table-hover table-header" id="list-table">
+            <thead>
+            <tr>
+                <td width="30" align="center">用户ID</td>
+                <td width="80" align="center">昵称</td>
+                <td width="80" align="center">图像</td>
+                <td width="70" align="center">关注信息</td>
+                <td width="100" align="center">注册时间</td>
+                <td width="30" align="center">账号状态</td>
+                <td width="60" align="center" class="w15">操作</td>
+            </tr>
+            </thead>
+            <tbody>
+            <if condition="isset($keyword)">
+                <if condition="$data">
+            <foreach name="data" item="v">
+                <tr>
+                    <td width="30" align="center">{$v.id}</td>
+                    <td width="80" align="center">{$v.username}</td>
+                    <td width="80" align="center"><img src="<if condition='$v.face'>__ROOT__/{$v.face} <else/>__PUBLIC__/Images/noface.gif</if>" width="60" height="60"></td>
+                    <td width="70" align="center"><ul><li>关注:{$v.follow}</li><li>粉丝:{$v.fans}</li><li>文章:{$v.article}</li></ul></td>
+                    <td width="100" align="center">{$v.registime|date='Y-m-d H:i:s',###}</td>
+                    <td  width="30" align="center"> <img width="20" height="20" src="__ADMIN_IMAGES__/<if condition='$v[status] eq 0'>yes.png<else />cancel.png</if>"/></td>
+                    <td width="60" align="center">
+                        <if condition="!$v['status']">
+                            <a href="javascript:if(confirm('确定锁定？'))location='{:U('Admin/User/lock',array('id'=>$v['id'],'type'=>1))}'">锁定用户</a>
+                        <else/>
+                            <a href="javascript:if(confirm('确定解锁？'))location='{:U('Admin/User/lock',array('id'=>$v['id'],'type'=>0))}'">解锁用户</a>
+                        </if>
+                    </td>
+                </tr>
+              </foreach>
+                    <tr><td class="page" colspan="8" align="center">{$page}</td></tr>
+                <else/>
+                <tr>
+                    <td class="noresult" align="center" colspan="7">没有找到与<span style="color: red;">{$keyword}</span>相关用户</td>
+                </tr>
+               </if>
+            </if>
+            </tbody>
+        </table>
+    </div>
+</div>
+<script type="text/javascript" src="__ADMIN_JS__/common.js"></script>
+<script>
+    function f(obj){
+        $(obj).addClass('focus');
+    }
+    function b(obj){
+        $(obj).removeClass('focus');
+    }
+</script>
+</body>
+</html>

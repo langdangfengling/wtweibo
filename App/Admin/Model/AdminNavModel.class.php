@@ -7,7 +7,7 @@
 // | Author: lzb
 // +-------------------------------------------------
 namespace Common\Model;
-use Org\Nx\Data;
+use Common\Org\Data;
 use Think\Auth;
 
 /**

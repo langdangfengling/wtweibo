@@ -124,6 +124,7 @@ class CommonController extends Controller
                 $data['aid']=$aid;
                 $name=strstr($v['name'],'.',true);
                 $data['name']=$name;
+                $data['time']=time();
                 //入库
                 $pid=$db->data($data)->add();
                 if(!$pid){
@@ -360,6 +361,17 @@ class CommonController extends Controller
                 ));
                 exit;
             }
+            if($msg['guest']['status']){
+                //存在推送消息
+                $msg['guest']['status']=0;
+                S('userMsg'.$uid,$msg,0);
+                echo json_encode(array(
+                    'status' => 1,
+                    'total' => $msg['guest']['total'],
+                    'type' => 4,
+                ));
+                exit;
+            }
         }
         echo json_encode(array('status' =>0));
     }
@@ -470,6 +482,33 @@ class CommonController extends Controller
       }else{
           echo 'false';
       }
+    }
+
+    /**
+     * @param int $visitor_id 访问者
+     * @param int $uid 被访问者
+     */
+    protected function recordVisitor($visitor_id,$uid){
+        $data=array(
+            'visitor' => $visitor_id,
+            'time' => time(),
+            'uid' => $uid,
+        );
+        if($visitor_id != $uid){
+            $db=M('visitors');
+            $where=array('visitor' => $visitor_id,'uid' => $uid);
+            //如果保存的最近访问者已经存在，则更新数据
+            $old_visitor=$db->where($where)->find();
+            if($old_visitor){
+                //如果访问前后时间未超过10min(600)钟，不作记录
+                $now=time();
+                if(($now-$old_visitor['time']) > 600){
+                    $db->where($where)->save($data);
+                }
+            }else{
+                $db->data($data)->add();
+            }
+        }
     }
 
 }

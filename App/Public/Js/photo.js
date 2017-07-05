@@ -82,21 +82,3 @@ $(".photo_content ul li").click(function(){
     });
 
 });
-
-/**
- * 创建全屏透明背景层
- * @param id
- */
-function createBg(id){
-    $('<div id="'+id+'"></div>').appendTo('body').css({//appendTo把所有匹配的元素追加到另一个指定的元素元素集合中。
-        'width':$(document).width(),
-        'height':$(document).height(),
-        'position':'absolute',
-        'top' : 0,
-        'left': 0,
-        'z-index':2,//层级权限
-        'opacity':0.3,//透明度
-        'filter':'Alpha(Opacity=30)',
-        'backgroundColor' : '#000'
-    });
-}

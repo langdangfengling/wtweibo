@@ -24,7 +24,7 @@ class ArticleViewModel extends ViewModel
     /*
      * 返回查询所有记录
      */
-    public function getAll($where, $limit)
+    public function getAll($where='', $limit='')
     {
         $result = $this->where($where)->order('time DESC')->limit($limit)->select();
         foreach ($result as $k => $v) {

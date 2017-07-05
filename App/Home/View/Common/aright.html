@@ -11,9 +11,9 @@
             <div class="clear"></div>
             </p>
             <ul class='num_list'>
-                <li><a href="{:U('/Home/follow/'.$uid)}"><strong>{$follow}</strong><span>关注</span></a></li>
-                <li><a href="{:U('/Home/fans/'.$uid)}"><strong>{$fans}</strong><span>粉丝</span></a></li>
-                <li class='noborder'><a href="{:U('Account/index',array('uid' => $uid))}"><strong>{$article}</strong><span>文章</span></a></li>
+                <li><a href="javascript:;"><strong>{$follow}</strong><span>关注</span></a></li>
+                <li><a href="javascript:;"><strong>{$fans}</strong><span>粉丝</span></a></li>
+                <li class='noborder'><a href="javascript:;"><strong>{$article}</strong><span>文章</span></a></li>
             </ul>
         </userinfo>
     </div>
@@ -32,16 +32,16 @@
     <!--end-->
     <!--最近访客-->
     <div class="visitor">
+        <php>$visitors=M('visitors')->where(array('wt_visitors.uid' => session('account_id'),'wt_visitors.aid' => 0))->field('wt_userinfo.face60,wt_userinfo.username,wt_visitors.visitor,wt_visitors.time')->join('LEFT JOIN wt_userinfo ON wt_userinfo.uid=wt_visitors.visitor')->limit(6)->select();</php>
         <h4>最近访客</h4>
         <ul>
-            <li><img src="" width="60" height="60" /><p>浪荡枫林</p> </li>
-            <li><img src="" width="60" height="60" /><p>浪荡枫林</p> </li>
-            <li><img src="" width="60" height="60" /><p>浪荡枫林</p> </li>
+            <foreach name="visitors" item="v">
+            <li><img src="<if condition='$v[face60]'>__ROOT__/{$v.face60}<else/>__PUBLIC__/Images/noface.gif</if>" width="50" height="50" /><p><if condition='count($v["username"]) gt 4'>{$v.username|substr=###,4}....<else/>{$v.username}</if></p><p>{$v.time|time_format1=###}</p> </li>
+            </foreach>
         </ul>
     </div>
     <div class="link">
         <h4>友情链接</h4>
-        <p><a href="">ghjgjg</a></p>
     </div>
 
 </div>

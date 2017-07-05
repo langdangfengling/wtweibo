@@ -11,7 +11,7 @@
 /*
  * PHP分页类
  */
-namespace Org\Nx;
+namespace Common\Org;
 
 class Page{
     public $firstRow; // 起始行数
@@ -83,6 +83,7 @@ class Page{
         /* 生成URL */
         $this->parameter[$this->p] = '[PAGE]';
         $this->url = U(MODULE_NAME.'/'.CONTROLLER_NAME.'/'.ACTION_NAME, $this->parameter);
+//        p($this->url(2));
         /* 计算分页信息 */
         $this->totalPages = ceil($this->totalRows / $this->listRows); //总页数
         if(!empty($this->totalPages) && $this->nowPage > $this->totalPages) {

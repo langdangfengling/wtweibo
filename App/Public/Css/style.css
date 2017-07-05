@@ -67,7 +67,7 @@
 #c_left .content_text .comments .userPic img{-webkit-border-radius:100%; -moz-border-radius:100%; -ms-border-radius:100%; -o-border-radius:100%; border-radius:100%}
 #c_left .content_text .comments .textarea_comment{width:605px; border:1px solid #dcdcdc; -webkit-border-radius:5px; -moz-border-radius:5px; -ms-border-radius:5px; -o-border-radius:5px; border-radius:5px; color:#ccc; font-size:12px; height:60px; line-height:20px; margin-bottom:10px; padding:10px; overflow:hidden}
 #c_left .content_text .comments .btn_p{position:relative}
-.btn{-webkit-border-radius:3px; -moz-border-radius:3px; -ms-border-radius:3px; -o-border-radius:3px; border-radius:3px; background-color: #cbcbcb; color:#fff; display:inline-block; height:28px; line-height:28px; text-align:center; width:72px; transition:background-color .2s linear 0s; border:0; cursor:pointer}
+/*.btn{-webkit-border-radius:3px; -moz-border-radius:3px; -ms-border-radius:3px; -o-border-radius:3px; border-radius:3px; background-color: #cbcbcb; color:#fff; display:inline-block; height:28px; line-height:28px; text-align:center; width:72px; transition:background-color .2s linear 0s; border:0; cursor:pointer}*/
 #c_left .content_text .comments .btn_p .btn_subGrey{-webkit-border-radius:2px; -moz-border-radius:2px; -ms-border-radius:2px; -o-border-radius:2px; border-radius:2px; color:#fff; font-size:14px; height:40px; text-align:center; width:150px; border:0; float:right}
 #c_left .content_text .comments .comment_list{border-bottom:1px solid #dcdcdc; margin-bottom:16px; padding-bottom:20px;overflow: hidden;}
 #c_left .content_text .comments .comment_list .comment_avatar{font-size:12px; padding-right:16px; position:relative; text-align:center; width:50px; float:left}
@@ -163,7 +163,7 @@
 #news .news_bottom .textarea_comment{width:605px; border:1px solid #dcdcdc; -webkit-border-radius:5px; -moz-border-radius:5px; -ms-border-radius:5px; -o-border-radius:5px; border-radius:5px; color:#ccc; font-size:12px; height:60px; line-height:20px; margin-bottom:10px; padding:10px; overflow:hidden}
 #news .news_bottom .comments .comment_sendPart{padding-left:80px; position:relative}
 #news .news_bottom .comments .btn_p{position:relative}
-.btn{-webkit-border-radius:3px; -moz-border-radius:3px; -ms-border-radius:3px; -o-border-radius:3px; border-radius:3px; background-color: #cbcbcb; color:#fff; display:inline-block; height:28px; line-height:28px; text-align:center; width:72px; transition:background-color .2s linear 0s; border:0; cursor:pointer}
+/*.btn{-webkit-border-radius:3px; -moz-border-radius:3px; -ms-border-radius:3px; -o-border-radius:3px; border-radius:3px; background-color: #cbcbcb; color:#fff; display:inline-block; height:28px; line-height:28px; text-align:center; width:72px; transition:background-color .2s linear 0s; border:0; cursor:pointer}*/
 #news .news_bottom .comment_send .comment_tip{top:36px; position:absolute; right:180px; font-size:12px; height:0; overflow:hidden; color:#f04848}
 #news .news_bottom .comment_wrap .comment_tip{top:29px; position:absolute; right:120px; font-size:12px; height:0; overflow:hidden; color:#f04848}
 #news .news_bottom .comments span.emotion{background:url("../images/emot.gif") no-repeat scroll 2px 2px; cursor:pointer; height:20px; padding-left:20px; width:42px}/*表情*/
