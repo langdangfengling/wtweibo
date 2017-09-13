@@ -171,19 +171,19 @@ $(function() {
         },
     });
     //回复内容计数
-    var content="";
-    $('#reply textarea').bind({
+    var content1="";
+    $('div.reply textarea').bind({
         focus:function(){
-            content=$(this).val();
-            var lengths=check(content);
+            content1=$(this).val();
+            var lengths=check(content1);
             if(lengths[0]>200){
                 noticInfo('你的输入内容已超出200字！');
             }
             var msg=Math.ceil(lengths[0]);
             $(this).next().find('span.n').html(msg);
         },
-        keyup:function(){ content=$(this).val();
-            var lengths=check(content);
+        keyup:function(){ content1=$(this).val();
+            var lengths=check(content1);
             if(lengths[0]>200){
                 noticInfo('你的输入内容已超出200字！');
             }
@@ -195,23 +195,24 @@ $(function() {
     //留言回复内容发送
     $('input.sub_btn').click(function(){
         //获取数据
-        var reply_content=content;//回复内容
+        var reply_content=content1;//回复内容
+        //alert(content1);
         var gid=$(this).parents("li.g").attr('gid');
-        var obj=$(this).parents('#reply');
+        var obj=$(this).parents('.reply');
         var objul=obj.prev().prev();
-        if(content == ""){
+        if(reply_content == ""){
             noticInfo("请说点什么吧！")
             $(this).parent().prev().focus();
             return false;
         }
-        var lengths=check(content);
+        var lengths=check(reply_content);
         if(lengths[0]>200){
             noticInfo('你的输入内容已超出200字！');
             return false;
         }
         //异步
         $.post(REPLYURL,{content:reply_content,gid:gid},function(data){
-            console.log(data);
+            //console.log(data);
              if(data.status){
                  //console.log(data);
                  obj.find('textarea').val("");
@@ -223,6 +224,7 @@ $(function() {
                 str += '<div><span uid="'+data.uid+'"><a href="" target="_Blank">'+data.username+'</a></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="reply_content">'+data.content+'</span></div>';
                 str += '<div class="times"><span>'+data.time;
                 str += '</div></li>';
+                 //alert(111);
                  objul.prepend(str);
              }else{alert(data.msg)}
         },'json'

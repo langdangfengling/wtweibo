@@ -75,7 +75,9 @@ class UserController extends CommonController
                 $page=new Page($count,5);
             }
         }
+//        var_dump($article);
         $article=Data::dealData($article);
+//        var_dump($article);
         //分页自定义样式
         $page->lastSuffix=false;//最后一页是否显示总页数
         $page->rollPage=4;//分页栏每页显示的页数
@@ -97,10 +99,11 @@ class UserController extends CommonController
 //        var_dump($_POST);die;
         $data=array(
             'name' => I('post.title'),
-            'content' =>I('post.content'),
+            'content' =>stripslashes(I('post.content')),//去掉实体符前面的转义符，项目上线会出现这样的问题
             'gid' => I('post.gid'),
             'time' => time(),
         );
+        var_dump($data);die;
         if($aid=M('article')->data($data)->add()){
             // 针对微博内容，处理提到哪些用户，并存入atme表中
             $this->_atmeHandle($data['content'],$aid);
@@ -668,7 +671,7 @@ class UserController extends CommonController
         //删除自动登录的cookie值
         @setcookie('autoload','',time()-3600,'/');
         //跳转至登录页面
-        redirect(U('Index/index'));
+        redirect(U('Login/index'));
     }
 
 }

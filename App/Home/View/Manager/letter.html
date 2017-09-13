@@ -34,6 +34,9 @@
             <h2>我的私信（共{$count}条）<span class='send' style="cursor: pointer;">发送私信</span></p></h2>
         </div>
         <div class="content_text">
+            <if condition='!$letter'>
+                <div class="info">还没有收到任何私信</div>
+                <else/>
             <div class='letter'>
                 <!--=====中部=====-->
                     <foreach name='letter' item='v'>
@@ -53,7 +56,8 @@
                         </dl>
                     </foreach>
                     <div id='page'>{$page}</div>
-        </div>
+          </div>
+        </if>
         <!--==========内容主体结束==========-->
     </div>
   </div>

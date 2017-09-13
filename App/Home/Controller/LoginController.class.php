@@ -17,9 +17,14 @@ class LoginController extends Controller
      * 登录页面
      */
     public function index(){
-//        如果存在session就直接跳转到首页
+//        如果存在session就删除session值与cookie值
         if(isset($_SESSION['uid'])){
-            redirect('User/index');
+            //删除session变量
+            session_unset();
+            //销毁session数据区
+            session_destroy();
+            //删除自动登录的cookie值
+            @setcookie('autoload','',time()-3600,'/');
         }
         $this->display();
     }

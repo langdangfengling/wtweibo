@@ -8,8 +8,8 @@ $('.create-album').click(function(){
     //让添加分组div显示时居中显示
     var photoLeft=($(window).width()-$('#c-album').width())/2;
     var photoTop=$(document).scrollTop()+($(window).height()-$('#c-album').height())/2;
-    //console.log(groupLeft);
-    //console.log(groupTop);
+    //console.log(photoLeft);
+    //console.log(photoTop);
     var photoObj=$('#c-album').show().css({
         'left': photoLeft,
         'top' : photoTop,

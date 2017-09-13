@@ -15,7 +15,7 @@ class AdminBaseController extends BaseController{
 	 */
 	public function _initialize(){
 		// 判断用户是否登录
-        if(empty(session('admin'))){
+        if(empty($_SESSION['admin'])){
         	$this->redirect('Common/login');
         }else{
         	$this->assign('admin', session('admin'));

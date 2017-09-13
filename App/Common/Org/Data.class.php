@@ -20,11 +20,13 @@ final class Data
         if($data) {
             foreach ($data as $k => $v) {
                 $data[$k]['content'] = htmlspecialchars_decode($v['content']);//反转义
+                $data[$k]['content']=stripslashes($data[$k]['content']);//将字符串进行处理,去掉反斜杠
                 //如果文章内容中存在图片，文章中图片的路径src
                 preg_match_all($preg,$data[$k]['content'],$src);
 //                var_dump($src);
                 $data[$k]['src']=$src[1];
-                $data[$k]['content'] = strip_tags($data[$k]['content']);//去除字符串中html和php标签
+                $data[$k]['content'] =strip_tags($data[$k]['content']);//去除字符串中html和php标签
+                $data[$k]['content']=str_replace("/","",$data[$k]['content']);//去除反斜杠
                 $data[$k]['content'] = substr($data[$k]['content'], 0, 360);
                 //文章评论数
                 $data[$k]['commentcount']=M('comment')->where(array('fid' => 0,'aid' =>$v['id']))->count();

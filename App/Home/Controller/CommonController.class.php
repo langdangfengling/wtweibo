@@ -49,10 +49,10 @@ class CommonController extends Controller
         }
 //        dump($_SESSION['uid']);
         //判断用户是否已登录
-        if (!isset($_SESSION['uid'])) {
-            header('Content-type:text/html;charset=utf-8');
+       if (!isset($_SESSION['uid'])) {
+           header('Content-type:text/html;charset=utf-8');
             redirect(U('Index/index'), 3);
-        }
+      }
     }
     /**
      * 获取右侧用户信息
@@ -69,6 +69,9 @@ class CommonController extends Controller
         if (!IS_POST) {
             $this->error('非法提交');
         }
+//        echo json_encode($_POST);
+////        echo json_encode($_SESSION['uid']);
+//        die;
         //对提交过来的图像,用Upload类来处理
         $uploadinfo = $this->_upload('face/');
 //        print_r($uploadinfo);

@@ -362,10 +362,14 @@ $(function () {
 
     //关闭添加相册框
     $('.ablum-cencle').click(function(){
-        var obj=$(this).parents('#c-album-2');
+        var obj=$(this).parents('#c-album');
+        var obj2=$(this).parents('#c-album-2');
+        obj2.find("input[name='name']").val('');
         obj.find("input[name='name']").val('');
+        obj2.find('textarea').val('');
         obj.find('textarea').val('');
         $('#c-album-2').hide();
+        $('#c-album').hide();
         $('#ablum-bg').remove();
     });
 
@@ -771,4 +775,4 @@ function showTips(tips,time,height){
             top:height/2-50+'px'
         },"slow").fadeOut();
     },time*1000);
-}
+};

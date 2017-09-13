@@ -33,6 +33,9 @@
         <div class="s_tuijian">
            <h2> <if condition="$type">您关注了<span>({$count})</span>人 <else />已有<span>({$count})</span>人关注了您</if></h2>
         </div>
+        <if condition="!$users">
+            <div class="info">{$type?'你还没有关注任何人':'还没有人关注你'}</div>
+        </if>
         <div class="content_text">
             <div class='friend'>
                 <div class='view_line'>
@@ -44,7 +47,7 @@
                         <php>extract($v);</php>
                         <li>
                             <dl class='list-left'>
-                                <dt><img src=" <if condition='$face80'>__ROOT__/{$face80}<else/>__PUBLIC__/Images/noface.gif</if>" width='80' height='80'/></dt>
+                                <dt><img src=" <if condition='$face60'>__ROOT__/{$face60}<else/>__PUBLIC__/Images/noface.gif</if>" width='60' height='60'/></dt>
                                 <dd>
                                     <a href="{:U('/Home/'.$uid)}"  target="_Blank">{$username}</a>
                                 </dd>

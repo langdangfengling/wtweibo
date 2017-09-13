@@ -69,27 +69,32 @@
         </div>
     </div>
     <div class="clear"></div>
-    <!--相册创建框1-->
-    <div id="c-album">
-        <div class="album-head">
-            <span class='album-text fleft'>创建相册</span>
-        </div>
-        <div class='album-name'>
-            <span>相册名称：</span>
-            <input type="text" name='name'>
-        </div>
-        <div class='album-depict'>
-            <span>相册描述：</span>
-            <textarea name="depict" value="说说这个相册的故事...(非必填)"></textarea>
-        </div>
-        <div class='album-btn-wrap'>
-            <span class='add-album'><a href="javascript:;"> 添加</a></span>
-            <span class='ablum-cencle'><a href="javascript:;">取消</a></span>
-        </div>
+</div>
+    <!--content end-->
+  <!--footer-->
+<include file="Common:bottom" />
+<!--相册创建框1-->
+<div id="c-album">
+    <div class="album-head">
+        <span class='album-text fleft'>创建相册</span>
     </div>
-    <!--相册编辑框-->
-    <div id="edit-album">
-        <form action="{:U('User/editAlbum')}" method="post">
+    <div class='album-name'>
+        <span>相册名称：</span>
+        <input type="text" name='name'>
+    </div>
+    <div class='album-depict'>
+        <span>相册描述：</span>
+        <textarea name="depict" value="说说这个相册的故事...(非必填)"></textarea>
+    </div>
+    <div class='album-btn-wrap'>
+        <span class='add-album'><a href="javascript:;"> 添加</a></span>
+        <span class='ablum-cencle'><a href="javascript:;">取消</a></span>
+    </div>
+</div>
+
+<!--相册编辑框-->
+<div id="edit-album">
+    <form action="{:U('User/editAlbum')}" method="post">
         <div class="album-head">
             <span class='album-text fleft'>编辑相册</span>
         </div>
@@ -108,10 +113,6 @@
             <input type="submit" class='save-album' value="保存" />
             <span class='edit-album-cencle'><a href="javascript:;">取消</a></span>
         </div>
-        </form>
-    </div>
+    </form>
 </div>
-    <!--content end-->
-  <!--footer-->
-<include file="Common:bottom" />
 

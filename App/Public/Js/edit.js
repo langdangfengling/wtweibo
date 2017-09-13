@@ -1,7 +1,4 @@
-/**
- * Created by Administrator on 2016/11/13 0013.
- */
-$(function(){
+;$(function(){
     //修改资料选卡
     $('#sel-edit li').click(function(){
         //获取当前jQuery对象的索引
@@ -62,7 +59,7 @@ $(function(){
         buttonImage:PUBLIC+'browse-btn.png',//上传按钮背景图片
         fileTypeDesc:'Image File',//选择文件提示文字
         fileTypeExts:'*.jpg;*.jpeg;*.gif;*.png',//允许选择文件的类型
-        formData:{'session_id':sid},//请求php脚本时携带的数据
+        formData:{'PHPSESSID':sid},//请求php脚本时携带的数据
         //上传成功后的回调函数
         onUploadSuccess:function(file,data,response){
             //console.log(data);

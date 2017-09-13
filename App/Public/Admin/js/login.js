@@ -25,8 +25,8 @@ function login(){
         $('#captcha').focus();
         return false;
     }
-
     $.post(loginHandleUrl,{'admin_name':$('#admin_name').val(), 'admin_password':$('#admin_password').val(),'captcha': $('#captcha').val()},function(data){
+		console.log(data);
 		if(!data.status){
 			setTimeout(function(){
 				$('.input-username,.dot-left').addClass('animated fadeOutRight')
@@ -39,16 +39,41 @@ function login(){
 			        layer.msg(data.msg);
 			        $('.progress .progress-bar').progressbar({done : function() {
 			            location.href = homeUrl;
-			        }}); 
+			        }});
 			    },300);
 			},300)
-			
+
 		}else{
 			layer.msg(data.msg);
             verifyimage();
 		}
-	},'json')
-
-    
-	
+	},'json');
+	//$.ajax({
+	//	type:'post',
+	//	url:loginHandleUrl,
+	//	dataType:'JSONP',
+	//	data:{'admin_name':$('#admin_name').val(), 'admin_password':$('#admin_password').val(),'captcha': $('#captcha').val()},
+	//	success:function(){
+	//		if(!data.status){
+	//					setTimeout(function(){
+	//						$('.input-username,.dot-left').addClass('animated fadeOutRight')
+	//					    $('.input-password-box,.dot-right').addClass('animated fadeOutLeft')
+	//					    $('.btn-submit').addClass('animated fadeOutUp')
+	//					    setTimeout(function () {
+	//					        $('.avatar').addClass('avatar-top');
+	//					        $('.submit').hide();
+	//					        $('.submit2').html('<div class="progress"><div class="progress-bar progress-bar-success" aria-valuetransitiongoal="100"></div></div>');
+	//					        layer.msg(data.msg);
+	//					        $('.progress .progress-bar').progressbar({done : function() {
+	//					            location.href = homeUrl;
+	//					        }});
+	//					    },300);
+	//					},300)
+    //
+	//				}else{
+	//					layer.msg(data.msg);
+	//			       verifyimage();
+	//				}
+	//	}
+	//});
 }

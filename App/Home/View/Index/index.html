@@ -29,9 +29,12 @@
                    <img src="__PUBLIC__/Images/sun.jpg" width="500" height="350" />
                </div>
                <div class="login">
-                   <p>快速安全登录</p>
-                   <p class="info">请点击下面图像授权登录</p>
-                   <div class="user_pic"><img src="" width="80" height="80"  /></div>
+                   <if condition="$_SESSION['uid']">
+                       <p>快速安全登录</p>
+                       <php>$face=M('userinfo')->where(array('uid' => $_SESSION['uid']))->getField('face80');</php>
+                   <p class="info">检测到您登录过,请点击下面图像授权登录</p>
+                   <div class="user_pic"><a href="{:U('User/index')}"><img src="__ROOT__/{$face}" width="80" height="80"/></a></div>
+                   </if>
                    <div class="foot">
                        <div class="foot1">
                        <a href="{:U('Login/index')}">账号密码登录</a>

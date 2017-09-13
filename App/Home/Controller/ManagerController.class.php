@@ -227,7 +227,7 @@ class ManagerController extends CommonController
         $letters=$letterView->getAll($where,$limit);
 //        dump($letters);die;
         //展示私信页面
-        $this->letter=$letters;
+        $this->letter=$letters?$letters:false;
         $this->page=$page->show();
         $this->count=$count;
         $this->display('letter');
